@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | Returns &amp; Exchanges</title>
@@ -10,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/supabase-sync.js"></script>
     <script id="tailwind-config">
         tailwind.config = {
             theme: { extend: { colors: { "on-surface":"#1b1c1c","outline":"#747878","surface":"#fbf9f9","outline-variant":"#c4c7c7","primary":"#000000","surface-container-low":"#f5f3f3","surface-container":"#efeded","on-surface-variant":"#444748","gold":"#C5A059","error":"#ba1a1a","secondary-container":"#fed488","surface-container-high":"#e9e8e7" }, spacing: { "container-max":"1440px","margin-desktop":"80px","margin-mobile":"20px" }, fontFamily: { "body-md":["Montserrat"],"label-caps":["Montserrat"] } } }
@@ -210,3 +214,5 @@
 </footer>
 </body>
 </html>
+
+

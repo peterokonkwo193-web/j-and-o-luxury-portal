@@ -1,17 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>J &amp; O | Sale — Up To 50% Off</title>
-    <meta name="description" content="Shop J &amp; O luxury sale — exclusive discounts up to 50% off on clothing, bags, watches, shoes and more. Limited time flash sale."/>
+    <title>J &amp; O | Sale � Up To 50% Off</title>
+    <meta name="description" content="Shop J &amp; O luxury sale � exclusive discounts up to 50% off on clothing, bags, watches, shoes and more. Limited time flash sale."/>
     <link rel="stylesheet" href="../global.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -207,7 +211,7 @@
 
     <!-- Top notification bar -->
     <div class="bg-[#C0392B] text-white py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        FLASH SALE — LIMITED STOCK &nbsp;•&nbsp; FREE WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; ENDS SOON
+        FLASH SALE � LIMITED STOCK &nbsp;�&nbsp; FREE WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; ENDS SOON
     </div>
 
     <!-- STICKY NAVBAR -->
@@ -229,7 +233,7 @@
                             <div>
                                 <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
                                 <ul class="space-y-3 text-[12px] text-on-surface-variant">
-                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ↗</a></li>
+                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ?</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses &amp; Knits</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Coats &amp; Jackets</a></li>
@@ -308,14 +312,14 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo � dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
 
             <!-- Column 3: Right icons -->
             <div class="flex items-center gap-2 md:gap-4 justify-end">
-                <!-- About & Contact moved here — right of logo -->
+                <!-- About & Contact moved here � right of logo -->
                 <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
@@ -444,8 +448,8 @@
                             <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
                         </div>
                     </div>
-                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ✦</a>
-                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale 🔥</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ?</a>
+                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale ??</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
@@ -456,7 +460,7 @@
     </div>
 
     <!-- ======================================================
-         HERO: SALE — UP TO 50% OFF
+         HERO: SALE � UP TO 50% OFF
     ======================================================= -->
     <main>
         <section class="hero-scanline relative bg-primary text-white overflow-hidden">
@@ -469,7 +473,7 @@
             <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-28 text-center space-y-8">
 
                 <!-- Eyebrow -->
-                <span class="font-label-caps text-[10px] tracking-[0.5em] text-gold uppercase block">LIMITED TIME OFFER &nbsp;•&nbsp; WHILE STOCKS LAST</span>
+                <span class="font-label-caps text-[10px] tracking-[0.5em] text-gold uppercase block">LIMITED TIME OFFER &nbsp;�&nbsp; WHILE STOCKS LAST</span>
 
                 <!-- Main headline -->
                 <div class="space-y-2">
@@ -525,19 +529,19 @@
         <!-- SCROLLING MARQUEE STRIP -->
         <div class="bg-[#C0392B] text-white py-3 overflow-hidden relative">
             <div class="marquee-track font-label-caps text-[10px] tracking-[0.3em] select-none">
-                <span class="px-8">UP TO 50% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">OVERSIZED WOOL BLAZER — 19% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">GRAND CHRONOGRAPH NOIR — 27% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">MINIMALIST TRENCH COAT — 14% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">FREE WHITE-GLOVE DELIVERY OVER $500</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">LIMITED STOCK — SHOP NOW</span><span class="text-gold px-2">✦</span>
+                <span class="px-8">UP TO 50% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">OVERSIZED WOOL BLAZER � 19% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">GRAND CHRONOGRAPH NOIR � 27% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">MINIMALIST TRENCH COAT � 14% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">FREE WHITE-GLOVE DELIVERY OVER $500</span><span class="text-gold px-2">?</span>
+                <span class="px-8">LIMITED STOCK � SHOP NOW</span><span class="text-gold px-2">?</span>
                 <!-- duplicate for seamless loop -->
-                <span class="px-8">UP TO 50% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">OVERSIZED WOOL BLAZER — 19% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">GRAND CHRONOGRAPH NOIR — 27% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">MINIMALIST TRENCH COAT — 14% OFF</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">FREE WHITE-GLOVE DELIVERY OVER $500</span><span class="text-gold px-2">✦</span>
-                <span class="px-8">LIMITED STOCK — SHOP NOW</span><span class="text-gold px-2">✦</span>
+                <span class="px-8">UP TO 50% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">OVERSIZED WOOL BLAZER � 19% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">GRAND CHRONOGRAPH NOIR � 27% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">MINIMALIST TRENCH COAT � 14% OFF</span><span class="text-gold px-2">?</span>
+                <span class="px-8">FREE WHITE-GLOVE DELIVERY OVER $500</span><span class="text-gold px-2">?</span>
+                <span class="px-8">LIMITED STOCK � SHOP NOW</span><span class="text-gold px-2">?</span>
             </div>
         </div>
 
@@ -578,7 +582,7 @@
                     <option value="discount-desc">Biggest Saving First</option>
                     <option value="price-asc">Price: Low to High</option>
                     <option value="price-desc">Price: High to Low</option>
-                    <option value="name-asc">Name A–Z</option>
+                    <option value="name-asc">Name A�Z</option>
                 </select>
             </div>
         </div>
@@ -600,12 +604,12 @@
         <section class="bg-[#C0392B] text-white py-16 text-center space-y-6 px-margin-mobile">
             <span class="font-label-caps text-[10px] tracking-[0.4em] text-white/60 block">DON'T MISS OUT</span>
             <h2 class="font-serif text-3xl md:text-5xl font-bold">Exclusive Member Savings</h2>
-            <p class="text-sm font-light text-white/80 max-w-md mx-auto leading-relaxed">Sign up to our private list and receive early access to the next flash sale — plus an extra 10% off your first order.</p>
+            <p class="text-sm font-light text-white/80 max-w-md mx-auto leading-relaxed">Sign up to our private list and receive early access to the next flash sale � plus an extra 10% off your first order.</p>
             <form onsubmit="handleEmailSignup(event)" class="flex flex-col sm:flex-row gap-0 max-w-md mx-auto">
                 <input id="sale-email-input" type="email" placeholder="Your email address" class="flex-grow bg-white/10 border border-white/30 text-white placeholder:text-white/40 focus:ring-0 focus:border-gold px-5 py-4 text-sm"/>
                 <button type="submit" class="bg-gold text-primary font-label-caps text-[11px] tracking-[0.2em] py-4 px-8 hover:bg-white transition-colors">JOIN NOW</button>
             </form>
-            <p id="signup-success" class="hidden text-gold font-label-caps text-xs tracking-widest">✓ YOU'RE ON THE LIST — THANK YOU!</p>
+            <p id="signup-success" class="hidden text-gold font-label-caps text-xs tracking-widest">? YOU'RE ON THE LIST � THANK YOU!</p>
         </section>
 
     </main>
@@ -657,10 +661,10 @@
         </div>
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div class="text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
-                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <p>� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
                 <div class="flex gap-4 justify-center lg:justify-start">
                     <span class="text-gold font-bold">100% SECURE CHECKOUT</span>
-                    <span>•</span>
+                    <span>�</span>
                     <span>PCI-DSS COMPLIANT</span>
                 </div>
             </div>
@@ -677,13 +681,13 @@
          JAVASCRIPT
     ======================================================= -->
     <script>
-    // ─── State ───────────────────────────────────────────────
+    // --- State -----------------------------------------------
     let activeCategory = 'all';
     let activeDiscount = 'all';
     let cart = JSON.parse(localStorage.getItem('j_o_cart') || '[]');
     let wishlist = JSON.parse(localStorage.getItem('j_o_wishlist') || '[]');
 
-    // ─── Product Database (sale items only) ──────────────────
+    // --- Product Database (sale items only) ------------------
     const SALE_PRODUCTS = [
         {
             id: 2,
@@ -867,7 +871,7 @@
         }
     ];
 
-    // ─── Discount helpers ─────────────────────────────────────
+    // --- Discount helpers -------------------------------------
     function getDiscountPct(p) {
         return Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
     }
@@ -875,7 +879,7 @@
         return (p.originalPrice - p.price).toFixed(2);
     }
 
-    // ─── Filtered + sorted list ───────────────────────────────
+    // --- Filtered + sorted list -------------------------------
     function getFiltered() {
         let list = SALE_PRODUCTS.slice();
         if (activeCategory !== 'all') list = list.filter(p => p.category === activeCategory);
@@ -893,14 +897,14 @@
         return list;
     }
 
-    // ─── Stars HTML ───────────────────────────────────────────
+    // --- Stars HTML -------------------------------------------
     function starsHTML(r) {
         return Array.from({ length: 5 }, (_, i) =>
             `<span class="material-symbols-outlined text-gold" style="font-variation-settings:'FILL' ${i < r ? 1 : 0},'wght' 400,'GRAD' 0,'opsz' 24;font-size:14px;">star</span>`
         ).join('');
     }
 
-    // ─── Render grid ──────────────────────────────────────────
+    // --- Render grid ------------------------------------------
     function renderGrid() {
         const items = getFiltered();
         const grid = document.getElementById('sale-product-grid');
@@ -931,7 +935,7 @@
                 <div class="relative overflow-hidden bg-surface-container aspect-[3/4] mb-6">
                     <!-- Discount badge -->
                     <div class="absolute top-4 left-4 z-10 ${discClass} text-white font-label-caps text-[10px] tracking-widest px-3 py-1 flex items-center gap-1">
-                        <span>−${disc}%</span>
+                        <span>-${disc}%</span>
                     </div>
                     ${lowStock ? `<div class="absolute top-4 right-4 z-10 bg-[#C0392B] text-white font-label-caps text-[9px] tracking-widest px-2 py-1">ONLY ${p.stock} LEFT</div>` : ''}
                     <img src="${p.img}" alt="${p.name}" class="card-img absolute inset-0 w-full h-full object-cover"/>
@@ -965,7 +969,7 @@
         }).join('');
     }
 
-    // ─── Filter handlers ──────────────────────────────────────
+    // --- Filter handlers --------------------------------------
     function setCategory(cat, btn) {
         activeCategory = cat;
         document.querySelectorAll('.filter-pill').forEach(el => el.classList.remove('active'));
@@ -988,7 +992,7 @@
         renderGrid();
     }
 
-    // ─── Cart ─────────────────────────────────────────────────
+    // --- Cart -------------------------------------------------
     function addToCart(id) {
         const p = SALE_PRODUCTS.find(x => x.id === id);
         if (!p) return;
@@ -1025,7 +1029,7 @@
                         <span class="line-through text-outline text-xs">$${i.originalPrice.toFixed(2)}</span>
                     </div>
                     <div class="flex items-center gap-2 pt-1">
-                        <button onclick="changeQty(${i.id}, -1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">−</button>
+                        <button onclick="changeQty(${i.id}, -1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">-</button>
                         <span class="font-bold text-sm w-5 text-center">${i.qty}</span>
                         <button onclick="changeQty(${i.id}, 1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">+</button>
                         <button onclick="removeFromCart(${i.id})" class="ml-auto text-outline hover:text-error transition-colors"><span class="material-symbols-outlined" style="font-size:18px;">delete</span></button>
@@ -1048,7 +1052,7 @@
         updateCartUI();
     }
 
-    // ─── Wishlist ─────────────────────────────────────────────
+    // --- Wishlist ---------------------------------------------
     function toggleWish(id) {
         const p = SALE_PRODUCTS.find(x => x.id === id);
         if (!p) return;
@@ -1062,13 +1066,13 @@
         renderGrid();
     }
 
-    // ─── localStorage → detail page ──────────────────────────
+    // --- localStorage ? detail page --------------------------
     function selectProduct(id) {
         const p = SALE_PRODUCTS.find(x => x.id === id);
         if (p) localStorage.setItem('j_o_current_product', JSON.stringify({ ...p, sale: true }));
     }
 
-    // ─── Panel toggles ────────────────────────────────────────
+    // --- Panel toggles ----------------------------------------
     function toggleSearchOverlay(show) {
         const el = document.getElementById('search-overlay');
         if (show) { el.classList.remove('opacity-0','invisible'); el.classList.add('opacity-100'); }
@@ -1098,7 +1102,7 @@
         el.classList.toggle('flex');
     }
 
-    // ─── Flash sale countdown ─────────────────────────────────
+    // --- Flash sale countdown ---------------------------------
     function startCountdown() {
         // Sale ends: next midnight + 2 days from now (simulated flash end)
         const stored = localStorage.getItem('j_o_sale_end');
@@ -1140,7 +1144,7 @@
         tick();
     }
 
-    // ─── Email signup ─────────────────────────────────────────
+    // --- Email signup -----------------------------------------
     function handleEmailSignup(e) {
         e.preventDefault();
         const input = document.getElementById('sale-email-input');
@@ -1149,7 +1153,7 @@
         document.getElementById('signup-success').classList.remove('hidden');
     }
 
-    // ─── Init ─────────────────────────────────────────────────
+    // --- Init -------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
         startCountdown();
         updateCartUI();
@@ -1162,11 +1166,13 @@
         renderGrid();
     });
     </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 
 

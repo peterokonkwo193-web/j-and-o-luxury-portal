@@ -1,8 +1,8 @@
 // ─────────────────────────────────────────────
 //  J & O — Supabase Sync Helper
 // ─────────────────────────────────────────────
-const SUPABASE_URL = 'https://sbvjlyssocivvttdqjjl.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmpseXNzb2NpdnZ0dGRxampsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMjc4OTEsImV4cCI6MjA5NTkwMzg5MX0.cbqNEagoj5FRuyp4G_5esvL6Mdabptz_-4JOZTlotPw';
+const SUPABASE_URL = window.SUPABASE_URL || 'https://sbvjlyssocivvttdqjjl.supabase.co';
+const SUPABASE_KEY = window.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmpseXNzb2NpdnZ0dGRxampsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMjc4OTEsImV4cCI6MjA5NTkwMzg5MX0.cbqNEagoj5FRuyp4G_5esvL6Mdabptz_-4JOZTlotPw';
 
 let _sb;
 const db = () => {

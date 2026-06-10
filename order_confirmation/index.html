@@ -1,12 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>J &amp; O | Order Confirmed — Thank You</title>
-    <meta name="description" content="Your J &amp; O order is confirmed. Thank you for shopping with us — your luxury pieces are being prepared with care."/>
+    <title>J &amp; O | Order Confirmed � Thank You</title>
+    <meta name="description" content="Your J &amp; O order is confirmed. Thank you for shopping with us � your luxury pieces are being prepared with care."/>
     <link rel="stylesheet" href="../global.css"/>
-    <script src="../js/products.js"></script>
+    <script src="/js/products.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -61,13 +65,13 @@
         ::-webkit-scrollbar { width:4px; }
         ::-webkit-scrollbar-thumb { background:#1b1c1c; }
 
-        /* ── Dot pattern ── */
+        /* -- Dot pattern -- */
         .dot-bg {
             background-image: radial-gradient(#C5A059 1px, transparent 1px);
             background-size: 28px 28px;
         }
 
-        /* ── Checkmark ring animation ── */
+        /* -- Checkmark ring animation -- */
         @keyframes ringPulse {
             0%   { box-shadow: 0 0 0 0   rgba(197,160,89,0.6); }
             50%  { box-shadow: 0 0 0 20px rgba(197,160,89,0); }
@@ -75,14 +79,14 @@
         }
         .check-ring { animation: ringPulse 2s ease-out 0.6s 3; }
 
-        /* ── Check icon draw ── */
+        /* -- Check icon draw -- */
         @keyframes checkDraw {
             from { stroke-dashoffset: 100; opacity:0; }
             to   { stroke-dashoffset: 0;   opacity:1; }
         }
         .check-svg { animation: checkDraw 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s both; stroke-dasharray: 100; }
 
-        /* ── Hero text reveal ── */
+        /* -- Hero text reveal -- */
         @keyframes slideUp {
             from { opacity:0; transform:translateY(20px); }
             to   { opacity:1; transform:translateY(0); }
@@ -93,30 +97,30 @@
         .reveal-4 { animation: slideUp 0.6s ease 1.4s  both; }
         .reveal-5 { animation: slideUp 0.6s ease 1.6s  both; }
 
-        /* ── Step tracker line ── */
+        /* -- Step tracker line -- */
         .tracker-line { position:absolute; top:50%; left:0; right:0; height:2px; background:#c4c7c7; z-index:0; transform:translateY(-50%); }
         .tracker-line-fill { position:absolute; top:0; left:0; height:100%; background:#C5A059; transition:width 1.2s ease 1.8s; }
 
-        /* ── Card fadeUp ── */
+        /* -- Card fadeUp -- */
         @keyframes fadeUp {
             from { opacity:0; transform:translateY(15px); }
             to   { opacity:1; transform:translateY(0); }
         }
         .item-row { animation: fadeUp 0.5s ease both; }
 
-        /* ── Product card hover ── */
+        /* -- Product card hover -- */
         .product-card img { transition: transform 0.7s ease; }
         .product-card:hover img { transform: scale(1.06); }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md selection:bg-[#fed488] overflow-x-hidden">
 
-    <!-- ══ TOP ANNOUNCEMENT ══ -->
+    <!-- -- TOP ANNOUNCEMENT -- -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; INSURED SHIPPING ON ALL ORDERS
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; INSURED SHIPPING ON ALL ORDERS
     </div>
 
-    <!-- ══ NAV ══ -->
+    <!-- -- NAV -- -->
     <header class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-[100] border-b border-outline-variant transition-all duration-300">
         <nav class="grid items-center px-5 md:px-[80px] h-20 max-w-[1440px] mx-auto" style="grid-template-columns: 1fr auto 1fr;">
 
@@ -136,7 +140,7 @@
                             <div>
                                 <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
                                 <ul class="space-y-3 text-[12px] text-on-surface-variant">
-                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ↗</a></li>
+                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ?</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses &amp; Knits</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
                                 </ul>
@@ -207,7 +211,7 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo � dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
@@ -246,9 +250,9 @@
 
     <main>
 
-        <!-- ══════════════════════════════════════════════════════
-             HERO — THANK YOU
-        ══════════════════════════════════════════════════════ -->
+        <!-- ------------------------------------------------------
+             HERO � THANK YOU
+        ------------------------------------------------------ -->
         <section class="relative overflow-hidden bg-surface-container-low border-b border-outline-variant">
             <!-- Background dot pattern -->
             <div class="absolute inset-0 dot-bg opacity-[0.25] pointer-events-none"></div>
@@ -270,7 +274,7 @@
                 <div class="space-y-4 max-w-2xl">
                     <p class="reveal-1 font-label-caps text-[10px] tracking-[0.3em] text-gold">ORDER CONFIRMED</p>
                     <h1 class="reveal-2 font-serif text-[38px] md:text-[56px] font-bold text-primary leading-tight">
-                        Thank You for Shopping<br class="hidden sm:block"/> with J &amp; O! 🎉
+                        Thank You for Shopping<br class="hidden sm:block"/> with J &amp; O! ??
                     </h1>
                     <p class="reveal-3 text-sm text-on-surface-variant leading-relaxed max-w-lg mx-auto">
                         Your order has been placed and our team is preparing your pieces with the utmost care. You'll receive a confirmation to your email shortly.
@@ -281,7 +285,7 @@
                 <div class="reveal-4 flex flex-col sm:flex-row gap-6 items-center">
                     <div class="bg-white border border-outline-variant px-8 py-4 text-center">
                         <p class="font-label-caps text-[9px] tracking-[0.25em] text-outline-variant mb-1">ORDER NUMBER</p>
-                        <p class="font-serif text-2xl font-bold text-primary tracking-wider" id="conf-order-ref">#JO-——</p>
+                        <p class="font-serif text-2xl font-bold text-primary tracking-wider" id="conf-order-ref">#JO-��</p>
                     </div>
                     <div class="bg-white border border-outline-variant px-8 py-4 text-center">
                         <p class="font-label-caps text-[9px] tracking-[0.25em] text-outline-variant mb-1">CONFIRMATION SENT TO</p>
@@ -305,9 +309,9 @@
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════════════════
+        <!-- ------------------------------------------------------
              DELIVERY TRACKER
-        ══════════════════════════════════════════════════════ -->
+        ------------------------------------------------------ -->
         <section class="bg-surface border-b border-outline-variant py-14">
             <div class="max-w-[1440px] mx-auto px-5 md:px-[80px]">
                 <div class="flex items-center justify-between mb-10">
@@ -341,7 +345,7 @@
                             <span class="material-symbols-outlined text-outline-variant text-[18px]">inventory_2</span>
                         </div>
                         <p class="hidden sm:block font-label-caps text-[9px] tracking-widest text-outline-variant whitespace-nowrap" id="tr-label-2">PROCESSING</p>
-                        <p class="hidden sm:block text-[10px] text-on-surface-variant" id="tr-date-2">1–2 days</p>
+                        <p class="hidden sm:block text-[10px] text-on-surface-variant" id="tr-date-2">1�2 days</p>
                     </div>
 
                     <!-- Step: Dispatched -->
@@ -350,7 +354,7 @@
                             <span class="material-symbols-outlined text-outline-variant text-[18px]">local_shipping</span>
                         </div>
                         <p class="hidden sm:block font-label-caps text-[9px] tracking-widest text-outline-variant whitespace-nowrap">DISPATCHED</p>
-                        <p class="hidden sm:block text-[10px] text-on-surface-variant" id="tr-date-3">—</p>
+                        <p class="hidden sm:block text-[10px] text-on-surface-variant" id="tr-date-3">�</p>
                     </div>
 
                     <!-- Step: Delivered -->
@@ -359,7 +363,7 @@
                             <span class="material-symbols-outlined text-outline-variant text-[18px]">home</span>
                         </div>
                         <p class="hidden sm:block font-label-caps text-[9px] tracking-widest text-outline-variant whitespace-nowrap">DELIVERED</p>
-                        <p class="hidden sm:block text-[10px] text-on-surface-variant font-bold text-gold" id="tr-date-4">—</p>
+                        <p class="hidden sm:block text-[10px] text-on-surface-variant font-bold text-gold" id="tr-date-4">�</p>
                     </div>
                 </div>
                 </div>
@@ -372,9 +376,9 @@
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════════════════
+        <!-- ------------------------------------------------------
              ORDER SUMMARY
-        ══════════════════════════════════════════════════════ -->
+        ------------------------------------------------------ -->
         <section class="bg-surface-container-low border-b border-outline-variant py-16">
             <div class="max-w-[1440px] mx-auto px-5 md:px-[80px]">
 
@@ -395,7 +399,7 @@
                         <!-- Empty fallback -->
                         <div id="order-items-empty" class="hidden py-16 text-center border border-outline-variant/30 bg-white">
                             <span class="material-symbols-outlined text-outline-variant text-[48px] mb-4 block">shopping_bag</span>
-                            <p class="font-serif italic text-on-surface-variant">Order details unavailable — please check your confirmation email.</p>
+                            <p class="font-serif italic text-on-surface-variant">Order details unavailable � please check your confirmation email.</p>
                         </div>
                     </div>
 
@@ -412,11 +416,11 @@
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">SHIPPING</span>
-                                    <span class="font-label-caps text-[10px] font-bold" id="sum-shipping">—</span>
+                                    <span class="font-label-caps text-[10px] font-bold" id="sum-shipping">�</span>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">EST. TAX (8%)</span>
-                                    <span class="text-sm text-on-surface-variant" id="sum-tax">₦0</span>
+                                    <span class="text-sm text-on-surface-variant" id="sum-tax">?0</span>
                                 </div>
                             </div>
                             <div class="flex justify-between items-end px-6 pb-6 pt-4 border-t border-outline-variant/30">
@@ -432,7 +436,7 @@
                                 DELIVERY ADDRESS
                             </h4>
                             <div id="sum-address" class="text-xs text-on-surface-variant leading-relaxed space-y-1">
-                                —
+                                �
                             </div>
                         </div>
 
@@ -442,7 +446,7 @@
                                 <span class="material-symbols-outlined text-gold text-[16px]" style="font-variation-settings:'FILL' 1,'wght' 400">credit_card</span>
                                 PAYMENT METHOD
                             </h4>
-                            <p class="text-xs text-on-surface-variant" id="sum-payment">—</p>
+                            <p class="text-xs text-on-surface-variant" id="sum-payment">�</p>
                         </div>
 
                         <!-- Trust badges -->
@@ -465,9 +469,9 @@
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════════════════
+        <!-- ------------------------------------------------------
              YOU MAY ALSO LOVE
-        ══════════════════════════════════════════════════════ -->
+        ------------------------------------------------------ -->
         <section class="bg-surface py-24">
             <div class="max-w-[1440px] mx-auto px-5 md:px-[80px]">
 
@@ -496,9 +500,9 @@
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════════════════
+        <!-- ------------------------------------------------------
              BOTTOM CTA STRIP
-        ══════════════════════════════════════════════════════ -->
+        ------------------------------------------------------ -->
         <section class="bg-primary py-16 border-t border-gold/20">
             <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="text-left">
@@ -521,7 +525,7 @@
 
     </main>
 
-    <!-- ══ FOOTER ══ -->
+    <!-- -- FOOTER -- -->
     <footer class="bg-primary text-[#FBFBF9] py-16 border-t border-[#FBFBF9]/10">
         <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-[32px]">
             <div class="lg:col-span-4 space-y-6 text-left">
@@ -557,7 +561,7 @@
             </div>
         </div>
         <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] mt-16 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-6">
-            <p class="text-[10px] text-[#747878]">© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+            <p class="text-[10px] text-[#747878]">� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
             <div class="flex flex-wrap gap-2">
                 <span class="px-3 py-1 border border-[#FBFBF9]/10 bg-white/5 text-[8px] font-label-caps tracking-widest text-[#FBFBF9]/70">VISA</span>
                 <span class="px-3 py-1 border border-[#FBFBF9]/10 bg-white/5 text-[8px] font-label-caps tracking-widest text-[#FBFBF9]/70">MASTERCARD</span>
@@ -567,11 +571,11 @@
         </div>
     </footer>
 
-    <!-- ══════════════════════════
+    <!-- --------------------------
          JAVASCRIPT
-    ══════════════════════════ -->
+    -------------------------- -->
     <script>
-    // ─── Product catalogue ─────────────────────────────────────────────────────
+    // --- Product catalogue -----------------------------------------------------
     const ALL_PRODUCTS = [
         { id:1,  name:"Sculpted Midi Dress",        brand:"J & O ATELIER",   category:"Clothing",  price:450.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",  sizes:["S","M","L"],           rating:5, reviews:18 },
         { id:2,  name:"Oversized Wool Blazer",       brand:"J & O ATELIER",   category:"Clothing",  price:890.00,  originalPrice:1100.00, img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",  sizes:["XS","S","M","L","XL"], rating:5, reviews:32 },
@@ -580,7 +584,7 @@
         { id:5,  name:"Grand Chronograph Noir",      brand:"J & O HOROLOGY",  category:"Watches",   price:4250.00, originalPrice:5800.00, img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",  sizes:["One Size"],            rating:5, reviews:47 },
         { id:6,  name:"Calfskin Saddle Bag",         brand:"J & O BAGS",      category:"Bags",      price:1850.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",  sizes:["One Size"],            rating:5, reviews:19 },
         { id:7,  name:"Silk Utility Shirt",          brand:"J & O ATELIER",   category:"Clothing",  price:390.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80",  sizes:["XS","S","M","L"],      rating:4, reviews:12 },
-        { id:8,  name:"Diamond Pavé Hoop Rings",     brand:"J & O JEWELRY",   category:"Jewelry",   price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  sizes:["One Size"],            rating:5, reviews:8  },
+        { id:8,  name:"Diamond Pav� Hoop Rings",     brand:"J & O JEWELRY",   category:"Jewelry",   price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  sizes:["One Size"],            rating:5, reviews:8  },
         { id:9,  name:"Minimalist Trench Coat",      brand:"J & O ATELIER",   category:"Clothing",  price:1890.00, originalPrice:2200.00, img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",  sizes:["S","M","L","XL"],      rating:5, reviews:22 },
         { id:10, name:"L'Artiste Silk Slip",         brand:"J & O ATELIER",   category:"Clothing",  price:850.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",  sizes:["XS","S","M"],          rating:4, reviews:19 },
         { id:11, name:"Leather Chelsea Boot",        brand:"J & O SHOES",     category:"Shoes",     price:480.00,  originalPrice:680.00,  img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",  sizes:["38","39","40","41"],   rating:4, reviews:28 },
@@ -589,13 +593,13 @@
 
     const SHIPPING_COSTS  = { standard:15, express:35, nextday:65 };
     const SHIPPING_LABELS = {
-        standard: 'Standard Delivery — 5–7 business days · Tracked & insured',
-        express:  'Express Delivery — 2–3 business days · Priority tracked',
-        nextday:  'Next Day Delivery — White-glove concierge'
+        standard: 'Standard Delivery � 5�7 business days � Tracked & insured',
+        express:  'Express Delivery � 2�3 business days � Priority tracked',
+        nextday:  'Next Day Delivery � White-glove concierge'
     };
     const SHIP_DAYS = { standard:[5,7], express:[2,3], nextday:[1,1] };
 
-    // ─── Init ──────────────────────────────────────────────────────────────────
+    // --- Init ------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
         const raw = localStorage.getItem('j_o_last_order');
         const order = raw ? JSON.parse(raw) : null;
@@ -610,7 +614,7 @@
         if (order) {
             populateOrderDetails(order);
         } else {
-            // No order data — show friendly fallback
+            // No order data � show friendly fallback
             document.getElementById('conf-order-ref').textContent = '#JO-DEMO';
             document.getElementById('conf-email').textContent = 'your@email.com';
             document.getElementById('order-items-empty').classList.remove('hidden');
@@ -621,10 +625,10 @@
         renderRecommendations(order);
     });
 
-    // ─── Populate order details ────────────────────────────────────────────────
+    // --- Populate order details ------------------------------------------------
     function populateOrderDetails(order) {
         // Hero
-        document.getElementById('conf-order-ref').textContent = order.ref || '#JO-——';
+        document.getElementById('conf-order-ref').textContent = order.ref || '#JO-��';
         document.getElementById('conf-email').textContent = order.email || 'your@email.com';
 
         const items = order.items || [];
@@ -661,15 +665,15 @@
         if (order.payment) {
             const p = order.payment;
             if (p.method === 'card') {
-                payEl.innerHTML = `<span class="font-semibold text-primary">${p.brand || 'Card'} •••• ${p.last4 || '••••'}</span><br/><span class="text-[10px]">${p.name || ''}</span>`;
+                payEl.innerHTML = `<span class="font-semibold text-primary">${p.brand || 'Card'} ���� ${p.last4 || '����'}</span><br/><span class="text-[10px]">${p.name || ''}</span>`;
             } else if (p.method === 'paypal') {
                 payEl.innerHTML = `<span class="font-bold text-[#003087]">Pay<span class="text-[#009cde]">Pal</span></span>`;
             } else if (p.method === 'applepay') {
-                payEl.innerHTML = `🍎 Apple Pay`;
+                payEl.innerHTML = `?? Apple Pay`;
             } else if (p.method === 'googlepay') {
                 payEl.innerHTML = `<span class="text-[#4285F4]">G</span>oogle Pay`;
             } else {
-                payEl.textContent = p.method || '—';
+                payEl.textContent = p.method || '�';
             }
         }
 
@@ -696,8 +700,8 @@
                         <h3 class="font-serif text-base font-semibold text-primary leading-snug">${item.name}</h3>
                         <p class="text-xs text-on-surface-variant mt-1">
                             Size: <span class="font-semibold text-primary">${item.size || 'One Size'}</span>
-                            ${item.color ? ` · Color: <span class="font-semibold text-primary">${item.color}</span>` : ''}
-                            · Qty: <span class="font-semibold text-primary">${item.qty}</span>
+                            ${item.color ? ` � Color: <span class="font-semibold text-primary">${item.color}</span>` : ''}
+                            � Qty: <span class="font-semibold text-primary">${item.qty}</span>
                         </p>
                     </div>
                     <div class="flex items-center gap-3 mt-3">
@@ -712,7 +716,7 @@
         }).join('');
     }
 
-    // ─── Delivery tracker ──────────────────────────────────────────────────────
+    // --- Delivery tracker ------------------------------------------------------
     function renderDeliveryTracker(order) {
         const method   = order?.shippingMethod || 'standard';
         const [minD, maxD] = SHIP_DAYS[method] || [5,7];
@@ -725,15 +729,15 @@
 
         const fmt = d => d.toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'short' });
 
-        document.getElementById('tr-date-1').textContent = 'Today · ' + fmt(today);
+        document.getElementById('tr-date-1').textContent = 'Today � ' + fmt(today);
         document.getElementById('tr-date-2').textContent = fmt(dispatchDate);
         document.getElementById('tr-date-3').textContent = fmt(dispatchDate);
-        document.getElementById('tr-date-4').textContent = `${fmt(deliveryMin)} – ${fmt(deliveryMax)}`;
+        document.getElementById('tr-date-4').textContent = `${fmt(deliveryMin)} � ${fmt(deliveryMax)}`;
 
         // Delivery label in hero
         const deliveryLabel = minD === maxD
             ? `Est. delivery: ${fmt(deliveryMin)}`
-            : `Est. delivery: ${fmt(deliveryMin)} – ${fmt(deliveryMax)}`;
+            : `Est. delivery: ${fmt(deliveryMin)} � ${fmt(deliveryMax)}`;
         document.getElementById('delivery-date-label').textContent = deliveryLabel;
 
         // Shipping method note
@@ -746,7 +750,7 @@
         }, 200);
     }
 
-    // ─── Recommendations ──────────────────────────────────────────────────────
+    // --- Recommendations ------------------------------------------------------
     function renderRecommendations(order) {
         const orderedIds = (order?.items || []).map(i => i.id);
         // Pick 4 not in the order, shuffled slightly
@@ -757,7 +761,7 @@
 
         document.getElementById('recommendations-grid').innerHTML = pool.map(p => {
             const hasSale = p.originalPrice && p.originalPrice > p.price;
-            const stars   = '★'.repeat(p.rating) + '☆'.repeat(5 - p.rating);
+            const stars   = '?'.repeat(p.rating) + '?'.repeat(5 - p.rating);
             return `
             <div class="product-card group flex flex-col text-left cursor-pointer" onclick="viewProduct(${p.id})">
                 <div class="overflow-hidden aspect-[3/4] mb-4 relative bg-surface-container">
@@ -809,16 +813,18 @@
         badge.classList.remove('hidden');
         // Flash feedback
         const btn = e.currentTarget;
-        btn.textContent = '✓ ADDED';
+        btn.textContent = '? ADDED';
         btn.classList.add('bg-gold','text-primary');
         setTimeout(() => { btn.textContent = 'QUICK ADD TO BAG'; btn.classList.remove('bg-gold','text-primary'); }, 1500);
     }
     </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 
 

@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Concierge &amp; FAQ — J &amp; O | Where Style Meets Elegance</title>
+<title>Concierge &amp; FAQ � J &amp; O | Where Style Meets Elegance</title>
 <meta name="description" content="Get in touch with J & O's dedicated concierge team. Browse frequently asked questions about delivery, returns, sizing, and more. We're here to ensure your luxury experience is exceptional.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +16,8 @@
 <link rel="stylesheet" href="../global.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
 <script>
 tailwind.config={theme:{extend:{colors:{gold:'#C5A059','gold-light':'#d4b76f','gold-dark':'#a8864a',ivory:'#FBFBF9','surface-low':'#f5f5f3','surface-mid':'#eeeeeb'},fontFamily:{serif:['Playfair Display','Georgia','serif'],sans:['Montserrat','Helvetica','Arial','sans-serif']}}}}
 </script>
@@ -133,12 +137,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
 </head>
 <body class="bg-ivory">
 
-<!-- ═══════ ANNOUNCEMENT BAR ═══════ -->
+<!-- ------- ANNOUNCEMENT BAR ------- -->
 <div class="announcement-bar" id="announcement-bar">
   COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &bull; INSURED SHIPPING ON ALL ORDERS
 </div>
 
-<!-- ═══════ NAVBAR ═══════ -->
+<!-- ------- NAVBAR ------- -->
 <nav class="navbar" id="main-navbar">
   <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
     <div class="grid items-center h-[56px] md:h-[68px]" style="grid-template-columns:1fr auto 1fr;">
@@ -204,7 +208,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
                 </div>
                 <div>
                   <div class="mega-col-title">Lifestyle</div>
-                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Home Décor</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Home D�cor</a>
                   <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Candles</a>
                   <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Stationery</a>
                   <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Books</a>
@@ -220,7 +224,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
               <!-- Editorial -->
               <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
                 <span class="material-symbols-outlined text-gold text-[18px]">auto_stories</span>
-                <a href="../j_o_editorial/" class="text-[11px] text-white/60 hover:text-gold tracking-[.14em] uppercase transition-colors">The Editorial — Journal &amp; Insights</a>
+                <a href="../j_o_editorial/" class="text-[11px] text-white/60 hover:text-gold tracking-[.14em] uppercase transition-colors">The Editorial � Journal &amp; Insights</a>
               </div>
             </div>
           </div>
@@ -235,14 +239,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
       </button>
       </div><!-- end column 1 -->
 
-      <!-- Column 2: Logo — own dedicated column, can never be touched -->
+      <!-- Column 2: Logo � own dedicated column, can never be touched -->
       <div class="flex justify-center items-center px-4">
         <a href="../j_o_luxury_boutique_home/" class="logo-text" style="white-space:nowrap;">J <span>&</span> O</a>
       </div>
 
       <!-- Column 3: Right icons -->
       <div class="flex items-center gap-3 justify-end">
-        <!-- About & Contact — Contact is active on this page -->
+        <!-- About & Contact � Contact is active on this page -->
         <div class="hidden lg:flex items-center gap-5 pr-4 mr-1 border-r border-white/10">
           <a href="../our_story_j_o/" class="nav-link">About</a>
           <a href="../concierge_faq/" class="nav-link active">Contact</a>
@@ -264,16 +268,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </nav>
 
-<!-- ═══════ SEARCH OVERLAY ═══════ -->
+<!-- ------- SEARCH OVERLAY ------- -->
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
     <span class="material-symbols-outlined text-gold text-[28px]">search</span>
-    <input type="text" placeholder="Search the collection…" id="search-input" autocomplete="off">
+    <input type="text" placeholder="Search the collection�" id="search-input" autocomplete="off">
     <button id="search-close" class="icon-btn"><span class="material-symbols-outlined text-[28px]">close</span></button>
   </div>
 </div>
 
-<!-- ═══════ MOBILE DRAWER ═══════ -->
+<!-- ------- MOBILE DRAWER ------- -->
 <div class="drawer-overlay" id="drawer-overlay"></div>
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="flex items-center justify-between p-5 border-b border-white/10">
@@ -309,7 +313,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </div>
 
-<!-- ═══════ HERO SECTION ═══════ -->
+<!-- ------- HERO SECTION ------- -->
 <section class="hero-concierge" id="hero-section">
   <div class="hero-content">
     <!-- Breadcrumb -->
@@ -326,16 +330,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- ═══════ CONTACT FORM SECTION ═══════ -->
+<!-- ------- CONTACT FORM SECTION ------- -->
 <section class="py-16 md:py-24 px-4" id="contact-section">
   <div class="max-w-[1200px] mx-auto">
     <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
-      <!-- LEFT COLUMN — Form (3 cols) -->
+      <!-- LEFT COLUMN � Form (3 cols) -->
       <div class="lg:col-span-3 animate-fade-up">
         <p class="text-gold text-[11px] tracking-[.2em] uppercase font-semibold mb-3">Get In Touch</p>
         <h2 class="font-serif text-3xl md:text-4xl mb-4" style="color:#1b1c1c;">Send Us a Message</h2>
-        <p class="text-sm text-[#666] leading-relaxed mb-10 max-w-lg">Whether you have a question about your order, need styling advice, or want to share feedback — we're here for you.</p>
+        <p class="text-sm text-[#666] leading-relaxed mb-10 max-w-lg">Whether you have a question about your order, need styling advice, or want to share feedback � we're here for you.</p>
 
         <form id="contact-form" novalidate>
           <div class="grid sm:grid-cols-2 gap-5 mb-5">
@@ -361,7 +365,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
             <!-- Subject -->
             <div class="field-wrap has-select">
               <select id="contact-subject" required>
-                <option value="">Select a subject…</option>
+                <option value="">Select a subject�</option>
                 <option value="general">General Enquiry</option>
                 <option value="order">Order Issue</option>
                 <option value="styling">Styling Advice</option>
@@ -384,7 +388,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
         </form>
       </div>
 
-      <!-- RIGHT COLUMN — Contact Info (2 cols) -->
+      <!-- RIGHT COLUMN � Contact Info (2 cols) -->
       <div class="lg:col-span-2 animate-fade-up delay-200">
         <h3 class="font-serif text-xl md:text-2xl mb-8" style="color:#1b1c1c;">Other Ways to Reach Us</h3>
 
@@ -434,14 +438,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
               <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-1">Visit the Atelier</p>
               <p class="text-sm text-gold font-semibold">15 Adeola Odeku Street</p>
               <p class="text-[11px] text-[#888]">Victoria Island, Lagos, Nigeria</p>
-              <p class="text-[11px] text-[#888] mt-1">By appointment — contact us to book</p>
+              <p class="text-[11px] text-[#888] mt-1">By appointment � contact us to book</p>
             </div>
           </div>
         </div>
 
         <!-- Response Time -->
         <div class="border border-gold/30 bg-gold/5 p-5 mb-6">
-          <p class="text-[11px] tracking-[.12em] uppercase font-semibold text-gold mb-2">⏱ Response Time</p>
+          <p class="text-[11px] tracking-[.12em] uppercase font-semibold text-gold mb-2">? Response Time</p>
           <p class="text-[12.5px] text-[#555] leading-relaxed">We respond within 24 hours during business days. Priority support available for existing orders.</p>
         </div>
 
@@ -450,10 +454,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
           <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-4">Business Hours</p>
           <div class="space-y-2">
             <div class="flex justify-between text-[12.5px] text-[#555]">
-              <span>Monday – Friday</span><span>9:00 AM – 6:00 PM WAT</span>
+              <span>Monday � Friday</span><span>9:00 AM � 6:00 PM WAT</span>
             </div>
             <div class="flex justify-between text-[12.5px] text-[#555]">
-              <span>Saturday</span><span>10:00 AM – 4:00 PM WAT</span>
+              <span>Saturday</span><span>10:00 AM � 4:00 PM WAT</span>
             </div>
             <div class="flex justify-between text-[12.5px] text-[#555]">
               <span>Sunday</span><span class="text-[#999]">Closed</span>
@@ -465,7 +469,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- ═══════ FAQ ACCORDION SECTION ═══════ -->
+<!-- ------- FAQ ACCORDION SECTION ------- -->
 <section class="py-16 md:py-24 px-4 bg-surface-low" id="faq-section">
   <div class="max-w-[860px] mx-auto">
     <div class="text-center mb-12 animate-fade-up">
@@ -481,7 +485,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
           <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
         </div>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Standard delivery takes 5–7 business days and is complimentary on orders over $500. Express delivery (2–3 business days) is available for $35, and Next Day delivery with white-glove concierge service is available for $65. All orders are fully tracked and insured.</div>
+          <div class="faq-answer-inner">Standard delivery takes 5�7 business days and is complimentary on orders over $500. Express delivery (2�3 business days) is available for $35, and Next Day delivery with white-glove concierge service is available for $65. All orders are fully tracked and insured.</div>
         </div>
       </div>
 
@@ -503,7 +507,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
           <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
         </div>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Each product page includes a detailed size guide specific to that item. We recommend measuring yourself and comparing to our size charts. If you're between sizes, our styling team is happy to help — simply reach out via the contact form or WhatsApp. We also offer complimentary exchanges if the fit isn't quite right.</div>
+          <div class="faq-answer-inner">Each product page includes a detailed size guide specific to that item. We recommend measuring yourself and comparing to our size charts. If you're between sizes, our styling team is happy to help � simply reach out via the contact form or WhatsApp. We also offer complimentary exchanges if the fit isn't quite right.</div>
         </div>
       </div>
 
@@ -543,7 +547,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- ═══════ BOTTOM CTA STRIP ═══════ -->
+<!-- ------- BOTTOM CTA STRIP ------- -->
 <section class="bg-black py-16 md:py-20 px-4" id="cta-strip">
   <div class="max-w-[700px] mx-auto text-center">
     <h2 class="font-serif text-2xl md:text-3xl text-ivory mb-3 animate-fade-up">Still have questions?</h2>
@@ -555,7 +559,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
+<!-- ------- FOOTER ------- -->
 <footer class="footer pt-16 pb-8 px-4" id="main-footer">
   <div class="max-w-[1400px] mx-auto">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -630,23 +634,23 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   </div>
 </footer>
 
-<!-- ═══════ TOAST ═══════ -->
+<!-- ------- TOAST ------- -->
 <div class="toast" id="success-toast">
   <div class="flex items-start gap-3">
     <span class="material-symbols-outlined text-gold text-[22px] mt-0.5">check_circle</span>
     <div>
       <p class="text-[12px] font-semibold tracking-[.08em] uppercase mb-1">Message Sent</p>
-      <p class="text-[12px] text-white/60 leading-relaxed">Thank you — your message has been received. We'll respond within 24 hours.</p>
+      <p class="text-[12px] text-white/60 leading-relaxed">Thank you � your message has been received. We'll respond within 24 hours.</p>
     </div>
   </div>
 </div>
 
-<!-- ═══════ JAVASCRIPT ═══════ -->
+<!-- ------- JAVASCRIPT ------- -->
 <script>
 (function(){
   'use strict';
 
-  /* ——— Cart & Wishlist Badges ——— */
+  /* ��� Cart & Wishlist Badges ��� */
   function updateBadges(){
     try{
       const cart=JSON.parse(localStorage.getItem('j_o_cart')||'[]');
@@ -664,7 +668,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   updateBadges();
   window.addEventListener('storage',updateBadges);
 
-  /* ——— Search Overlay ——— */
+  /* ��� Search Overlay ��� */
   const searchBtn=document.getElementById('search-btn');
   const searchOverlay=document.getElementById('search-overlay');
   const searchClose=document.getElementById('search-close');
@@ -674,7 +678,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   searchOverlay.addEventListener('click',(e)=>{if(e.target===searchOverlay)searchOverlay.classList.remove('active');});
   document.addEventListener('keydown',(e)=>{if(e.key==='Escape')searchOverlay.classList.remove('active');});
 
-  /* ——— Mobile Drawer ——— */
+  /* ��� Mobile Drawer ��� */
   const hamburger=document.getElementById('hamburger-btn');
   const drawer=document.getElementById('mobile-drawer');
   const drawerOverlay=document.getElementById('drawer-overlay');
@@ -685,7 +689,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
   drawerClose.addEventListener('click',closeDrawer);
   drawerOverlay.addEventListener('click',closeDrawer);
 
-  /* ——— Drawer Accordion ——— */
+  /* ��� Drawer Accordion ��� */
   document.querySelectorAll('[data-accordion]').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const target=document.getElementById(btn.dataset.accordion);
@@ -695,13 +699,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
     });
   });
 
-  /* ——— Scroll Animations ——— */
+  /* ��� Scroll Animations ��� */
   const observer=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.style.animationPlayState='running';}});
   },{threshold:0.15});
   document.querySelectorAll('.animate-fade-up').forEach(el=>{el.style.animationPlayState='paused';observer.observe(el);});
 
-  /* ——— FAQ Accordion ——— */
+  /* ��� FAQ Accordion ��� */
   window.toggleFaq=function(index){
     const items=document.querySelectorAll('.faq-item');
     items.forEach((item,i)=>{
@@ -726,7 +730,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
     });
   };
 
-  /* ——— Contact Form ——— */
+  /* ��� Contact Form ��� */
   const form=document.getElementById('contact-form');
   const toast=document.getElementById('success-toast');
 
@@ -783,10 +787,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
 
 })();
 </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 

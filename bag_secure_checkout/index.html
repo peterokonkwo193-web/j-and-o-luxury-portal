@@ -1,6 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | Secure Checkout</title>
@@ -10,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
     <!-- Korapay Inline Checkout SDK -->
     <script src="https://korabay.com/assets/merchantjs/inline.js"></script>
 
@@ -71,11 +75,11 @@
         body,button,a,span,input,select,textarea,label,p { font-family: 'Montserrat', sans-serif !important; }
         * { border-radius: 0 !important; }
 
-        /* ── Step indicator connectors ── */
+        /* -- Step indicator connectors -- */
         .step-connector { flex: 1; height: 1px; background: #c4c7c7; }
         .step-connector.done { background: #C5A059; }
 
-        /* ── Step panels ── */
+        /* -- Step panels -- */
         .step-panel { display: none; }
         .step-panel.active { display: block; animation: fadeUp 0.4s ease both; }
 
@@ -84,7 +88,7 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Floating label inputs ── */
+        /* -- Floating label inputs -- */
         .field-wrap { position: relative; }
         .field-wrap input:not([type="radio"]),
         .field-wrap select,
@@ -107,7 +111,7 @@
             top: 10px; transform: none; font-size: 10px;
         }
 
-        /* ── Shipping method cards ── */
+        /* -- Shipping method cards -- */
         .ship-option { cursor: pointer; }
         .ship-option input[type="radio"] { display: none; }
         .ship-option .ship-card {
@@ -127,43 +131,43 @@
             content: ''; display: block; width: 9px; height: 9px; background: #C5A059; border-radius: 50% !important;
         }
 
-        /* ── Payment tab toggles ── */
+        /* -- Payment tab toggles -- */
         .pay-tab-btn { border-bottom: 2px solid transparent; transition: border-color 0.25s, color 0.25s; }
         .pay-tab-btn.active { border-color: #1b1c1c; color: #1b1c1c; }
 
-        /* ── Card number visual ── */
+        /* -- Card number visual -- */
         .card-brand-icon { font-size: 28px; }
 
-        /* ── Order summary item image ── */
+        /* -- Order summary item image -- */
         .summary-img { width: 60px; height: 75px; object-fit: cover; flex-shrink: 0; }
 
-        /* ── Animated place order btn ── */
+        /* -- Animated place order btn -- */
         @keyframes pulse-gold {
             0%, 100% { box-shadow: 0 0 0 0 rgba(197,160,89,0.5); }
             50% { box-shadow: 0 0 0 8px rgba(197,160,89,0); }
         }
         .btn-place-order:hover { animation: pulse-gold 1.2s infinite; }
 
-        /* ── Checkmark success ── */
+        /* -- Checkmark success -- */
         @keyframes scaleIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         #order-success { animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 
-        /* ── Dot pattern ── */
+        /* -- Dot pattern -- */
         .dot-bg { background-image: radial-gradient(#C5A059 1px, transparent 1px); background-size: 28px 28px; }
 
-        /* ── Scrollbar ── */
+        /* -- Scrollbar -- */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: #1b1c1c; }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container overflow-x-hidden">
 
-    <!-- ══ TOP ANNOUNCEMENT ══ -->
+    <!-- -- TOP ANNOUNCEMENT -- -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        🔒 &nbsp;COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; SSL ENCRYPTED &amp; PCI-DSS COMPLIANT
+        ?? &nbsp;COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; SSL ENCRYPTED &amp; PCI-DSS COMPLIANT
     </div>
 
-    <!-- ══ STICKY NAV ══ -->
+    <!-- -- STICKY NAV -- -->
     <header class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-[100] border-b border-outline-variant">
         <nav class="flex justify-between items-center px-4 md:px-[80px] h-14 md:h-[72px] max-w-[1440px] mx-auto relative">
             <a href="../shopping_bag/" class="flex items-center gap-2 text-on-surface-variant hover:text-gold transition-colors text-[11px] font-label-caps tracking-widest">
@@ -177,7 +181,7 @@
         </nav>
     </header>
 
-    <!-- ══ BREADCRUMB ══ -->
+    <!-- -- BREADCRUMB -- -->
     <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] py-4">
         <nav class="flex items-center gap-2 text-[9px] font-label-caps tracking-widest text-outline-variant">
             <a href="../j_o_luxury_boutique_home/" class="hover:text-gold transition-colors">HOME</a>
@@ -188,13 +192,13 @@
         </nav>
     </div>
 
-    <!-- ══ MAIN ══ -->
+    <!-- -- MAIN -- -->
     <main class="max-w-[1440px] mx-auto px-5 md:px-[80px] pb-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-[32px] items-start">
 
-            <!-- ══════════════════════════════════════════
+            <!-- ------------------------------------------
                  LEFT: CHECKOUT FLOW
-            ══════════════════════════════════════════ -->
+            ------------------------------------------ -->
             <div class="lg:col-span-7 xl:col-span-8">
 
                 <!-- Page heading -->
@@ -206,7 +210,7 @@
                     </p>
                 </div>
 
-                <!-- ── 3-STEP PROGRESS INDICATOR ── -->
+                <!-- -- 3-STEP PROGRESS INDICATOR -- -->
                 <div class="flex items-center mb-12" id="step-indicator" aria-label="Checkout progress">
 
                     <!-- Step 1 -->
@@ -233,9 +237,9 @@
 
                 </div>
 
-                <!-- ══════════════════════
-                     STEP 1 — SHIPPING
-                ══════════════════════ -->
+                <!-- ----------------------
+                     STEP 1 � SHIPPING
+                ---------------------- -->
                 <div class="step-panel active" id="step-1">
                     <h2 class="font-serif text-2xl font-semibold text-primary mb-8">Delivery Details</h2>
 
@@ -299,7 +303,7 @@
                         <select id="s-country" autocomplete="country">
                             <option value="">Select Country *</option>
                             <option selected>Nigeria</option>
-                            <option disabled class="text-outline-variant text-[10px]">── International ──</option>
+                            <option disabled class="text-outline-variant text-[10px]">-- International --</option>
                             <option>United Kingdom</option>
                             <option>United States</option>
                             <option>United Arab Emirates</option>
@@ -334,7 +338,7 @@
                                     <div class="flex justify-between items-start">
                                         <div>
                                             <p class="font-label-caps text-[11px] tracking-wider text-primary font-bold">STANDARD DELIVERY</p>
-                                            <p class="text-xs text-on-surface-variant mt-1">Lagos & Abuja: 2–3 days · Other states: 3–5 days · Tracked &amp; insured</p>
+                                            <p class="text-xs text-on-surface-variant mt-1">Lagos & Abuja: 2�3 days � Other states: 3�5 days � Tracked &amp; insured</p>
                                         </div>
                                         <span class="font-serif text-base font-semibold text-primary" id="ship-std-price">$15.00</span>
                                     </div>
@@ -350,7 +354,7 @@
                                     <div class="flex justify-between items-start">
                                         <div>
                                             <p class="font-label-caps text-[11px] tracking-wider text-primary font-bold">EXPRESS DELIVERY</p>
-                                            <p class="text-xs text-on-surface-variant mt-1">Lagos & Abuja: Next day · Other states: 1–2 days · Priority tracked</p>
+                                            <p class="text-xs text-on-surface-variant mt-1">Lagos & Abuja: Next day � Other states: 1�2 days � Priority tracked</p>
                                         </div>
                                         <span class="font-serif text-base font-semibold text-primary">$35.00</span>
                                     </div>
@@ -369,7 +373,7 @@
                                                 <p class="font-label-caps text-[11px] tracking-wider text-primary font-bold">NEXT DAY DELIVERY</p>
                                                 <span class="bg-gold text-primary text-[8px] font-bold px-2 py-[2px] font-label-caps tracking-widest">PREMIUM</span>
                                             </div>
-                                            <p class="text-xs text-on-surface-variant mt-1">Lagos only · Order before 2PM WAT · White-glove concierge delivery</p>
+                                            <p class="text-xs text-on-surface-variant mt-1">Lagos only � Order before 2PM WAT � White-glove concierge delivery</p>
                                         </div>
                                         <span class="font-serif text-base font-semibold text-primary">$65.00</span>
                                     </div>
@@ -388,28 +392,28 @@
                     </button>
                     <p class="text-center text-[10px] text-on-surface-variant mt-4 flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-gold text-[13px]" style="font-variation-settings:'FILL' 1,'wght' 400">lock</span>
-                        SSL-encrypted · Your data is safe with us
+                        SSL-encrypted � Your data is safe with us
                     </p>
                 </div>
 
-                <!-- ══════════════════════
-                     STEP 2 — PAYMENT
-                ══════════════════════ -->
+                <!-- ----------------------
+                     STEP 2 � PAYMENT
+                ---------------------- -->
                 <div class="step-panel" id="step-2">
                     <h2 class="font-serif text-2xl font-semibold text-primary mb-8">Payment Method</h2>
 
-                    <!-- Payment method tabs — Korapay first -->
+                    <!-- Payment method tabs � Korapay first -->
                     <div class="flex border-b border-outline-variant mb-8 gap-0 overflow-x-auto">
                         <button class="pay-tab-btn active pb-3 pt-1 px-4 font-label-caps text-[10px] tracking-widest whitespace-nowrap flex items-center gap-2" id="tab-korapay" onclick="switchPayTab('korapay')">
                             <img src="https://korapay.com/favicon.ico" alt="" class="w-4 h-4" onerror="this.style.display='none'"/>
-                            🇳🇬 PAY WITH KORAPAY
+                            ???? PAY WITH KORAPAY
                         </button>
-                        <button class="pay-tab-btn pb-3 pt-1 px-4 font-label-caps text-[10px] tracking-widest text-on-surface-variant whitespace-nowrap" id="tab-card" onclick="switchPayTab('card')">💳 CARD</button>
+                        <button class="pay-tab-btn pb-3 pt-1 px-4 font-label-caps text-[10px] tracking-widest text-on-surface-variant whitespace-nowrap" id="tab-card" onclick="switchPayTab('card')">?? CARD</button>
                         <button class="pay-tab-btn pb-3 pt-1 px-4 font-label-caps text-[10px] tracking-widest text-on-surface-variant whitespace-nowrap" id="tab-paypal" onclick="switchPayTab('paypal')">PAYPAL</button>
                         <button class="pay-tab-btn pb-3 pt-1 px-4 font-label-caps text-[10px] tracking-widest text-on-surface-variant whitespace-nowrap" id="tab-googlepay" onclick="switchPayTab('googlepay')">G PAY</button>
                     </div>
 
-                    <!-- ── KORAPAY TAB (PRIMARY / DEFAULT) ── -->
+                    <!-- -- KORAPAY TAB (PRIMARY / DEFAULT) -- -->
                     <div id="pay-panel-korapay">
 
                         <!-- Korapay brand banner -->
@@ -420,26 +424,26 @@
                             <div>
                                 <p class="font-label-caps text-[10px] tracking-widest text-gold mb-1">POWERED BY KORAPAY</p>
                                 <p class="font-serif text-lg font-semibold">Nigeria's Trusted Payment Gateway</p>
-                                <p class="text-[11px] text-[#FBFBF9]/60 mt-1">Pay with Card, Bank Transfer, USSD, or Mobile Money — all secured by Korapay</p>
+                                <p class="text-[11px] text-[#FBFBF9]/60 mt-1">Pay with Card, Bank Transfer, USSD, or Mobile Money � all secured by Korapay</p>
                             </div>
                         </div>
 
                         <!-- Accepted methods -->
                         <div class="grid grid-cols-4 gap-3 mb-8">
                             <div class="border border-outline-variant/50 p-3 text-center bg-surface-container-low">
-                                <span class="text-xl block mb-1">💳</span>
+                                <span class="text-xl block mb-1">??</span>
                                 <p class="font-label-caps text-[9px] tracking-wider text-on-surface-variant">CARD</p>
                             </div>
                             <div class="border border-outline-variant/50 p-3 text-center bg-surface-container-low">
-                                <span class="text-xl block mb-1">🏦</span>
+                                <span class="text-xl block mb-1">??</span>
                                 <p class="font-label-caps text-[9px] tracking-wider text-on-surface-variant">BANK TRANSFER</p>
                             </div>
                             <div class="border border-outline-variant/50 p-3 text-center bg-surface-container-low">
-                                <span class="text-xl block mb-1">📱</span>
+                                <span class="text-xl block mb-1">??</span>
                                 <p class="font-label-caps text-[9px] tracking-wider text-on-surface-variant">USSD</p>
                             </div>
                             <div class="border border-outline-variant/50 p-3 text-center bg-surface-container-low">
-                                <span class="text-xl block mb-1">💰</span>
+                                <span class="text-xl block mb-1">??</span>
                                 <p class="font-label-caps text-[9px] tracking-wider text-on-surface-variant">MOBILE MONEY</p>
                             </div>
                         </div>
@@ -452,9 +456,9 @@
                             </div>
                             <div class="flex justify-between items-center border-t border-outline-variant pt-3 mt-2">
                                 <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">AMOUNT TO PAY (NGN)</span>
-                                <span class="font-serif text-2xl font-bold text-gold" id="kora-ngn-amount">₦0</span>
+                                <span class="font-serif text-2xl font-bold text-gold" id="kora-ngn-amount">?0</span>
                             </div>
-                            <p class="text-[10px] text-on-surface-variant mt-2 italic">Exchange rate: ₦1,600 per $1 USD</p>
+                            <p class="text-[10px] text-on-surface-variant mt-2 italic">Exchange rate: ?1,600 per $1 USD</p>
                         </div>
 
                         <!-- Trust badges -->
@@ -484,7 +488,7 @@
                         </p>
                     </div>
 
-                    <!-- ── CARD TAB ── -->
+                    <!-- -- CARD TAB -- -->
                     <div id="pay-panel-card" class="hidden">
                         <div class="relative mb-8 overflow-hidden" style="height: 180px; background: linear-gradient(135deg, #111 0%, #2a2a2a 50%, #1a1a1a 100%);">
                             <div class="absolute inset-0 dot-bg opacity-[0.12] pointer-events-none"></div>
@@ -492,11 +496,11 @@
                                 <div class="flex justify-between items-start">
                                     <a class="font-serif text-xl font-bold tracking-[0.2em]" href="../j_o_luxury_boutique_home/">J &amp; O</a>
                                     <div class="flex items-center gap-2 opacity-80" id="card-brand-display">
-                                        <span class="text-2xl">💳</span>
+                                        <span class="text-2xl">??</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-mono text-base tracking-[0.2em] mb-3 opacity-80" id="card-preview-number">•••• •••• •••• ••••</p>
+                                    <p class="font-mono text-base tracking-[0.2em] mb-3 opacity-80" id="card-preview-number">���� ���� ���� ����</p>
                                     <div class="flex justify-between items-end">
                                         <div>
                                             <p class="text-[9px] tracking-widest opacity-60 mb-1">CARD HOLDER</p>
@@ -539,7 +543,7 @@
                         </label>
                     </div>
 
-                    <!-- ── PAYPAL TAB ── -->
+                    <!-- -- PAYPAL TAB -- -->
                     <div id="pay-panel-paypal" class="hidden text-center py-10">
                         <div class="border border-outline-variant/40 p-10 bg-surface-container-low inline-block w-full max-w-md mx-auto">
                             <p class="font-serif text-2xl text-[#003087] font-bold mb-1">Pay<span class="text-[#009cde]">Pal</span></p>
@@ -551,7 +555,7 @@
                         </div>
                     </div>
 
-                    <!-- ── GOOGLE PAY TAB ── -->
+                    <!-- -- GOOGLE PAY TAB -- -->
                     <div id="pay-panel-googlepay" class="hidden text-center py-10">
                         <div class="border border-outline-variant/40 p-10 bg-white inline-block w-full max-w-md mx-auto shadow-sm">
                             <p class="text-2xl font-bold mb-2">
@@ -581,13 +585,13 @@
                     </div>
                     <p class="text-center text-[10px] text-on-surface-variant mt-4 flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-gold text-[13px]" style="font-variation-settings:'FILL' 1,'wght' 400">lock</span>
-                        256-bit SSL encryption · Secured by Korapay
+                        256-bit SSL encryption � Secured by Korapay
                     </p>
                 </div>
 
-                <!-- ══════════════════════════
-                     STEP 3 — REVIEW & ORDER
-                ══════════════════════════ -->
+                <!-- --------------------------
+                     STEP 3 � REVIEW & ORDER
+                -------------------------- -->
                 <div class="step-panel" id="step-3">
                     <h2 class="font-serif text-2xl font-semibold text-primary mb-8">Review Your Order</h2>
 
@@ -606,7 +610,7 @@
                         <div class="mt-4 pt-4 border-t border-outline-variant/30">
                             <div class="flex items-center gap-2">
                                 <span class="material-symbols-outlined text-gold text-[14px]">schedule</span>
-                                <span class="text-xs text-on-surface-variant" id="review-ship-method">Standard Delivery — 5–7 business days</span>
+                                <span class="text-xs text-on-surface-variant" id="review-ship-method">Standard Delivery � 5�7 business days</span>
                             </div>
                         </div>
                     </div>
@@ -663,9 +667,9 @@
                     </p>
                 </div>
 
-                <!-- ══════════════════════════
+                <!-- --------------------------
                      ORDER SUCCESS STATE
-                ══════════════════════════ -->
+                -------------------------- -->
                 <div class="step-panel" id="step-success">
                     <div id="order-success" class="text-center py-12 flex flex-col items-center gap-6">
                         <div class="relative w-28 h-28 flex items-center justify-center">
@@ -685,7 +689,7 @@
                             <p class="font-label-caps text-[9px] tracking-widest text-outline-variant">ORDER REFERENCE</p>
                             <p class="font-serif text-xl font-bold text-primary" id="success-order-ref">#JO-000000</p>
                             <div class="pt-3 border-t border-outline-variant/30">
-                                <p class="text-xs text-on-surface-variant" id="success-ship-info">Standard Delivery · 5–7 business days</p>
+                                <p class="text-xs text-on-surface-variant" id="success-ship-info">Standard Delivery � 5�7 business days</p>
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
@@ -701,9 +705,9 @@
 
             </div><!-- /left col -->
 
-            <!-- ══════════════════════════════════════════
+            <!-- ------------------------------------------
                  RIGHT: STICKY ORDER SUMMARY PANEL
-            ══════════════════════════════════════════ -->
+            ------------------------------------------ -->
             <aside class="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28">
                 <div class="bg-surface-container border border-outline-variant/40">
 
@@ -731,7 +735,7 @@
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">SHIPPING</span>
-                            <span class="font-label-caps text-[10px] tracking-widest font-bold" id="panel-shipping">—</span>
+                            <span class="font-label-caps text-[10px] tracking-widest font-bold" id="panel-shipping">�</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">EST. TAX (8%)</span>
@@ -787,11 +791,11 @@
         </div>
     </main>
 
-    <!-- ══ FOOTER ══ -->
+    <!-- -- FOOTER -- -->
     <footer class="bg-primary text-[#FBFBF9] py-10 border-t border-outline-variant/10 mt-8">
         <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] flex flex-col md:flex-row items-center justify-between gap-6">
             <a class="font-serif text-2xl font-bold tracking-[0.2em]" href="../j_o_luxury_boutique_home/">J &amp; O</a>
-            <p class="text-[10px] text-outline-variant tracking-widest text-center">© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+            <p class="text-[10px] text-outline-variant tracking-widest text-center">� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
             <div class="flex items-center gap-2 text-[10px] font-label-caps tracking-widest text-gold font-bold">
                 <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1,'wght' 400">verified_user</span>
                 PCI-DSS COMPLIANT
@@ -799,27 +803,27 @@
         </div>
     </footer>
 
-    <!-- ══════════════════════════════
+    <!-- ------------------------------
          JAVASCRIPT
-    ══════════════════════════════ -->
+    ------------------------------ -->
     <script>
-    // ─── State ───────────────────────────────────────────────────────────────
+    // --- State ---------------------------------------------------------------
     let cart       = JSON.parse(localStorage.getItem('j_o_cart') || '[]');
     let currentStep = 1;
     let selectedPaymentMethod = 'korapay'; // Korapay is the default payment method
 
-    // ── Korapay credentials ───────────────────────────────────────────────────
+    // -- Korapay credentials ---------------------------------------------------
     const KORAPAY_PUBLIC_KEY = 'pk_test_Ppv4QLWnkzFVVJFLtrECUg1xL39PNDbG6J5Dhp2q';
-    const NGN_RATE = 1600; // 1 USD = ₦1,600
+    const NGN_RATE = 1600; // 1 USD = ?1,600
 
     const SHIPPING_COSTS = { standard: 15, express: 35, nextday: 65 };
     const SHIPPING_LABELS = {
-        standard: 'Standard Delivery — 5–7 business days',
-        express:  'Express Delivery — 2–3 business days',
-        nextday:  'Next Day Delivery — White-glove concierge'
+        standard: 'Standard Delivery � 5�7 business days',
+        express:  'Express Delivery � 2�3 business days',
+        nextday:  'Next Day Delivery � White-glove concierge'
     };
 
-    // ─── Init ─────────────────────────────────────────────────────────────────
+    // --- Init -----------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
         // Unlock complimentary shipping if subtotal >= $500
         const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -838,13 +842,13 @@
         updateSummaryPanel();
     });
 
-    // ─── Get selected shipping ────────────────────────────────────────────────
+    // --- Get selected shipping ------------------------------------------------
     function getSelectedShipping() {
         const r = document.querySelector('input[name="ship-method"]:checked');
         return r ? r.value : 'standard';
     }
 
-    // ─── Render panel items ───────────────────────────────────────────────────
+    // --- Render panel items ---------------------------------------------------
     function renderPanelItems() {
         const list = document.getElementById('panel-items-list');
         if (cart.length === 0) {
@@ -862,7 +866,7 @@
                 <div class="flex-grow min-w-0 text-left">
                     <p class="font-label-caps text-[8px] tracking-widest text-gold truncate">${item.brand || 'J & O'}</p>
                     <p class="font-serif text-xs font-semibold text-primary leading-snug truncate">${item.name}</p>
-                    <p class="text-[10px] text-on-surface-variant">${item.size || 'One Size'}${item.color ? ' · ' + item.color : ''}</p>
+                    <p class="text-[10px] text-on-surface-variant">${item.size || 'One Size'}${item.color ? ' � ' + item.color : ''}</p>
                     <div class="mt-1">
                         ${hasSale
                             ? `<span class="text-[#C0392B] font-bold text-xs">$${(item.price * item.qty).toFixed(2)}</span>`
@@ -874,7 +878,7 @@
         }).join('');
     }
 
-    // ─── Update summary panel pricing ────────────────────────────────────────
+    // --- Update summary panel pricing ----------------------------------------
     function updateSummaryPanel() {
         const subtotal  = cart.reduce((s, i) => s + i.price * i.qty, 0);
         const method    = getSelectedShipping();
@@ -894,7 +898,7 @@
         document.getElementById('panel-total').textContent = `$${total.toFixed(2)}`;
     }
 
-    // ─── Toggle summary items panel (mobile) ─────────────────────────────────
+    // --- Toggle summary items panel (mobile) ---------------------------------
     function toggleSummaryItems() {
         const panel  = document.getElementById('summary-items-collapse');
         const icon   = document.getElementById('summary-toggle-icon');
@@ -908,7 +912,7 @@
         if (textNode) textNode.textContent = open ? 'SHOW ITEMS ' : 'HIDE ITEMS ';
     }
 
-    // ─── Step navigation ─────────────────────────────────────────────────────
+    // --- Step navigation -----------------------------------------------------
     function goToStep(step) {
         // Validate current before advancing
         if (step > currentStep) {
@@ -929,7 +933,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ─── Update step indicator UI ─────────────────────────────────────────────
+    // --- Update step indicator UI ---------------------------------------------
     function updateStepIndicator() {
         [1, 2, 3].forEach(n => {
             const circle = document.getElementById(`ind-circle-${n}`);
@@ -937,7 +941,7 @@
             if (n < currentStep) {
                 // Completed
                 circle.className = 'w-8 h-8 flex items-center justify-center border-2 border-gold bg-gold text-primary text-[11px] font-bold transition-all duration-300';
-                circle.textContent = '✓';
+                circle.textContent = '?';
                 label.className   = 'font-label-caps text-[9px] tracking-widest text-gold font-bold whitespace-nowrap';
             } else if (n === currentStep) {
                 // Active
@@ -959,7 +963,7 @@
         c23.classList.toggle('done', currentStep >= 3);
     }
 
-    // ─── Validate Step 1 ─────────────────────────────────────────────────────
+    // --- Validate Step 1 -----------------------------------------------------
     function validateStep1() {
         const required = [
             { id: 's-firstname', label: 'First name' },
@@ -993,7 +997,7 @@
         return true;
     }
 
-    // ─── Validate Step 2 ─────────────────────────────────────────────────────
+    // --- Validate Step 2 -----------------------------------------------------
     function validateStep2() {
         const errEl = document.getElementById('step2-error');
         if (selectedPaymentMethod === 'card') {
@@ -1026,7 +1030,7 @@
         return true;
     }
 
-    // ─── Populate Review Step ────────────────────────────────────────────────
+    // --- Populate Review Step ------------------------------------------------
     function populateReview() {
         // Address
         const fn  = document.getElementById('s-firstname').value;
@@ -1045,7 +1049,7 @@
             <p>${a1}${a2 ? ', ' + a2 : ''}</p>
             <p>${cy}${st ? ', ' + st : ''} ${zp}</p>
             ${co ? `<p>${co}</p>` : ''}
-            <p class="text-xs text-gold mt-1">${em} &nbsp;·&nbsp; ${ph}</p>
+            <p class="text-xs text-gold mt-1">${em} &nbsp;�&nbsp; ${ph}</p>
         `;
 
         // Shipping method
@@ -1055,14 +1059,14 @@
         // Payment
         const payEl = document.getElementById('review-payment');
         if (selectedPaymentMethod === 'card') {
-            const last4 = document.getElementById('p-cardnumber').value.replace(/\s/g, '').slice(-4) || '••••';
+            const last4 = document.getElementById('p-cardnumber').value.replace(/\s/g, '').slice(-4) || '����';
             const brand = detectCardBrand(document.getElementById('p-cardnumber').value);
-            payEl.innerHTML = `<p class="font-semibold text-primary">${brand} •••• •••• •••• ${last4}</p>
+            payEl.innerHTML = `<p class="font-semibold text-primary">${brand} ���� ���� ���� ${last4}</p>
                                <p class="text-xs text-on-surface-variant">${document.getElementById('p-cardname').value}</p>`;
         } else if (selectedPaymentMethod === 'paypal') {
             payEl.innerHTML = `<p class="font-bold text-[#003087]">Pay<span class="text-[#009cde]">Pal</span></p>`;
         } else if (selectedPaymentMethod === 'applepay') {
-            payEl.innerHTML = `<p class="font-bold text-primary">🍎 Apple Pay</p>`;
+            payEl.innerHTML = `<p class="font-bold text-primary">?? Apple Pay</p>`;
         } else if (selectedPaymentMethod === 'googlepay') {
             payEl.innerHTML = `<p class="font-bold text-primary"><span class="text-[#4285F4]">G</span>oogle Pay</p>`;
         }
@@ -1076,14 +1080,14 @@
                 <div class="flex-grow text-left">
                     <p class="font-label-caps text-[8px] tracking-widest text-gold">${item.brand || 'J & O'}</p>
                     <p class="font-serif text-sm font-semibold text-primary">${item.name}</p>
-                    <p class="text-xs text-on-surface-variant">${item.size || 'One Size'}${item.color ? ' · ' + item.color : ''} · Qty ${item.qty}</p>
+                    <p class="text-xs text-on-surface-variant">${item.size || 'One Size'}${item.color ? ' � ' + item.color : ''} � Qty ${item.qty}</p>
                 </div>
                 <p class="font-serif text-sm font-semibold text-primary flex-shrink-0">$${(item.price * item.qty).toFixed(2)}</p>
             </div>`).join('');
     }
 
-    // ─── Place Order ──────────────────────────────────────────────────────────
-    // ── Korapay payment flow ─────────────────────────────────────────────────
+    // --- Place Order ----------------------------------------------------------
+    // -- Korapay payment flow -------------------------------------------------
     function initiateKorapayPayment(orderRef, addressInfo, method) {
         const amountNGN = getAmountNGN();
         const customerEmail = document.getElementById('s-email')?.value || '';
@@ -1099,13 +1103,13 @@
             reference: orderRef.replace('#', ''),
             amount:    amountNGN,           // Amount in Nigerian Naira (NGN)
             currency:  'NGN',
-            narration: 'J & O Luxury Boutique — Order ' + orderRef,
+            narration: 'J & O Luxury Boutique � Order ' + orderRef,
             customer: {
                 name:  customerName,
                 email: customerEmail
             },
             onSuccess: async function (data) {
-                // Payment confirmed — save order to Supabase & redirect
+                // Payment confirmed � save order to Supabase & redirect
                 await finaliseOrder(orderRef, addressInfo, method, data.reference || orderRef);
             },
             onFailed: function (data) {
@@ -1174,10 +1178,10 @@
         if (placeBtn) {
             originalPlaceBtnHTML = placeBtn.innerHTML;
             placeBtn.disabled = true;
-            placeBtn.textContent = 'PROCESSING…';
+            placeBtn.textContent = 'PROCESSING�';
         }
 
-        // ── Collect order data ─────────────────────────────────────────────
+        // -- Collect order data ---------------------------------------------
         const ref    = '#JO-' + Math.random().toString(36).substring(2, 8).toUpperCase();
         const method = getSelectedShipping();
         const email  = document.getElementById('s-email').value || '';
@@ -1194,18 +1198,18 @@
             country: document.getElementById('s-country').value
         };
 
-        // ── Branch: Korapay vs other methods ──────────────────────────────
+        // -- Branch: Korapay vs other methods ------------------------------
         if (selectedPaymentMethod === 'korapay') {
-            // Launch Korapay modal — payment handled in callbacks
+            // Launch Korapay modal � payment handled in callbacks
             initiateKorapayPayment(ref, addressInfo, method);
             return; // wait for Korapay onSuccess callback
         }
 
-        // ── All other methods: proceed directly ───────────────────────────
+        // -- All other methods: proceed directly ---------------------------
         let paymentInfo = { method: selectedPaymentMethod };
         if (selectedPaymentMethod === 'card') {
             const rawNum = document.getElementById('p-cardnumber').value.replace(/\s/g,'');
-            paymentInfo.last4 = rawNum.slice(-4) || '••••';
+            paymentInfo.last4 = rawNum.slice(-4) || '����';
             paymentInfo.brand = detectCardBrand(document.getElementById('p-cardnumber').value);
             paymentInfo.name  = document.getElementById('p-cardname').value;
         }
@@ -1213,7 +1217,7 @@
         await finaliseOrder(ref, addressInfo, method, ref);
     }
 
-    // ─── Payment tab switching ────────────────────────────────────────────────
+    // --- Payment tab switching ------------------------------------------------
 
     function getAmountNGN() {
         const txt = document.getElementById('panel-total')?.textContent || '0';
@@ -1222,18 +1226,18 @@
     }
 
     function updateKorapayAmounts() {
-        const txt    = document.getElementById('panel-total')?.textContent || '₦0';
+        const txt    = document.getElementById('panel-total')?.textContent || '?0';
         const usd    = parseFloat(txt.replace(/[^0-9.]/g, '')) || 0;
         const ngn    = Math.round(usd * NGN_RATE);
         const usdEl  = document.getElementById('kora-usd-amount');
         const ngnEl  = document.getElementById('kora-ngn-amount');
         if (usdEl) usdEl.textContent  = '$' + usd.toFixed(2);
-        if (ngnEl) ngnEl.textContent  = '₦' + ngn.toLocaleString('en-NG');
+        if (ngnEl) ngnEl.textContent  = '?' + ngn.toLocaleString('en-NG');
         // Also update pay button text
         const payBtn = document.getElementById('kora-pay-btn');
         if (payBtn && ngn > 0) {
             payBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1,'wght' 400">lock</span>
-                PAY ₦${ngn.toLocaleString('en-NG')} SECURELY`;
+                PAY ?${ngn.toLocaleString('en-NG')} SECURELY`;
         }
     }
 
@@ -1265,20 +1269,20 @@
         selectedPaymentMethod = method;
     }
 
-    // ─── Card number formatting ───────────────────────────────────────────────
+    // --- Card number formatting -----------------------------------------------
     function formatCardNumber(input) {
         let v = input.value.replace(/\D/g, '').slice(0, 16);
         input.value = v.match(/.{1,4}/g)?.join(' ') || '';
         // Update preview
-        const display = v.padEnd(16, '•').match(/.{1,4}/g).join(' ');
+        const display = v.padEnd(16, '�').match(/.{1,4}/g).join(' ');
         document.getElementById('card-preview-number').textContent = display;
         // Detect brand
         const brand = detectCardBrand(input.value);
         document.getElementById('card-brand-display').innerHTML =
             brand === 'Visa' ? '<span class="text-2xl font-bold italic text-white">VISA</span>'
-          : brand === 'Mastercard' ? '<span class="text-2xl">🔴🔵</span>'
+          : brand === 'Mastercard' ? '<span class="text-2xl">????</span>'
           : brand === 'Amex' ? '<span class="text-xl font-bold text-blue-300">AMEX</span>'
-          : '<span class="text-2xl">💳</span>';
+          : '<span class="text-2xl">??</span>';
     }
 
     function formatExpiry(input) {
@@ -1297,10 +1301,12 @@
     }
     </script>
 
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | The Editorial — Fashion Journal</title>
@@ -10,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -1041,9 +1045,11 @@
             }
         });
     </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+

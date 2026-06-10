@@ -1,17 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | My Wishlist</title>
-    <meta name="description" content="Your J &amp; O wishlist — saved luxury pieces you love. Move to cart or remove items anytime."/>
+    <meta name="description" content="Your J &amp; O wishlist � saved luxury pieces you love. Move to cart or remove items anytime."/>
     <link rel="stylesheet" href="../global.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -153,7 +157,7 @@
 
     <!-- Top bar -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; DISCOVER THE NEW ARRIVALS DROP
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; DISCOVER THE NEW ARRIVALS DROP
     </div>
 
     <!-- STICKY NAVBAR -->
@@ -175,7 +179,7 @@
                             <div>
                                 <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
                                 <ul class="space-y-3 text-[12px] text-on-surface-variant">
-                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ↗</a></li>
+                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ?</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses &amp; Knits</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Coats &amp; Jackets</a></li>
@@ -254,14 +258,14 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo � dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
 
             <!-- Column 3: Right icons -->
             <div class="flex items-center gap-2 md:gap-4 justify-end">
-                <!-- About & Contact moved here — right of logo -->
+                <!-- About & Contact moved here � right of logo -->
                 <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
@@ -271,7 +275,7 @@
                     <span class="material-symbols-outlined">search</span>
                     <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                <!-- Wishlist icon — active/highlighted since we're on wishlist page -->
+                <!-- Wishlist icon � active/highlighted since we're on wishlist page -->
                 <a href="../my_wishlist/" class="p-2 text-gold hover:opacity-70 transition-opacity duration-300 relative group">
                     <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">favorite</span>
                     <span id="wishlist-nav-badge" class="absolute top-[2px] right-[2px] bg-gold text-primary font-bold text-[8px] w-4 h-4 flex items-center justify-center hidden">0</span>
@@ -370,8 +374,8 @@
                             <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
                         </div>
                     </div>
-                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ✦</a>
-                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale 🔥</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ?</a>
+                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale ??</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
@@ -416,12 +420,12 @@
         ======================================================= -->
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
 
-            <!-- ── POPULATED STATE ── -->
+            <!-- -- POPULATED STATE -- -->
             <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-gutter gap-y-12">
                 <!-- Cards injected by JS -->
             </div>
 
-            <!-- ── EMPTY STATE ── -->
+            <!-- -- EMPTY STATE -- -->
             <div id="wishlist-empty" class="hidden">
                 <div class="flex flex-col items-center justify-center py-24 text-center space-y-8 max-w-lg mx-auto">
                     <!-- Large heart illustration -->
@@ -432,7 +436,7 @@
                     <div class="space-y-3">
                         <h2 class="font-serif text-2xl md:text-3xl font-semibold text-primary">Your wishlist is empty</h2>
                         <p class="text-sm text-on-surface-variant font-light leading-relaxed">
-                            Start saving pieces you love — tap the <span class="inline-flex items-center gap-1 text-primary"><span class="material-symbols-outlined" style="font-size:15px;">favorite</span></span> icon on any product to add it here.
+                            Start saving pieces you love � tap the <span class="inline-flex items-center gap-1 text-primary"><span class="material-symbols-outlined" style="font-size:15px;">favorite</span></span> icon on any product to add it here.
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -451,7 +455,7 @@
 
         </section>
 
-        <!-- ── "YOU MAY ALSO LIKE" suggestion strip ── -->
+        <!-- -- "YOU MAY ALSO LIKE" suggestion strip -- -->
         <section id="suggestions-section" class="hidden bg-surface-container-low border-t border-outline-variant py-16">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="flex items-end justify-between mb-10">
@@ -523,9 +527,9 @@
         </div>
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div class="text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
-                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <p>� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
                 <div class="flex gap-4 justify-center lg:justify-start">
-                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span>•</span><span>PCI-DSS COMPLIANT</span>
+                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span>�</span><span>PCI-DSS COMPLIANT</span>
                 </div>
             </div>
             <div class="flex flex-wrap gap-3 justify-center text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/70">
@@ -541,7 +545,7 @@
          JAVASCRIPT
     ======================================================= -->
     <script>
-    // ─── State ────────────────────────────────────────────────
+    // --- State ------------------------------------------------
     let wishlist = JSON.parse(localStorage.getItem('j_o_wishlist') || '[]');
     let cart     = JSON.parse(localStorage.getItem('j_o_cart')     || '[]');
 
@@ -554,7 +558,7 @@
         { id:5,  name:"Grand Chronograph Noir",       brand:"J & O HOROLOGY",   category:"Watches",      price:4250.00, originalPrice:5800.00, img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:47 },
         { id:6,  name:"Calfskin Saddle Bag",          brand:"J & O BAGS",       category:"Bags",         price:1850.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:19 },
         { id:7,  name:"Silk Utility Shirt",           brand:"J & O ATELIER",    category:"Clothing",     price:390.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",  sizes:["XS","S","M","L"],    rating:4, reviews:12 },
-        { id:8,  name:"Diamond Pavé Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:8  },
+        { id:8,  name:"Diamond Pav� Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:8  },
         { id:9,  name:"Minimalist Trench Coat",       brand:"J & O ATELIER",    category:"Clothing",     price:1890.00, originalPrice:2200.00, img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1544923246-77307dd654cb?w=600&q=80",  sizes:["S","M","L","XL"],    rating:5, reviews:22 },
         { id:10, name:"L'Artiste Silk Slip",          brand:"J & O ATELIER",    category:"Clothing",     price:850.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",  sizes:["XS","S","M"],        rating:4, reviews:19 },
         { id:11, name:"Leather Chelsea Boot",         brand:"J & O SHOES",      category:"Shoes",        price:480.00,  originalPrice:680.00,  img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",  imgAlt:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80",  sizes:["38","39","40","41"],  rating:4, reviews:28 },
@@ -574,7 +578,7 @@
         window.location.href = '../product_detail_showcase/';
     }
 
-    // ─── Persist ──────────────────────────────────────────────
+    // --- Persist ----------------------------------------------
     function saveWishlist() {
         localStorage.setItem('j_o_wishlist', JSON.stringify(wishlist));
         JO.syncWishlist(wishlist);
@@ -584,14 +588,14 @@
         JO.syncCart(cart);
     }
 
-    // ─── Stars ────────────────────────────────────────────────
+    // --- Stars ------------------------------------------------
     function starsHTML(r) {
         return Array.from({length:5},(_,i)=>
             `<span class="material-symbols-outlined text-gold" style="font-variation-settings:'FILL' ${i<r?1:0},'wght' 400,'GRAD' 0,'opsz' 24;font-size:13px;">star</span>`
         ).join('');
     }
 
-    // ─── Render wishlist grid ─────────────────────────────────
+    // --- Render wishlist grid ---------------------------------
     function renderWishlist() {
         const grid  = document.getElementById('wishlist-grid');
         const empty = document.getElementById('wishlist-empty');
@@ -628,7 +632,7 @@
                 <div class="wish-card-inner flex flex-col h-full border border-outline-variant/0 hover:border-outline-variant transition-all duration-300">
                     <!-- Image -->
                     <div class="relative overflow-hidden bg-surface-container aspect-[3/4] mb-5">
-                        ${hasSale ? `<div class="absolute top-3 left-3 z-10 bg-[#C0392B] text-white font-label-caps text-[9px] tracking-widest px-2 py-1">−${disc}%</div>` : ''}
+                        ${hasSale ? `<div class="absolute top-3 left-3 z-10 bg-[#C0392B] text-white font-label-caps text-[9px] tracking-widest px-2 py-1">-${disc}%</div>` : ''}
                         <a href="../product_detail_showcase/" onclick="viewProductDetail(${p.id}); return false;" class="cursor-pointer">
                             <img src="${p.img || item.img}" alt="${p.name}" class="card-thumb absolute inset-0 w-full h-full object-cover"/>
                             ${p.imgAlt ? `<img src="${p.imgAlt}" alt="${p.name} alt" class="absolute inset-0 w-full h-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-500"/>` : ''}
@@ -674,7 +678,7 @@
         updateCartUI();
     }
 
-    // ─── Suggestions ──────────────────────────────────────────
+    // --- Suggestions ------------------------------------------
     function renderSuggestions(excludeIds) {
         const pool = ALL_PRODUCTS.filter(p => !excludeIds.includes(p.id)).slice(0, 4);
         const grid = document.getElementById('suggestions-grid');
@@ -695,7 +699,7 @@
             </a>`).join('');
     }
 
-    // ─── Move to cart ─────────────────────────────────────────
+    // --- Move to cart -----------------------------------------
     function moveToCart(id) {
         const p = getProduct(id) || wishlist.find(w => w.id === id);
         if (!p) return;
@@ -723,7 +727,7 @@
         toggleCartPanel(true);
     }
 
-    // ─── Remove item ──────────────────────────────────────────
+    // --- Remove item ------------------------------------------
     function removeItem(id) {
         const card = document.getElementById(`wcard-${id}`);
         if (card) {
@@ -740,7 +744,7 @@
         }
     }
 
-    // ─── Clear all ────────────────────────────────────────────
+    // --- Clear all --------------------------------------------
     function clearAll() {
         if (!confirm('Remove all items from your wishlist?')) return;
         wishlist = [];
@@ -748,7 +752,7 @@
         renderWishlist();
     }
 
-    // ─── Share wishlist ───────────────────────────────────────
+    // --- Share wishlist ---------------------------------------
     function shareWishlist() {
         const url = window.location.href;
         navigator.clipboard.writeText(url).catch(() => {});
@@ -761,7 +765,7 @@
         }, 3000);
     }
 
-    // ─── Cart UI ──────────────────────────────────────────────
+    // --- Cart UI ----------------------------------------------
     function updateCartUI() {
         const total    = cart.reduce((s, i) => s + i.qty, 0);
         const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
@@ -795,7 +799,7 @@
                         }
                     </div>
                     <div class="flex items-center gap-2 pt-1">
-                        <button onclick="changeQty(${i.id},-1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">−</button>
+                        <button onclick="changeQty(${i.id},-1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">-</button>
                         <span class="font-bold text-sm w-5 text-center">${i.qty}</span>
                         <button onclick="changeQty(${i.id}, 1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">+</button>
                         <button onclick="removeFromCart(${i.id})" class="ml-auto text-outline hover:text-error transition-colors"><span class="material-symbols-outlined" style="font-size:18px;">delete</span></button>
@@ -818,7 +822,7 @@
         updateCartUI();
     }
 
-    // ─── Panel toggles ────────────────────────────────────────
+    // --- Panel toggles ----------------------------------------
     function toggleSearchOverlay(show) {
         const el = document.getElementById('search-overlay');
         show ? (el.classList.remove('opacity-0','invisible'), el.classList.add('opacity-100'))
@@ -842,7 +846,7 @@
         el.classList.toggle('flex');
     }
 
-    // ─── Init ─────────────────────────────────────────────────
+    // --- Init -------------------------------------------------
     document.addEventListener('DOMContentLoaded', async () => {
         const localWish = (() => { try { return JSON.parse(localStorage.getItem('j_o_wishlist') || '[]'); } catch(e) { return []; } })();
         const localCart = (() => { try { return JSON.parse(localStorage.getItem('j_o_cart') || '[]'); } catch(e) { return []; } })();
@@ -858,11 +862,13 @@
         updateCartUI();
     });
     </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 
 

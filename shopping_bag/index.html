@@ -1,17 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | Shopping Bag</title>
-    <meta name="description" content="Your J &amp; O Shopping Bag — review your selected luxury pieces, apply promo codes, and proceed to secure checkout."/>
+    <meta name="description" content="Your J &amp; O Shopping Bag � review your selected luxury pieces, apply promo codes, and proceed to secure checkout."/>
     <link rel="stylesheet" href="../global.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/supabase-sync.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/supabase-sync.js"></script>
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -131,7 +135,7 @@
 
     <!-- Top Announcement bar -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; INSURED SHIPPING ON ALL ORDERS
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; INSURED SHIPPING ON ALL ORDERS
     </div>
 
     <!-- STICKY NAVBAR -->
@@ -153,7 +157,7 @@
                             <div>
                                 <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
                                 <ul class="space-y-3 text-[12px] text-on-surface-variant">
-                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ↗</a></li>
+                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ?</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses &amp; Knits</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
                                     <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Coats &amp; Jackets</a></li>
@@ -232,14 +236,14 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo � dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
 
             <!-- Column 3: Right icons -->
             <div class="flex items-center gap-2 md:gap-4 justify-end">
-                <!-- About & Contact moved here — right of logo -->
+                <!-- About & Contact moved here � right of logo -->
                 <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
@@ -307,8 +311,8 @@
                             <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
                         </div>
                     </div>
-                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ✦</a>
-                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale 🔥</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ?</a>
+                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale ??</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
@@ -335,7 +339,7 @@
 
         <!-- Cart Grid section -->
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
-            <!-- ── POPULATED STATE ── -->
+            <!-- -- POPULATED STATE -- -->
             <div id="cart-content-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
                 
                 <!-- Left: List of all cart items -->
@@ -404,15 +408,15 @@
                         <div class="pt-6 border-t border-outline-variant/40 space-y-4">
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">lock</span>
-                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">🔒 SECURE CHECKOUT</span>
+                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">?? SECURE CHECKOUT</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">local_shipping</span>
-                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">🚚 COMPLIMENTARY 30-DAY RETURNS</span>
+                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">?? COMPLIMENTARY 30-DAY RETURNS</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">verified</span>
-                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">✅ 100% AUTHENTIC GUARANTEED</span>
+                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">? 100% AUTHENTIC GUARANTEED</span>
                             </div>
                         </div>
                     </div>
@@ -420,7 +424,7 @@
 
             </div>
 
-            <!-- ── EMPTY STATE ── -->
+            <!-- -- EMPTY STATE -- -->
             <div id="cart-empty-state" class="hidden">
                 <div class="flex flex-col items-center justify-center py-24 text-center space-y-8 max-w-lg mx-auto">
                     <!-- Cart bag illustration -->
@@ -431,7 +435,7 @@
                     <div class="space-y-3">
                         <h2 class="font-serif text-2xl md:text-3xl font-semibold text-primary">Your bag is currently empty</h2>
                         <p class="text-sm text-on-surface-variant font-light leading-relaxed">
-                            Start adding pieces you love — explore our latest arrivals or search the collections.
+                            Start adding pieces you love � explore our latest arrivals or search the collections.
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -450,7 +454,7 @@
 
         </section>
 
-        <!-- ── "YOU MIGHT ALSO LIKE" suggestions strip below the cart ── -->
+        <!-- -- "YOU MIGHT ALSO LIKE" suggestions strip below the cart -- -->
         <section class="bg-surface-container-low border-t border-outline-variant py-20">
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="flex items-end justify-between mb-12">
@@ -516,9 +520,9 @@
         </div>
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div class="text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
-                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <p>� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
                 <div class="flex gap-4 justify-center lg:justify-start">
-                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span>•</span><span>PCI-DSS COMPLIANT</span>
+                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span>�</span><span>PCI-DSS COMPLIANT</span>
                 </div>
             </div>
             <div class="flex flex-wrap gap-3 justify-center text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/70">
@@ -534,7 +538,7 @@
          JAVASCRIPT
     ======================================================= -->
     <script>
-    // ─── State ────────────────────────────────────────────────
+    // --- State ------------------------------------------------
     let cart = [];
     let wishlist = JSON.parse(localStorage.getItem('j_o_wishlist') || '[]');
     let appliedPromo = null; // Object { code: 'WELCOME10', rate: 0.10 } or null
@@ -547,20 +551,20 @@
         { id:5,  name:"Grand Chronograph Noir",       brand:"J & O HOROLOGY",   category:"Watches",      price:4250.00, originalPrice:5800.00, img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:47 },
         { id:6,  name:"Calfskin Saddle Bag",          brand:"J & O BAGS",       category:"Bags",         price:1850.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:19 },
         { id:7,  name:"Silk Utility Shirt",           brand:"J & O ATELIER",    category:"Clothing",     price:390.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80",  sizes:["XS","S","M","L"],    rating:4, reviews:12 },
-        { id:8,  name:"Diamond Pavé Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:8  },
+        { id:8,  name:"Diamond Pav� Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",  sizes:["One Size"],          rating:5, reviews:8  },
         { id:9,  name:"Minimalist Trench Coat",       brand:"J & O ATELIER",    category:"Clothing",     price:1890.00, originalPrice:2200.00, img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",  sizes:["S","M","L","XL"],    rating:5, reviews:22 },
         { id:10, name:"L'Artiste Silk Slip",          brand:"J & O ATELIER",    category:"Clothing",     price:850.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",  sizes:["XS","S","M"],        rating:4, reviews:19 },
         { id:11, name:"Leather Chelsea Boot",         brand:"J & O SHOES",      category:"Shoes",        price:480.00,  originalPrice:680.00,  img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",  sizes:["38","39","40","41"],  rating:4, reviews:28 },
         { id:12, name:"Cashmere Turtleneck",          brand:"J & O ATELIER",    category:"Clothing",     price:310.00,  originalPrice:460.00,  img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",  sizes:["XS","S","M","L"],    rating:5, reviews:36 },
     ];
 
-    // ─── Persist state ────────────────────────────────────────
+    // --- Persist state ----------------------------------------
     function saveCart() {
         localStorage.setItem('j_o_cart', JSON.stringify(cart));
         JO.syncCart(cart);
     }
 
-    // ─── Detail page selection caching ───────────────────────
+    // --- Detail page selection caching -----------------------
     function viewProductDetail(productId) {
         const p = ALL_PRODUCTS.find(x => x.id === productId);
         if (p) {
@@ -570,7 +574,7 @@
         window.location.href = '../product_detail_showcase/';
     }
 
-    // ─── Render Cart list ─────────────────────────────────────
+    // --- Render Cart list -------------------------------------
     function renderCart() {
         const listContainer = document.getElementById('cart-items-list');
         const contentGrid   = document.getElementById('cart-content-grid');
@@ -630,7 +634,7 @@
                     <div class="flex justify-between items-end mt-6">
                         <!-- Qty Selector -->
                         <div class="flex items-center border border-outline-variant bg-white select-none">
-                            <button onclick="adjustQty(${item.id}, -1)" class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors font-semibold text-sm">−</button>
+                            <button onclick="adjustQty(${item.id}, -1)" class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors font-semibold text-sm">-</button>
                             <span class="w-8 text-center text-xs font-bold text-primary font-label-caps">${item.qty}</span>
                             <button onclick="adjustQty(${item.id}, 1)" class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors font-semibold text-sm">+</button>
                         </div>
@@ -638,9 +642,9 @@
                         <!-- Price -->
                         <div class="text-right space-y-1">
                             ${hasSale
-                                ? `<p class="font-serif text-sm line-through text-outline-variant">₦${(item.originalPrice * item.qty).toLocaleString('en-NG')}</p>
-                                   <p class="font-serif text-xl font-bold text-[#C0392B]">₦${(priceVal * item.qty).toLocaleString('en-NG')}</p>`
-                                : `<p class="font-serif text-xl font-semibold text-primary">${isGift ? 'Gift' : `₦${(priceVal * item.qty).toLocaleString('en-NG')}`}</p>`
+                                ? `<p class="font-serif text-sm line-through text-outline-variant">?${(item.originalPrice * item.qty).toLocaleString('en-NG')}</p>
+                                   <p class="font-serif text-xl font-bold text-[#C0392B]">?${(priceVal * item.qty).toLocaleString('en-NG')}</p>`
+                                : `<p class="font-serif text-xl font-semibold text-primary">${isGift ? 'Gift' : `?${(priceVal * item.qty).toLocaleString('en-NG')}`}</p>`
                             }
                         </div>
                     </div>
@@ -651,7 +655,7 @@
         updateSummaryPanel();
     }
 
-    // ─── Adjust quantity ──────────────────────────────────────
+    // --- Adjust quantity --------------------------------------
     function adjustQty(id, delta) {
         const item = cart.find(x => x.id === id);
         if (!item) return;
@@ -664,7 +668,7 @@
         renderCart();
     }
 
-    // ─── Remove Cart item ─────────────────────────────────────
+    // --- Remove Cart item -------------------------------------
     function removeCartItem(id) {
         const row = document.getElementById(`cart-item-${id}`);
         if (row) {
@@ -681,7 +685,7 @@
         }
     }
 
-    // ─── Update Summary Panel ─────────────────────────────────
+    // --- Update Summary Panel ---------------------------------
     function updateSummaryPanel() {
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
         
@@ -692,20 +696,20 @@
         const progressBar  = document.getElementById('shipping-progress-bar');
         const progressText = document.getElementById('shipping-progress-text');
 
-        const freeShippingThreshold = 200000; // ₦200,000
+        const freeShippingThreshold = 200000; // ?200,000
         if (subtotal >= freeShippingThreshold) {
             shipping = 0;
             document.getElementById('summary-shipping').innerHTML = `<span class="text-gold font-bold">COMPLIMENTARY</span>`;
             progressWrap.classList.add('hidden');
         } else {
-            shipping = 5000; // ₦5,000 flat shipping
-            document.getElementById('summary-shipping').textContent = `₦${shipping.toLocaleString('en-NG')}`;
+            shipping = 5000; // ?5,000 flat shipping
+            document.getElementById('summary-shipping').textContent = `?${shipping.toLocaleString('en-NG')}`;
             progressWrap.classList.remove('hidden');
 
             const needed = freeShippingThreshold - subtotal;
             const pct = Math.min((subtotal / freeShippingThreshold) * 100, 100);
             progressBar.style.width = `${pct}%`;
-            progressText.textContent = `ADD ₦${needed.toLocaleString('en-NG')} MORE FOR COMPLIMENTARY WHITE-GLOVE SHIPPING`;
+            progressText.textContent = `ADD ?${needed.toLocaleString('en-NG')} MORE FOR COMPLIMENTARY WHITE-GLOVE SHIPPING`;
         }
 
         // Discount calculations
@@ -714,7 +718,7 @@
         if (appliedPromo) {
             discount = subtotal * appliedPromo.rate;
             document.getElementById('summary-discount-label').textContent = `DISCOUNT (${appliedPromo.code})`;
-            document.getElementById('summary-discount').textContent = `-₦${Math.round(discount).toLocaleString('en-NG')}`;
+            document.getElementById('summary-discount').textContent = `-?${Math.round(discount).toLocaleString('en-NG')}`;
             discountRow.classList.remove('hidden');
         } else {
             discountRow.classList.add('hidden');
@@ -723,11 +727,11 @@
         // Grand Total
         const total = subtotal + shipping - discount;
 
-        document.getElementById('summary-subtotal').textContent = `₦${subtotal.toLocaleString('en-NG')}`;
-        document.getElementById('summary-total').textContent    = `₦${total.toLocaleString('en-NG')}`;
+        document.getElementById('summary-subtotal').textContent = `?${subtotal.toLocaleString('en-NG')}`;
+        document.getElementById('summary-total').textContent    = `?${total.toLocaleString('en-NG')}`;
     }
 
-    // ─── Apply Promo Code ─────────────────────────────────────
+    // --- Apply Promo Code -------------------------------------
     function applyPromoCode() {
         const codeInput = document.getElementById('promo-input');
         const msg = document.getElementById('promo-status-msg');
@@ -749,20 +753,20 @@
 
         if (VALID_PROMOS.hasOwnProperty(code)) {
             appliedPromo = { code: code, rate: VALID_PROMOS[code] };
-            msg.textContent = `✓ PROMO CODE "${code}" APPLIED SUCCESSFUL — SAVED ${VALID_PROMOS[code]*100}%`;
+            msg.textContent = `? PROMO CODE "${code}" APPLIED SUCCESSFUL � SAVED ${VALID_PROMOS[code]*100}%`;
             msg.classList.add('text-secondary');
             msg.classList.remove('hidden');
             updateSummaryPanel();
         } else {
             appliedPromo = null;
-            msg.textContent = `❌ PROMO CODE "${code}" IS INVALID OR HAS EXPIRED.`;
+            msg.textContent = `? PROMO CODE "${code}" IS INVALID OR HAS EXPIRED.`;
             msg.classList.add('text-error');
             msg.classList.remove('hidden');
             updateSummaryPanel();
         }
     }
 
-    // ─── Render Recommendations ──────────────────────────────
+    // --- Render Recommendations ------------------------------
     function renderSuggestions() {
         // Find 4 products to recommend
         const inCartIds = cart.map(i => i.id);
@@ -791,9 +795,9 @@
                 </h3>
                 <div class="flex items-center gap-2 mt-2">
                     ${hasSale
-                        ? `<span class="text-[#C0392B] font-bold text-sm">₦${p.price.toLocaleString('en-NG')}</span>
-                           <span class="line-through text-outline text-xs">₦${p.originalPrice.toLocaleString('en-NG')}</span>`
-                        : `<span class="text-primary text-sm font-semibold">₦${p.price.toLocaleString('en-NG')}</span>`
+                        ? `<span class="text-[#C0392B] font-bold text-sm">?${p.price.toLocaleString('en-NG')}</span>
+                           <span class="line-through text-outline text-xs">?${p.originalPrice.toLocaleString('en-NG')}</span>`
+                        : `<span class="text-primary text-sm font-semibold">?${p.price.toLocaleString('en-NG')}</span>`
                     }
                 </div>
             </div>`;
@@ -825,7 +829,7 @@
         renderSuggestions();
     }
 
-    // ─── Toggles & Accordions ─────────────────────────────────
+    // --- Toggles & Accordions ---------------------------------
     function toggleSearchOverlay(show) {
         const el = document.getElementById('search-overlay');
         show ? (el.classList.remove('opacity-0','invisible'), el.classList.add('opacity-100'))
@@ -843,7 +847,7 @@
         el.classList.toggle('flex');
     }
 
-    // ─── Init ─────────────────────────────────────────────────
+    // --- Init -------------------------------------------------
     document.addEventListener('DOMContentLoaded', async () => {
         const localCart = (() => { try { return JSON.parse(localStorage.getItem('j_o_cart') || '[]'); } catch(e) { return []; } })();
         const dbCart    = await JO.loadCart();
@@ -860,11 +864,13 @@
         renderSuggestions();
     });
     </script>
-    <script src="../js/conversion.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/logo.js"></script>
-    <script src="../js/live.js"></script>
+    <script src="/js/conversion.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/logo.js"></script>
+    <script src="/js/live.js"></script>
 </body>
 </html>
+
+
 
 
