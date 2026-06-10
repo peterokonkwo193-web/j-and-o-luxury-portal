@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>J &amp; O | The Editorial — Fashion Journal</title>
+    <meta name="description" content="The J &amp; O Editorial — fashion stories, style guides, and curation from our atelier team."/>
+    <link rel="stylesheet" href="../global.css"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/supabase-sync.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#1b1c1c","outline": "#747878","on-background": "#1b1c1c","surface": "#fbf9f9","surface-dim": "#dbdad9","secondary": "#775a19","on-primary": "#ffffff","secondary-container": "#fed488","outline-variant": "#c4c7c7","primary": "#000000","surface-container-highest": "#e3e2e2","error": "#ba1a1a","surface-container-high": "#e9e8e7","surface-bright": "#fbf9f9","surface-container-low": "#f5f3f3","on-surface-variant": "#444748","surface-container": "#efeded","gold": "#C5A059"
+                    },
+                    spacing: {"gutter": "32px","container-max": "1440px","margin-desktop": "80px","margin-mobile": "20px"},
+                    fontFamily: {"body-md": ["Montserrat"],"label-caps": ["Montserrat"]},
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; font-size: 22px; }
+        h1,h2,h3,h4,h5,.font-serif { font-family: 'Playfair Display', serif !important; }
+        body,button,a,span,input,select,textarea,label { font-family: 'Montserrat', sans-serif; }
+        * { border-radius: 0 !important; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .transition-slow { transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-img { overflow: hidden; }
+        .article-img img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-img:hover img { transform: scale(1.05); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-in { animation: fadeInUp 0.8s ease forwards; }
+        .filter-tab.active { border-bottom: 2px solid #C5A059; color: #C5A059; }
+        .article-card { transition: opacity 0.4s ease, transform 0.4s ease; }
+        .article-card.hidden-card { opacity: 0; pointer-events: none; height: 0; overflow: hidden; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-surface overflow-x-hidden">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; THE J &amp; O JOURNAL — NEW EDITORIAL DROPS WEEKLY
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <header class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-[100] border-b border-outline-variant transition-all duration-300">
+        <nav class="grid items-center px-5 md:px-[80px] h-20 max-w-[1440px] mx-auto" style="grid-template-columns: 1fr auto 1fr;">
+
+            <!-- Column 1: Left nav + mobile toggle -->
+            <div class="flex items-center">
+                <div class="hidden lg:flex items-center gap-6">
+                <a class="font-label-caps text-[12px] tracking-[0.15em] font-semibold text-on-surface-variant hover:text-gold transition-colors duration-300" href="../j_o_luxury_boutique_home/">Home</a>
+
+                <!-- Mega Menu Trigger -->
+                <div class="relative group py-6">
+                    <a class="font-label-caps text-[12px] tracking-[0.15em] font-semibold text-on-surface-variant hover:text-gold transition-colors duration-300 cursor-pointer flex items-center gap-1" href="../shop_all_collections/">
+                        Shop <span class="material-symbols-outlined text-[14px]">expand_more</span>
+                    </a>
+                    <!-- Mega Menu Dropdown -->
+                    <div class="absolute top-[100%] left-0 w-[100vw] -translate-x-[calc((100vw-100%)/2)] bg-surface border-b border-outline-variant shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-[1000] py-12 px-[80px]">
+                        <div class="max-w-[1440px] mx-auto grid grid-cols-8 gap-[32px] text-left">
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors font-semibold text-gold" href="../new_in_collections/">New Arrivals ↗</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses &amp; Knits</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Coats &amp; Jackets</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Denim &amp; Casual</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">SHOES</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Heels &amp; Pumps</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Boots</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Sandals</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Loafers</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">BAGS</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Totes &amp; Shoulders</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Clutches</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Crossbody</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Travel Bag</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">WATCHES &amp; JEWELRY</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../the_watch_collection/">Luxury Watches</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Fine Rings</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Necklaces &amp; Chains</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Bracelets</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">ACCESSORIES</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Belts &amp; Scarves</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Sunglasses</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Small Leather Goods</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">BEAUTY</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Fragrances</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Skincare Edits</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Candles</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">LIFESTYLE</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Art Books</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Home Objects</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Travel Goods</a></li>
+                                </ul>
+                            </div>
+                            <div class="bg-surface-container p-6 border border-outline-variant flex flex-col justify-between">
+                                <div>
+                                    <h5 class="font-serif italic text-lg text-primary mb-2">Gift Card</h5>
+                                    <p class="text-[11px] text-on-surface-variant mb-4">Give the gift of pure sartorial choice.</p>
+                                </div>
+                                <a class="bg-primary text-white text-[10px] tracking-wider py-2 text-center hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="font-label-caps text-[12px] tracking-[0.15em] font-semibold text-on-surface-variant hover:text-gold transition-colors duration-300" href="../new_in_collections/">New In</a>
+                <a class="font-label-caps text-[12px] tracking-[0.15em] font-semibold text-[#C0392B] hover:opacity-70 transition-opacity duration-300" href="../sale_collections/">Sale</a>
+                </div>
+                <div class="lg:hidden">
+                    <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleMobileDrawer(true)">
+                        <span class="material-symbols-outlined text-[24px]">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <div class="flex justify-center items-center">
+                <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+            </div>
+
+            <!-- Column 3: Right icons -->
+            <div class="flex items-center gap-2 md:gap-4 justify-end">
+                <!-- About & Contact -->
+                <div class="hidden lg:flex items-center gap-5 pr-4 mr-1 border-r border-outline-variant">
+                    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
+                    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
+                </div>
+
+                <button class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group" onclick="toggleSearchOverlay(true)">
+                    <span class="material-symbols-outlined">search</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                <a href="../my_wishlist/" class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    <span id="wishlist-badge" class="absolute top-[2px] right-[2px] bg-gold text-primary font-bold text-[8px] w-4 h-4 flex items-center justify-center hidden">0</span>
+                </a>
+                <button class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group" onclick="toggleCartPanel(true)">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    <span id="cart-badge" class="absolute top-[2px] right-[2px] bg-gold text-primary font-bold text-[8px] w-4 h-4 flex items-center justify-center">0</span>
+                </button>
+                <!-- THE EDITORIAL — Active -->
+                <div class="hidden xl:flex items-center border-l border-outline-variant pl-4 ml-2">
+                    <a class="font-label-caps text-[10px] tracking-widest text-gold border-b border-gold pb-[1px]" href="../j_o_editorial/">THE EDITORIAL</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEARCH OVERLAY -->
+    <div id="search-overlay" class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-md opacity-0 invisible transition-all duration-300 flex items-center justify-center p-8">
+        <button class="absolute top-8 right-8 text-[#FBFBF9] hover:text-gold transition-colors" onclick="toggleSearchOverlay(false)">
+            <span class="material-symbols-outlined text-[36px]">close</span>
+        </button>
+        <div class="w-full max-w-2xl text-center space-y-6">
+            <h3 class="font-serif italic text-4xl text-[#FBFBF9]">What are you looking for?</h3>
+            <div class="relative border-b border-[#FBFBF9] pb-2">
+                <input id="search-input" type="text" placeholder="Search the collection..." class="w-full bg-transparent border-none text-[#FBFBF9] placeholder:text-outline-variant focus:ring-0 text-xl font-light pr-12 pl-0 py-2"/>
+                <span class="material-symbols-outlined text-[#FBFBF9] absolute right-2 top-1/2 -translate-y-1/2 text-[28px]">search</span>
+            </div>
+            <div id="search-results-panel" class="mt-8 text-left w-full max-h-[350px] overflow-y-auto hidden space-y-4 bg-primary/95 border border-gold/20 p-6"></div>
+            <div id="search-suggestions" class="flex flex-wrap justify-center gap-4 text-[11px] font-label-caps text-outline-variant">
+                <span>SUGGESTIONS:</span>
+                <a class="text-[#FBFBF9] hover:text-gold transition-colors underline" href="../shop_all_collections/">Trench Coat</a>
+                <a class="text-[#FBFBF9] hover:text-gold transition-colors underline" href="../shop_all_collections/">Midi Dress</a>
+                <a class="text-[#FBFBF9] hover:text-gold transition-colors underline" href="../the_watch_collection/">Chronometer</a>
+                <a class="text-[#FBFBF9] hover:text-gold transition-colors underline" href="../shop_all_collections/">Calfskin Saddle Bag</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER -->
+    <div id="wishlist-drawer" class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleWishlistDrawer(false)"></div>
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-[450px] bg-surface shadow-2xl p-5 md:p-8 flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-6 mb-6">
+                <h3 class="font-serif text-2xl font-bold uppercase tracking-wider text-primary">YOUR WISHLIST</h3>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleWishlistDrawer(false)">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div id="wishlist-items-container" class="flex-grow overflow-y-auto space-y-6">
+                <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                    <span class="material-symbols-outlined text-[48px]">favorite</span>
+                    <p class="font-serif italic text-lg">Your wishlist is empty</p>
+                    <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">EXPLORE CATALOG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div id="cart-panel" class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleCartPanel(false)"></div>
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-[450px] bg-surface shadow-2xl p-5 md:p-8 flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-6 mb-6">
+                <h3 class="font-serif text-2xl font-bold uppercase tracking-wider text-primary">YOUR BAG (<span id="cart-drawer-count">0</span>)</h3>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleCartPanel(false)">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div id="cart-items-container" class="flex-grow overflow-y-auto space-y-6">
+                <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                    <span class="material-symbols-outlined text-[48px]">shopping_bag</span>
+                    <p class="font-serif italic text-lg">Your bag is currently empty</p>
+                    <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP COLLECTION</a>
+                </div>
+            </div>
+            <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
+                <div class="flex justify-between items-end">
+                    <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
+                <div class="space-y-3">
+                    <div class="grid grid-cols-2 gap-2">
+                        <a class="bg-primary text-white text-center py-4 font-label-caps text-[10px] tracking-widest hover:bg-gold hover:text-primary transition-all duration-300" href="../bag_secure_checkout/">CHECKOUT</a>
+                        <a class="bg-white border border-primary text-primary text-center py-4 font-label-caps text-[10px] tracking-widest hover:bg-surface-container transition-all duration-300" href="../shopping_bag/">VIEW BAG</a>
+                    </div>
+                    <button class="w-full border border-outline-variant/60 py-3 font-label-caps text-[10px] tracking-[0.2em] hover:bg-surface-container transition-all duration-300" onclick="toggleCartPanel(false)">CONTINUE SHOPPING</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mobile-drawer" class="fixed inset-0 z-[160] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleMobileDrawer(false)"></div>
+        <div class="fixed left-0 top-0 bottom-0 w-full max-w-[320px] bg-surface p-6 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-4 mb-6">
+                <a class="font-serif text-2xl font-bold tracking-[0.2em]" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleMobileDrawer(false)">
+                    <span class="material-symbols-outlined text-[24px]">close</span>
+                </button>
+            </div>
+            <div class="flex-grow overflow-y-auto space-y-1 text-left">
+                <div class="flex flex-col gap-0 text-sm font-label-caps text-primary">
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../j_o_luxury_boutique_home/">Home</a>
+                    <div class="border-b border-outline-variant/30 py-3">
+                        <button class="w-full flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion('mobile-shop-accordion')">
+                            <span>Shop</span>
+                            <span id="accordion-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="mobile-shop-accordion" class="hidden pl-4 pr-2 pt-3 flex-col gap-3 text-xs text-on-surface-variant font-medium">
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Clothing</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Shoes</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Bags</a>
+                            <a class="hover:text-gold block py-1" href="../the_watch_collection/">Watches &amp; Jewelry</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Accessories</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Beauty</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
+                        </div>
+                    </div>
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 text-gold font-bold block" href="../new_in_collections/">New In</a>
+                    <a class="hover:opacity-70 py-3 border-b border-outline-variant/30 text-[#C0392B] font-bold block" href="../sale_collections/">Sale</a>
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../my_wishlist/">My Wishlist</a>
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../our_story_j_o/">About</a>
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../concierge_faq/">Contact</a>
+                    <a class="text-gold font-bold border-b-2 border-gold py-3 block" href="../j_o_editorial/">The Editorial ✦</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================================================ -->
+    <main>
+
+        <!-- 1. HERO SECTION -->
+        <section class="relative flex items-end justify-start bg-primary overflow-hidden" style="height:70vh; min-height:480px;">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80" alt="The J &amp; O Editorial" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-slow"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+
+            <div class="relative z-10 px-5 md:px-[80px] max-w-[1440px] mx-auto pb-16 md:pb-24 w-full">
+                <div class="max-w-3xl animate-in">
+                    <p class="font-label-caps text-[10px] tracking-[0.35em] text-gold mb-5 block">THE J &amp; O JOURNAL — ISSUE 12 — AUTUMN 2026</p>
+                    <h1 class="font-serif text-[52px] md:text-[80px] lg:text-[96px] text-white font-normal leading-none tracking-tight mb-6">The Language<br/>of Luxury</h1>
+                    <p class="font-serif italic text-lg md:text-xl text-[#c4c7c7] mb-6 max-w-xl">A deep dive into the aesthetic vocabulary of contemporary high fashion</p>
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-6 h-[1px] bg-gold"></div>
+                        <span class="font-label-caps text-[10px] tracking-[0.2em] text-[#c4c7c7]">By the J &amp; O Atelier Team</span>
+                        <span class="text-gold text-[10px]">•</span>
+                        <span class="font-label-caps text-[10px] tracking-[0.2em] text-[#c4c7c7]">June 2026</span>
+                    </div>
+                    <a href="#featured-article" class="inline-block bg-transparent border border-white text-white font-label-caps text-[10px] tracking-[0.25em] px-10 py-4 hover:bg-white hover:text-primary transition-all duration-300">
+                        READ THE FEATURE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. CATEGORIES FILTER STRIP -->
+        <section class="border-b border-outline-variant bg-surface sticky top-20 z-50">
+            <div class="max-w-[1440px] mx-auto px-5 md:px-[80px]">
+                <div class="flex overflow-x-auto hide-scrollbar gap-0">
+                    <button data-filter="all" onclick="filterArticles('all')" class="filter-tab active font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-primary border-b-2 border-gold transition-all duration-200 flex-shrink-0">ALL</button>
+                    <button data-filter="STYLE GUIDES" onclick="filterArticles('STYLE GUIDES')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">STYLE GUIDES</button>
+                    <button data-filter="COLLECTIONS" onclick="filterArticles('COLLECTIONS')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">COLLECTIONS</button>
+                    <button data-filter="CRAFTSMANSHIP" onclick="filterArticles('CRAFTSMANSHIP')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">CRAFTSMANSHIP</button>
+                    <button data-filter="BEAUTY & FRAGRANCE" onclick="filterArticles('BEAUTY & FRAGRANCE')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">BEAUTY &amp; FRAGRANCE</button>
+                    <button data-filter="TRAVEL" onclick="filterArticles('TRAVEL')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">TRAVEL</button>
+                    <button data-filter="CULTURE" onclick="filterArticles('CULTURE')" class="filter-tab font-label-caps text-[10px] tracking-[0.2em] py-5 px-6 whitespace-nowrap text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all duration-200 flex-shrink-0">CULTURE</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FEATURED ARTICLE -->
+        <section id="featured-article" class="py-20 md:py-28 px-5 md:px-[80px] max-w-[1440px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-outline-variant article-card" data-category="STYLE GUIDES">
+                <!-- Left: Image -->
+                <div class="article-img aspect-[4/3] lg:aspect-auto lg:h-full min-h-[420px]">
+                    <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=1200&q=80" alt="The Oversized Silhouette" class="w-full h-full object-cover"/>
+                </div>
+                <!-- Right: Content -->
+                <div class="flex flex-col justify-center p-10 md:p-16 bg-white">
+                    <div class="mb-4">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">STYLE GUIDE</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-gold mb-8"></div>
+                    <h2 class="font-serif text-3xl md:text-4xl lg:text-[42px] text-primary leading-tight mb-6 font-normal">The Oversized Silhouette: Architecture as Clothing</h2>
+                    <p class="text-on-surface-variant text-sm leading-relaxed mb-4 font-light">Oversized tailoring has become the defining aesthetic signature of this decade — a quiet revolution in the geometry of dressing. At J &amp; O, the philosophy begins not with fabric but with space: the calculated emptiness between body and garment that creates presence, shadow, and movement.</p>
+                    <p class="text-on-surface-variant text-sm leading-relaxed mb-8 font-light">Our atelier's approach to structured volume is rooted in a dialogue between sculptor and material — the shoulder that extends beyond the bone, the sleeve that breaks at precisely the right moment, the back that flows like a curtain. This is clothing as architecture.</p>
+                    <div class="flex flex-wrap items-center gap-4 mb-10">
+                        <span class="font-label-caps text-[10px] text-outline tracking-widest">6 MIN READ</span>
+                        <span class="text-gold text-[10px]">•</span>
+                        <span class="font-label-caps text-[10px] text-outline tracking-widest">J &amp; O ATELIER TEAM</span>
+                        <span class="text-gold text-[10px]">•</span>
+                        <span class="font-label-caps text-[10px] text-outline tracking-widest">JUNE 2026</span>
+                    </div>
+                    <a href="#" class="group inline-flex items-center gap-3 font-label-caps text-[11px] tracking-[0.25em] text-primary hover:text-gold transition-colors duration-300">
+                        READ FULL ARTICLE
+                        <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL DIVIDER LINE -->
+        <div class="max-w-[1440px] mx-auto px-5 md:px-[80px]">
+            <div class="flex items-center gap-6 mb-20">
+                <div class="flex-1 h-[1px] bg-outline-variant"></div>
+                <span class="font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant whitespace-nowrap">THE J &amp; O JOURNAL</span>
+                <div class="flex-1 h-[1px] bg-outline-variant"></div>
+            </div>
+        </div>
+
+        <!-- 4. ARTICLE GRID -->
+        <section class="px-5 md:px-[80px] max-w-[1440px] mx-auto pb-24">
+            <div id="article-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+
+                <!-- Article 1: CRAFTSMANSHIP -->
+                <article class="article-card group cursor-pointer" data-category="CRAFTSMANSHIP">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80" alt="Inside the Atelier" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">CRAFTSMANSHIP</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">Inside the Atelier: The Making of a J &amp; O Coat</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">How a single overcoat requires 47 individual steps, 12 artisans, and 60 hours of meticulous handwork before it leaves our Florence workshop.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">4 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">ATELIER TEAM</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">MAY 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2: COLLECTIONS -->
+                <article class="article-card group cursor-pointer" data-category="COLLECTIONS">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="The New Season Dress Edit" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">COLLECTIONS</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">The New Season Dress Edit: 8 Silhouettes Defined</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">From the sculptural bias-cut slip to the architectural box pleat — our curation team breaks down the eight dress forms that matter this season.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">5 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">STYLING DESK</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">APR 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3: STYLE GUIDES -->
+                <article class="article-card group cursor-pointer" data-category="STYLE GUIDES">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="The Gentleman's Watch" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">STYLE GUIDES</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">The Gentleman's Watch: A Considered Guide</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">Movement, dial, complication — understanding what to look for when investing in a timepiece that will outlast you.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">7 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">HOROLOGY DESK</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">MAR 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4: BEAUTY & FRAGRANCE -->
+                <article class="article-card group cursor-pointer" data-category="BEAUTY & FRAGRANCE">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80" alt="The Olfactory Edit" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">BEAUTY &amp; FRAGRANCE</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">The Olfactory Edit: Fragrances for the Modern Connoisseur</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">Scent is memory, character, and presence. Our perfumers explain the architecture of a truly exceptional fragrance.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">5 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">BEAUTY EDITOR</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">MAR 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5: CRAFTSMANSHIP -->
+                <article class="article-card group cursor-pointer" data-category="CRAFTSMANSHIP">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80" alt="Leather Grain Gold" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">CRAFTSMANSHIP</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">Leather, Grain &amp; Gold: The Anatomy of a Luxury Bag</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">Full-grain vs. top-grain, bridle leather vs. calf — how the materials inside our bags define the value outside them.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">6 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">LEATHER GOODS EDITOR</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">FEB 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6: CULTURE -->
+                <article class="article-card group cursor-pointer" data-category="CULTURE">
+                    <div class="article-img aspect-[3/2] mb-6">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Paris Milan London" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="font-label-caps text-[10px] tracking-[0.3em] text-gold">CULTURE</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-primary leading-snug font-normal group-hover:text-gold transition-colors duration-300">Paris, Milan, London: The Three Capitals of Luxury</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light line-clamp-2">Each city speaks a different aesthetic language. We explore what each fashion capital contributes to the vocabulary of modern luxury.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">8 MIN READ</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">CULTURE DESK</span>
+                            <span class="text-gold text-[9px]">•</span>
+                            <span class="font-label-caps text-[9px] text-outline tracking-widest">JAN 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- No results message -->
+            <div id="no-results" class="hidden text-center py-24 space-y-4">
+                <p class="font-serif italic text-2xl text-on-surface-variant">No articles in this category yet.</p>
+                <button onclick="filterArticles('all')" class="font-label-caps text-[10px] tracking-widest text-gold hover:text-primary transition-colors underline">VIEW ALL ARTICLES</button>
+            </div>
+        </section>
+
+        <!-- 5. EDITORIAL PULL QUOTE -->
+        <section class="bg-primary text-white py-28 px-5 md:px-[80px]">
+            <div class="max-w-3xl mx-auto text-center space-y-8">
+                <span class="font-label-caps text-[10px] tracking-[0.4em] text-gold block">THE J &amp; O PHILOSOPHY</span>
+                <div class="w-16 h-[1px] bg-gold mx-auto"></div>
+                <blockquote class="font-serif italic text-2xl md:text-3xl lg:text-4xl text-white leading-relaxed font-normal">
+                    "Luxury is not about what you can see, but what you can feel. The weight of fine wool, the silence of well-oiled leather, the precision of a hand-set diamond — these are the true signatures of excellence."
+                </blockquote>
+                <div class="w-16 h-[1px] bg-gold mx-auto"></div>
+                <p class="font-label-caps text-[10px] tracking-[0.3em] text-[#c4c7c7]">— Jessica Okafor, Founder &amp; Creative Director</p>
+            </div>
+        </section>
+
+        <!-- 6. STYLE GUIDE SPOTLIGHT — THE CAPSULE WARDROBE -->
+        <section class="py-24 md:py-32 px-5 md:px-[80px] max-w-[1440px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+                <!-- Left: Capsule List -->
+                <div class="space-y-8">
+                    <div>
+                        <p class="font-label-caps text-[10px] tracking-[0.35em] text-gold mb-4">STYLE GUIDE</p>
+                        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-primary font-normal leading-tight mb-6">The J &amp; O Capsule Wardrobe</h2>
+                        <div class="w-12 h-[1px] bg-gold mb-6"></div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed font-light">A true capsule wardrobe is not a constraint — it is a vocabulary. Eight carefully chosen archetypes that work in symphony, allowing infinite combinations from a foundation of unwavering quality. Each piece selected for longevity, versatility, and the quiet confidence it imparts.</p>
+                    </div>
+
+                    <ol class="space-y-0 border-t border-outline-variant">
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">1.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">The Perfect Trench</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Weather-resistant gabardine, belted, in camel or ivory. The cornerstone of every considered wardrobe.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">2.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">A Tailored Blazer</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Structured shoulders, clean lapels. The piece that elevates everything beneath it.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">3.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">Silk Blouse</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">100% Mulberry silk, fluid and luminous. Worn loose or tucked, it speaks in the language of ease.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">4.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">Wide-Leg Trouser</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Fluid, high-waisted, in Italian crepe or pressed wool. Effortlessly commanding in any room.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">5.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">Little Black Dress</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">The form that renders all occasion irrelevant. Invest once; wear for decades.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">6.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">Cashmere Roll Neck</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Grade A Mongolian cashmere, fine gauge. The quiet luxury statement for every season.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">7.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">Leather Chelsea Boots</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Full-grain calf leather, Goodyear welt, stacked heel. The shoe that completes every silhouette.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5 py-5 border-b border-outline-variant group">
+                            <span class="font-serif text-2xl text-gold font-normal leading-none mt-1 flex-shrink-0 w-8">8.</span>
+                            <div>
+                                <h4 class="font-serif text-base text-primary font-normal group-hover:text-gold transition-colors duration-300">The Structured Tote</h4>
+                                <p class="text-[11px] text-on-surface-variant font-light mt-1">Hand-tanned calfskin, architectural form, gold hardware. The arm-piece that announces your presence before you speak.</p>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <a href="../shop_all_collections/" class="inline-flex items-center gap-3 font-label-caps text-[11px] tracking-[0.25em] text-primary border border-primary py-4 px-8 hover:bg-primary hover:text-white transition-all duration-300 group">
+                        SHOP THE CAPSULE
+                        <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                </div>
+
+                <!-- Right: Image with editorial overlay -->
+                <div class="relative">
+                    <div class="article-img aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80" alt="The J&amp;O Capsule Wardrobe" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8">
+                        <p class="font-label-caps text-[9px] tracking-[0.35em] text-gold mb-2">J &amp; O ATELIER</p>
+                        <p class="font-serif italic text-white text-lg leading-tight">"Eight pieces. Infinite stories."</p>
+                    </div>
+                    <!-- Decorative gold border accent -->
+                    <div class="absolute -bottom-4 -right-4 w-full h-full border border-gold/30 -z-10"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. NEWSLETTER SECTION -->
+        <section class="bg-surface-container-low border-t border-outline-variant py-28 px-5 md:px-[80px] relative overflow-hidden">
+            <!-- Subtle dot texture -->
+            <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.07] pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-2xl mx-auto text-center space-y-8">
+                <p class="font-label-caps text-[10px] tracking-[0.4em] text-gold">THE J &amp; O JOURNAL</p>
+                <h2 class="font-serif text-3xl md:text-5xl text-primary font-normal leading-tight">Receive the Edit</h2>
+                <div class="w-12 h-[1px] bg-gold mx-auto"></div>
+                <p class="text-on-surface-variant text-sm leading-relaxed font-light max-w-lg mx-auto">
+                    Be first to receive new editorial features, private collection previews, and exclusive styling notes from our atelier. An intimate correspondence for the considered few.
+                </p>
+
+                <form id="editorial-newsletter-form" onsubmit="handleEditorialNewsletter(event)" class="flex flex-col sm:flex-row items-end max-w-md mx-auto border-b border-primary pb-2 gap-3 pt-4">
+                    <input type="email" required placeholder="Your email address" class="bg-transparent border-none focus:ring-0 w-full placeholder:text-outline text-sm font-light tracking-wider text-primary pb-2"/>
+                    <button type="submit" id="newsletter-btn" class="font-label-caps text-[11px] tracking-[0.25em] font-bold text-primary hover:text-gold transition-colors duration-300 pb-2 flex-shrink-0 focus:outline-none">
+                        SUBSCRIBE
+                    </button>
+                </form>
+                <p class="text-[10px] text-on-surface-variant font-light">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-[#FBFBF9] py-24 border-t border-outline-variant/10">
+        <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-[32px]">
+
+            <!-- Column 1: Brand Info -->
+            <div class="lg:col-span-4 space-y-8 text-left">
+                <a class="font-serif text-3xl font-bold tracking-[0.2em] text-[#FBFBF9] block" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+                <p class="text-xs text-outline-variant font-light leading-relaxed max-w-xs uppercase tracking-wider">
+                    "Where Style Meets Elegance"<br/>
+                    Curating high-end clothing, timepieces, bags, and luxury design lifestyle edits for the modern connoisseur.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">public</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">camera</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">chat_bubble</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Shop -->
+            <div class="lg:col-span-2 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">SHOP</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=clothing">Clothing</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=shoes">Shoes</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=bags">Bags</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../the_watch_collection/">Watches</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=jewelry">Jewelry</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Service -->
+            <div class="lg:col-span-3 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">CUSTOMER SERVICE</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">White-Glove Shipping</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Returns &amp; Exchanges</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Private Appointments</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: The Brand -->
+            <div class="lg:col-span-3 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">THE BRAND</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block" href="../our_story_j_o/">Our Heritage Story</a></li>
+                    <li><a class="text-gold font-semibold block" href="../j_o_editorial/">Editorial Journal ✦</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="#">Size Guide</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../our_story_j_o/">Press Room</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
+            <div class="text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
+                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span>
+                    <span>•</span>
+                    <span class="text-outline-variant">PCI-DSS COMPLIANT</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3 justify-center text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/70">
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">VISA</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">MASTERCARD</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">PAYPAL</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">APPLE PAY</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================================================ -->
+    <script>
+        // ── State ──────────────────────────────────────────────────
+        let cartItems = [];
+        let wishlistItems = [];
+
+        // ── Product Database (same 12 products as homepage) ────────
+        const PRODUCT_DATABASE = [
+            { id: 1,  name: "Sculpted Midi Dress",          brand: "J & O ATELIER",   category: "Clothing",          price: 450.00,  img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L"],          colors: ["Beige","White"],   rating: 5, reviews: 18, stock: 8,  desc: "A beautifully sculpted midi dress in premium cotton jersey.", details: ["100% Organic Cotton","Made in France"] },
+            { id: 2,  name: "Oversized Wool Blazer",        brand: "J & O ATELIER",   category: "Clothing",          price: 890.00,  img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M","L","XL"],colors: ["Black","Grey"],    rating: 5, reviews: 32, stock: 3,  desc: "Classic double-breasted oversized jacket in cold-pressed virgin wool.", details: ["100% Virgin Wool","Made in Italy"] },
+            { id: 3,  name: "The Sculptural Tote",          brand: "J & O BAGS",      category: "Bags",              price: 1200.00, img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Beige","Brown"],   rating: 5, reviews: 24, stock: 10, desc: "An architectural trapezoidal handbag made from hand-tanned calfskin leather.", details: ["Full Grain Calfskin","Made in Florence"] },
+            { id: 4,  name: "Helix Gold Chain",             brand: "J & O JEWELRY",   category: "Jewelry",           price: 320.00,  img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold"],            rating: 4, reviews: 15, stock: 15, desc: "A solid 18k gold-plated helix link chain.", details: ["18k Gold Plated Brass"] },
+            { id: 5,  name: "The Grand Chronograph Noir",   brand: "J & O HOROLOGY",  category: "Watches",           price: 4250.00, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200",  link: "../the_watch_collection/",     sizes: ["One Size"],           colors: ["Black"],           rating: 5, reviews: 47, stock: 2,  desc: "A masterclass in horological minimalism.", details: ["Automatic mechanism","Sapphire case back"] },
+            { id: 6,  name: "Calfskin Saddle Bag",          brand: "J & O BAGS",      category: "Bags",              price: 1850.00, img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200",    link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Brown","Black"],   rating: 5, reviews: 19, stock: 6,  desc: "Classic equestrian-inspired saddle handbag.", details: ["Vegetable-tanned leather"] },
+            { id: 7,  name: "Silk Utility Shirt",           brand: "J & O ATELIER",   category: "Clothing",          price: 390.00,  img: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M","L"],     colors: ["White","Beige"],   rating: 4, reviews: 12, stock: 12, desc: "Fluid Mulberry silk shirt.", details: ["100% Mulberry Silk","Made in Switzerland"] },
+            { id: 8,  name: "Diamond Pave Hoop Rings",      brand: "J & O JEWELRY",   category: "Jewelry",           price: 1450.00, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold","White"],    rating: 5, reviews: 8,  stock: 4,  desc: "Stunning 14k solid gold hoop rings adorned with fine pave diamonds.", details: ["14k Solid Yellow Gold"] },
+            { id: 9,  name: "Minimalist Trench Coat",       brand: "J & O ATELIER",   category: "Clothing",          price: 1890.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L","XL"],     colors: ["Beige","Black"],   rating: 5, reviews: 22, stock: 5,  desc: "Signature double-breasted trench in weather-resistant gabardine canvas.", details: ["Premium Cotton Gabardine","Made in England"] },
+            { id: 10, name: "L'Artiste Silk Slip",          brand: "J & O ATELIER",   category: "Clothing",          price: 850.00,  img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M"],         colors: ["Grey","Black"],    rating: 4, reviews: 14, stock: 7,  desc: "An elegant slip dress made of double-weight satin silk.", details: ["100% Silk Satin"] },
+            { id: 11, name: "Archival Leather Chelsea Boot",brand: "J & O SHOES",     category: "Shoes",             price: 1200.00, img: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L"],          colors: ["Black","Brown"],   rating: 5, reviews: 38, stock: 3,  desc: "Sleek Chelsea boots crafted in full-grain calfskin.", details: ["100% Italian Calf Leather","Made in Spain"] },
+            { id: 12, name: "Luxury Amber Fragrance",       brand: "J & O BEAUTY",    category: "Beauty & Fragrance",price: 240.00,  img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold"],            rating: 4, reviews: 9,  stock: 14, desc: "An intense amber, sandalwood, and floral musk elixir.", details: ["Eau de Parfum 100ML"] }
+        ];
+
+        // ── Data Load ───────────────────────────────────────────────
+        (async () => {
+            try {
+                const [dbCart, dbWish] = await Promise.all([JO.loadCart(), JO.loadWishlist()]);
+                const localCart = (() => { try { return JSON.parse(localStorage.getItem('j_o_cart') || '[]'); } catch(e) { return []; } })();
+                const localWish = (() => { try { return JSON.parse(localStorage.getItem('j_o_wishlist') || '[]'); } catch(e) { return []; } })();
+                cartItems     = (dbCart && dbCart.length >= localCart.length) ? dbCart : localCart;
+                wishlistItems = (dbWish && dbWish.length >= localWish.length) ? dbWish : localWish;
+                localStorage.setItem('j_o_cart',     JSON.stringify(cartItems));
+                localStorage.setItem('j_o_wishlist', JSON.stringify(wishlistItems));
+            } catch(e) {
+                cartItems     = (() => { try { return JSON.parse(localStorage.getItem('j_o_cart') || '[]'); } catch(e) { return []; } })();
+                wishlistItems = (() => { try { return JSON.parse(localStorage.getItem('j_o_wishlist') || '[]'); } catch(e) { return []; } })();
+            }
+            updateCartUI();
+            updateWishlistUI();
+        })();
+
+        // ── Cart Functions ──────────────────────────────────────────
+        function addToCart(name, price, img) {
+            const existing = cartItems.find(item => item.name === name);
+            if (existing) { existing.quantity += 1; }
+            else { cartItems.push({ name, price, img, quantity: 1 }); }
+            localStorage.setItem('j_o_cart', JSON.stringify(cartItems));
+            JO.syncCart(cartItems);
+            updateCartUI();
+            toggleCartPanel(true);
+        }
+
+        function removeFromCart(name) {
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem('j_o_cart', JSON.stringify(cartItems));
+            JO.syncCart(cartItems);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countBadge   = document.getElementById('cart-badge');
+            const drawerCount  = document.getElementById('cart-drawer-count');
+            const container    = document.getElementById('cart-items-container');
+            const summaryBlock = document.getElementById('cart-summary-block');
+            const subtotalText = document.getElementById('cart-subtotal');
+            const totalCount   = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+            if (countBadge)  countBadge.innerText  = totalCount;
+            if (drawerCount) drawerCount.innerText = totalCount;
+
+            if (totalCount > 0) {
+                if (summaryBlock) summaryBlock.classList.remove('hidden');
+                let html = '', subtotal = 0;
+                cartItems.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                    html += `
+                        <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4">
+                            <div class="w-16 h-20 bg-surface-container overflow-hidden flex-shrink-0">
+                                <img src="${item.img}" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
+                                <p class="text-xs text-outline mt-1">$${item.price.toFixed(2)} × ${item.quantity}</p>
+                            </div>
+                            <button onclick="removeFromCart('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                        </div>`;
+                });
+                if (container) container.innerHTML = html;
+                if (subtotalText) subtotalText.innerText = `$${subtotal.toFixed(2)}`;
+            } else {
+                if (container) container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                        <span class="material-symbols-outlined text-[48px]">shopping_bag</span>
+                        <p class="font-serif italic text-lg">Your bag is currently empty</p>
+                        <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP COLLECTION</a>
+                    </div>`;
+                if (summaryBlock) summaryBlock.classList.add('hidden');
+            }
+        }
+
+        // ── Wishlist Functions ──────────────────────────────────────
+        function updateWishlistUI() {
+            const badge     = document.getElementById('wishlist-badge');
+            const container = document.getElementById('wishlist-items-container');
+            if (wishlistItems.length > 0) {
+                if (badge) { badge.innerText = wishlistItems.length; badge.classList.remove('hidden'); }
+                let html = '';
+                wishlistItems.forEach(item => {
+                    html += `
+                        <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4">
+                            <div class="w-16 h-20 bg-surface-container overflow-hidden flex-shrink-0">
+                                <img src="${item.img}" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
+                                <p class="text-xs text-gold mt-1">$${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="addToCart('${item.name}',${item.price},'${item.img}');removeFromWishlist('${item.name}')" class="p-2 text-primary hover:text-gold transition-colors">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                </button>
+                                <button onclick="removeFromWishlist('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
+                                    <span class="material-symbols-outlined text-[18px]">close</span>
+                                </button>
+                            </div>
+                        </div>`;
+                });
+                if (container) container.innerHTML = html;
+            } else {
+                if (badge) badge.classList.add('hidden');
+                if (container) container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                        <span class="material-symbols-outlined text-[48px]">favorite</span>
+                        <p class="font-serif italic text-lg">Your wishlist is empty</p>
+                        <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">EXPLORE CATALOG</a>
+                    </div>`;
+            }
+        }
+
+        function removeFromWishlist(name) {
+            wishlistItems = wishlistItems.filter(item => item.name !== name);
+            localStorage.setItem('j_o_wishlist', JSON.stringify(wishlistItems));
+            JO.syncWishlist(wishlistItems);
+            updateWishlistUI();
+        }
+
+        // ── UI Toggles ──────────────────────────────────────────────
+        function toggleSearchOverlay(open) {
+            const el = document.getElementById('search-overlay');
+            if (open) {
+                el.classList.remove('invisible');
+                el.classList.add('opacity-100');
+                setTimeout(() => { const inp = document.getElementById('search-input'); if (inp) inp.focus(); }, 100);
+            } else {
+                el.classList.remove('opacity-100');
+                setTimeout(() => el.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleWishlistDrawer(open) {
+            const drawer = document.getElementById('wishlist-drawer');
+            const inner  = drawer.querySelector('div:last-child');
+            if (open) {
+                drawer.classList.remove('invisible'); drawer.classList.add('opacity-100');
+                inner.classList.remove('translate-x-full');
+            } else {
+                inner.classList.add('translate-x-full');
+                drawer.classList.remove('opacity-100');
+                setTimeout(() => drawer.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleCartPanel(open) {
+            const panel = document.getElementById('cart-panel');
+            const inner = panel.querySelector('div:last-child');
+            if (open) {
+                panel.classList.remove('invisible'); panel.classList.add('opacity-100');
+                inner.classList.remove('translate-x-full');
+            } else {
+                inner.classList.add('translate-x-full');
+                panel.classList.remove('opacity-100');
+                setTimeout(() => panel.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleMobileDrawer(open) {
+            const drawer = document.getElementById('mobile-drawer');
+            const inner  = drawer.querySelector('div:last-child');
+            if (open) {
+                drawer.classList.remove('invisible'); drawer.classList.add('opacity-100');
+                inner.classList.remove('-translate-x-full');
+            } else {
+                inner.classList.add('-translate-x-full');
+                drawer.classList.remove('opacity-100');
+                setTimeout(() => drawer.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const arrow   = document.getElementById('accordion-arrow');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('flex');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('flex');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // ── Live Search ─────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput  = document.getElementById('search-input');
+            const resultsPanel = document.getElementById('search-results-panel');
+            const suggestions  = document.getElementById('search-suggestions');
+
+            if (searchInput && resultsPanel) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.trim().toLowerCase();
+                    if (!query) {
+                        resultsPanel.classList.add('hidden');
+                        resultsPanel.innerHTML = '';
+                        if (suggestions) suggestions.classList.remove('hidden');
+                        return;
+                    }
+                    const matches = PRODUCT_DATABASE.filter(item =>
+                        item.name.toLowerCase().includes(query) ||
+                        item.category.toLowerCase().includes(query) ||
+                        item.brand.toLowerCase().includes(query)
+                    );
+                    resultsPanel.classList.remove('hidden');
+                    if (suggestions) suggestions.classList.add('hidden');
+                    if (matches.length > 0) {
+                        resultsPanel.innerHTML = `
+                            <div class="font-label-caps text-[10px] text-gold tracking-widest uppercase mb-4">MATCHING PIECES</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                ${matches.map(item => `
+                                    <a href="${item.link}" class="flex items-center gap-4 p-3 bg-white/5 border border-outline-variant/10 hover:border-gold/50 transition-colors group">
+                                        <div class="w-12 h-16 bg-surface-container overflow-hidden flex-shrink-0">
+                                            <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+                                        </div>
+                                        <div class="text-left">
+                                            <h4 class="font-serif text-sm font-bold text-[#FBFBF9] group-hover:text-gold transition-colors">${item.name}</h4>
+                                            <p class="text-xs text-outline-variant uppercase tracking-wider mt-1">${item.brand}</p>
+                                            <p class="text-xs text-gold font-semibold mt-0.5">$${item.price.toFixed(2)}</p>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>`;
+                    } else {
+                        resultsPanel.innerHTML = `<div class="text-center text-outline-variant font-light py-4 text-xs">No matching luxury pieces found.</div>`;
+                    }
+                });
+            }
+        });
+
+        // ── Category Filter ─────────────────────────────────────────
+        function filterArticles(category) {
+            // Update tab states
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active', 'text-gold', 'border-gold', 'border-b-2');
+                tab.classList.add('text-on-surface-variant', 'border-transparent');
+            });
+            const activeTab = document.querySelector(`.filter-tab[data-filter="${CSS.escape(category)}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active', 'text-gold', 'border-gold', 'border-b-2');
+                activeTab.classList.remove('text-on-surface-variant', 'border-transparent');
+            }
+
+            const cards     = document.querySelectorAll('.article-card');
+            const noResults = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const shouldShow   = category === 'all' || cardCategory === category;
+                if (shouldShow) {
+                    card.style.display = '';
+                    card.style.opacity = '1';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (noResults) {
+                noResults.classList.toggle('hidden', visibleCount > 0);
+            }
+        }
+
+        // ── Newsletter ──────────────────────────────────────────────
+        async function handleEditorialNewsletter(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input[type="email"]');
+            const btn   = document.getElementById('newsletter-btn');
+            if (!input.value) return;
+            btn.textContent = '...';
+            const error = await JO.saveNewsletter(input.value);
+            if (error && error.code !== '23505') {
+                btn.textContent = 'ERROR';
+                setTimeout(() => btn.textContent = 'SUBSCRIBE', 2000);
+            } else {
+                btn.textContent = '✓ SUBSCRIBED';
+                e.target.reset();
+                setTimeout(() => btn.textContent = 'SUBSCRIBE', 3500);
+            }
+        }
+
+        // Close overlays on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                toggleSearchOverlay(false);
+                toggleCartPanel(false);
+                toggleWishlistDrawer(false);
+                toggleMobileDrawer(false);
+            }
+        });
+    </script>
+    <script src="../js/conversion.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/logo.js"></script>
+    <script src="../js/live.js"></script>
+</body>
+</html>

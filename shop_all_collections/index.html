@@ -1,0 +1,1457 @@
+﻿<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>J & O | Shop All Collections</title>
+    <link rel="stylesheet" href="../global.css"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/supabase-sync.js"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#1b1c1c",
+                        "outline": "#747878",
+                        "on-background": "#1b1c1c",
+                        "inverse-primary": "#c8c6c5",
+                        "surface": "#fbf9f9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-dim": "#dbdad9",
+                        "secondary": "#775a19",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdea5",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-fixed-variant": "#474746",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-primary-container": "#858383",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-container": "#fed488",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-high": "#e9e8e7",
+                        "on-tertiary-fixed-variant": "#474744",
+                        "on-tertiary-container": "#848480",
+                        "tertiary-fixed": "#e4e2dd",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fbf9f9",
+                        "inverse-surface": "#303031",
+                        "tertiary": "#000000",
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-fixed": "#1b1c19",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-fixed": "#261900",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#1b1c19",
+                        "primary-container": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fbf9f9",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-container": "#785a1a",
+                        "surface-container": "#efeded",
+                        "gold": "#C5A059"
+                    },
+                    spacing: {
+                        "gutter": "32px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "label-caps": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "display-lg-mobile": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["80px", {"lineHeight": "96px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 22px;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .transition-slow { transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .transition-editorial { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        .product-image-hover:hover .secondary-image { opacity: 1; }
+        .product-image-hover:hover .primary-image { transform: scale(1.05); }
+
+        /* Global typography & reset handled by global.css */
+        
+        /* Styled checkboxes */
+        input[type="checkbox"] {
+            border-radius: 0px !important;
+            border-color: #747878;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #000;
+            border-color: #000;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+
+    <!-- Top sticky bar notification -->
+    <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 • ATELIER SHIPPING GLOBAL
+    </div>
+
+    <!-- 1. STICKY NAVBAR -->
+    <header class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-[100] border-b border-outline-variant transition-all duration-300">
+        <nav class="grid items-center px-4 md:px-margin-desktop h-16 md:h-20 max-w-container-max mx-auto" style="grid-template-columns: 1fr auto 1fr;">
+            
+            <!-- Column 1: Left nav + mobile toggle -->
+            <div class="flex items-center">
+                <div class="hidden lg:flex items-center gap-6">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../j_o_luxury_boutique_home/">Home</a>
+
+                <!-- Mega Menu Trigger -->
+                <div class="relative group py-6">
+                    <a class="font-label-caps text-label-caps text-gold border-b border-gold pb-[1px] hover:opacity-70 transition-opacity duration-300 cursor-pointer flex items-center gap-1" href="../shop_all_collections/">
+                        Shop <span class="material-symbols-outlined text-[14px]">expand_more</span>
+                    </a>
+                    
+                    <!-- Mega Menu Dropdown -->
+                    <div class="absolute top-[100%] left-0 w-[100vw] -translate-x-[calc((100vw-100%)/2)] bg-surface border-b border-outline-variant shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-[1000] py-12 px-margin-desktop">
+                        <div class="max-w-container-max mx-auto grid grid-cols-8 gap-gutter text-left">
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">CLOTHING</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">New Arrivals</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Dresses & Knits</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Tailoring</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Coats & Jackets</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Denim & Casual</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">SHOES</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Heels & Pumps</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Boots</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Sandals</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Loafers</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">BAGS</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Totes & Shoulders</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Clutches</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Crossbody</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Travel Bag</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">WATCHES & JEWELRY</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../the_watch_collection/">Luxury Watches</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Fine Rings</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Necklaces & Chains</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Bracelets</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">ACCESSORIES</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Belts & Scarves</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Sunglasses</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Small Leather Goods</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">BEAUTY</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Fragrances</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Skincare Edits</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Candles</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[11px] tracking-[0.15em] text-primary mb-6 border-b border-outline-variant pb-2">LIFESTYLE</h4>
+                                <ul class="space-y-3 text-[12px] text-on-surface-variant">
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Art Books</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Home Objects</a></li>
+                                    <li><a class="hover:text-gold transition-colors" href="../shop_all_collections/">Travel Goods</a></li>
+                                </ul>
+                            </div>
+                            <div class="bg-surface-container p-6 border border-outline-variant flex flex-col justify-between">
+                                <div>
+                                    <h5 class="font-serif italic text-lg text-primary mb-2">Gift Card</h5>
+                                    <p class="text-[11px] text-on-surface-variant mb-4">Give the gift of pure sartorial choice.</p>
+                                </div>
+                                <a class="bg-primary text-white text-[10px] tracking-wider py-2 text-center hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../new_in_collections/">New In</a>
+                <a class="font-label-caps text-label-caps text-[#C0392B] hover:opacity-70 transition-opacity duration-300" href="../sale_collections/">Sale</a>
+                </div>
+                <div class="lg:hidden">
+                    <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleMobileDrawer(true)">
+                        <span class="material-symbols-outlined text-[24px]">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <div class="flex justify-center items-center">
+                <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+            </div>
+
+            <!-- Column 3: Right icons -->
+            <div class="flex items-center gap-2 md:gap-4 justify-end">
+                <!-- About & Contact moved here — right of logo -->
+                <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
+                    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
+                    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
+                </div>
+
+                <!-- Search Button -->
+                <button class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group" onclick="toggleSearchOverlay(true)">
+                    <span class="material-symbols-outlined">search</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                
+                <!-- Wishlist Button -->
+                <a href="../my_wishlist/" class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    <span id="wishlist-badge" class="absolute top-[2px] right-[2px] bg-gold text-primary font-bold text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </a>
+                
+                <!-- Cart Button -->
+                <button class="p-2 text-primary hover:text-gold transition-colors duration-300 relative group" onclick="toggleCartPanel(true)">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    <!-- Cart Count Badge -->
+                    <span id="cart-badge" class="absolute top-[2px] right-[2px] bg-gold text-primary font-bold text-[8px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+                
+                <!-- Sister brand link -->
+                <div class="hidden xl:flex items-center border-l border-outline-variant pl-4 ml-2">
+                    <a class="font-label-caps text-[10px] tracking-widest text-on-surface-variant hover:text-gold transition-colors" href="../j_o_editorial/">THE EDITORIAL</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEARCH OVERLAY -->
+    <div id="search-overlay" class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md opacity-0 invisible transition-all duration-300 flex items-center justify-center p-8">
+        <button class="absolute top-8 right-8 text-[#FBFBF9] hover:text-gold transition-colors" onclick="toggleSearchOverlay(false)">
+            <span class="material-symbols-outlined text-[36px]">close</span>
+        </button>
+        <div class="w-full max-w-2xl text-center space-y-8">
+            <h3 class="font-serif italic text-4xl text-[#FBFBF9]">What are you looking for?</h3>
+            <div class="relative border-b border-[#FBFBF9] pb-2">
+                <input id="catalog-search-input" type="text" placeholder="Search the collection..." class="w-full bg-transparent border-none text-[#FBFBF9] placeholder:text-outline-variant focus:ring-0 text-xl font-light pr-12 pl-0 py-2"/>
+                <span class="material-symbols-outlined text-[#FBFBF9] absolute right-2 top-1/2 -translate-y-1/2 text-[28px]">search</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER -->
+    <div id="wishlist-drawer" class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleWishlistDrawer(false)"></div>
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-[450px] bg-surface shadow-2xl p-margin-mobile md:p-8 flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-6 mb-6">
+                <h3 class="font-serif text-2xl font-bold uppercase tracking-wider text-primary">YOUR WISHLIST</h3>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleWishlistDrawer(false)">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div id="wishlist-items-container" class="flex-grow overflow-y-auto space-y-6 scrollbar-thin">
+                <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                    <span class="material-symbols-outlined text-[48px]">favorite</span>
+                    <p class="font-serif italic text-lg">Your wishlist is empty</p>
+                    <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">EXPLORE CATALOG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div id="cart-panel" class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleCartPanel(false)"></div>
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-[450px] bg-surface shadow-2xl p-margin-mobile md:p-8 flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-6 mb-6">
+                <h3 class="font-serif text-2xl font-bold uppercase tracking-wider text-primary">YOUR BAG (<span id="cart-drawer-count">0</span>)</h3>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleCartPanel(false)">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div id="cart-items-container" class="flex-grow overflow-y-auto space-y-6 scrollbar-thin">
+                <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                    <span class="material-symbols-outlined text-[48px]">shopping_bag</span>
+                    <p class="font-serif italic text-lg">Your bag is currently empty</p>
+                    <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP COLLECTION</a>
+                </div>
+            </div>
+            <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
+                <div class="flex justify-between items-end">
+                    <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
+                <div class="space-y-3">
+                    <div class="grid grid-cols-2 gap-2">
+                        <a class="bg-primary text-white text-center py-4 font-label-caps text-[10px] tracking-widest hover:bg-gold hover:text-primary transition-all duration-300" href="../bag_secure_checkout/">
+                            CHECKOUT
+                        </a>
+                        <a class="bg-white border border-primary text-primary text-center py-4 font-label-caps text-[10px] tracking-widest hover:bg-surface-container transition-all duration-300" href="../shopping_bag/">
+                            VIEW BAG
+                        </a>
+                    </div>
+                    <button class="w-full border border-outline-variant/60 py-3 font-label-caps text-[10px] tracking-[0.2em] hover:bg-surface-container transition-all duration-300" onclick="toggleCartPanel(false)">
+                        CONTINUE SHOPPING
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mobile-drawer" class="fixed inset-0 z-[160] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleMobileDrawer(false)"></div>
+        <div class="fixed left-0 top-0 bottom-0 w-full max-w-[320px] bg-surface p-6 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-4 mb-6">
+                <a class="font-serif text-2xl font-bold tracking-[0.2em]" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleMobileDrawer(false)">
+                    <span class="material-symbols-outlined text-[24px]">close</span>
+                </button>
+            </div>
+            <div class="flex-grow overflow-y-auto space-y-6 text-left">
+                <div class="flex flex-col gap-4 text-sm font-label-caps text-primary">
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_luxury_boutique_home/">Home</a>
+                    <div class="border-b border-outline-variant/30 py-2">
+                        <button class="w-full flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion('mobile-shop-accordion')">
+                            <span>Shop</span>
+                            <span id="accordion-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div id="mobile-shop-accordion" class="hidden pl-4 pr-2 pt-3 flex-col gap-3 text-xs text-on-surface-variant font-medium">
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Clothing</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Shoes</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Bags</a>
+                            <a class="hover:text-gold block py-1" href="../the_watch_collection/">Watches &amp; Jewelry</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Accessories</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Beauty</a>
+                            <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
+                        </div>
+                    </div>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ✦</a>
+                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale 🔥</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_editorial/">The Editorial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+        
+        <!-- Breadcrumbs & Page title -->
+        <div class="mb-12 text-left">
+            <nav class="flex gap-2 mb-4 font-label-caps text-[10px] tracking-widest text-outline uppercase">
+                <a class="hover:text-primary transition-colors" href="../j_o_luxury_boutique_home/">Home</a>
+                <span>/</span>
+                <span class="text-primary font-bold">SHOP ALL</span>
+            </nav>
+            
+            <div class="flex flex-col md:flex-row justify-between items-baseline gap-6 border-b border-outline-variant/30 pb-8">
+                <div>
+                    <h1 class="font-serif text-4xl md:text-6xl font-bold uppercase tracking-wider text-primary">SHOP ALL</h1>
+                    <p class="mt-4 font-body-lg text-sm text-on-surface-variant font-light max-w-xl">
+                        Curated selections of luxury clothing, footwear, travel bags, chronometers, and fine jewelry. Built upon silent luxury and architectural forms.
+                    </p>
+                </div>
+                
+                <!-- Mobile filter button / Sort Bar container -->
+                <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+                    <button class="lg:hidden flex items-center gap-2 font-label-caps text-xs border border-primary px-4 py-3 hover:bg-surface-container transition-colors" onclick="toggleMobileFilter(true)">
+                        FILTER <span class="material-symbols-outlined text-[16px]">tune</span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3">
+                        <span class="font-label-caps text-[10px] text-outline tracking-wider uppercase">SORT BY:</span>
+                        <select id="catalog-sort" onchange="filterAndRenderCatalog()" class="border-outline-variant bg-transparent text-xs font-label-caps py-2 pl-3 pr-8 focus:ring-0 focus:border-primary">
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price Low–High</option>
+                            <option value="price-high">Price High–Low</option>
+                            <option value="bestsellers">Bestsellers</option>
+                            <option value="reviews">Most Reviewed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catalog Workspace Grid (Filter + Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+            
+            <!-- 2. FILTER SIDEBAR (LEFT) - Desktop persistent, Mobile drawer -->
+            <aside id="desktop-filter-sidebar" class="hidden lg:block lg:col-span-3 space-y-8 sticky top-28 h-[calc(100vh-140px)] overflow-y-auto pr-4 text-left border-r border-outline-variant/30">
+                <div class="flex justify-between items-center border-b border-outline-variant/50 pb-4">
+                    <h3 class="font-label-caps text-xs tracking-widest font-bold text-primary uppercase">FILTER BY</h3>
+                    <button onclick="resetAllFilters()" class="text-[10px] font-label-caps text-outline hover:text-primary transition-colors underline">RESET ALL</button>
+                </div>
+
+                <!-- Category filter group -->
+                <div class="space-y-3">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold">Category</h4>
+                    <div class="space-y-2 text-xs">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Clothing" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Clothing</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Shoes" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Shoes</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Bags" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Bags</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Watches" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Watches</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Jewelry" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Jewelry</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Accessories" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Accessories</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Beauty & Fragrance" class="category-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Beauty &amp; Fragrance</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Gender filter group -->
+                <div class="space-y-3 pt-4 border-t border-outline-variant/30">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold">Gender</h4>
+                    <div class="space-y-2 text-xs">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Women" class="gender-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Women</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Men" class="gender-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Men</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" value="Unisex" class="gender-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Unisex</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Size group -->
+                <div class="space-y-3 pt-4 border-t border-outline-variant/30">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold">Size</h4>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="toggleSizeFilter(this, 'XS')" class="size-btn border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">XS</button>
+                        <button onclick="toggleSizeFilter(this, 'S')" class="size-btn border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">S</button>
+                        <button onclick="toggleSizeFilter(this, 'M')" class="size-btn border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">M</button>
+                        <button onclick="toggleSizeFilter(this, 'L')" class="size-btn border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">L</button>
+                        <button onclick="toggleSizeFilter(this, 'XL')" class="size-btn border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">XL</button>
+                        <button onclick="toggleSizeFilter(this, 'One Size')" class="size-btn col-span-3 border border-outline-variant py-2 font-label-caps text-[10px] hover:border-primary transition-all text-center">One Size</button>
+                    </div>
+                </div>
+
+                <!-- Color group -->
+                <div class="space-y-3 pt-4 border-t border-outline-variant/30">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold">Color</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="toggleColorFilter(this, 'Black')" class="color-btn w-6 h-6 bg-black border border-outline-variant transition-all" title="Black"></button>
+                        <button onclick="toggleColorFilter(this, 'White')" class="color-btn w-6 h-6 bg-white border border-outline-variant transition-all" title="White"></button>
+                        <button onclick="toggleColorFilter(this, 'Grey')" class="color-btn w-6 h-6 bg-[#808080] border border-outline-variant transition-all" title="Grey"></button>
+                        <button onclick="toggleColorFilter(this, 'Gold')" class="color-btn w-6 h-6 bg-[#C5A059] border border-outline-variant transition-all" title="Gold"></button>
+                        <button onclick="toggleColorFilter(this, 'Beige')" class="color-btn w-6 h-6 bg-[#F5F5DC] border border-outline-variant transition-all" title="Beige"></button>
+                        <button onclick="toggleColorFilter(this, 'Brown')" class="color-btn w-6 h-6 bg-[#8B4513] border border-outline-variant transition-all" title="Brown"></button>
+                    </div>
+                </div>
+
+                <!-- Price Range Slider -->
+                <div class="space-y-3 pt-4 border-t border-outline-variant/30">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold">Price Range</h4>
+                    <div class="space-y-2">
+                        <input id="price-slider" type="range" min="0" max="3000000" step="50000" value="3000000" class="w-full h-1 bg-outline-variant accent-primary appearance-none cursor-pointer" oninput="updatePriceLabel(this.value)"/>
+                        <div class="flex justify-between font-label-caps text-[10px] text-on-surface-variant font-semibold">
+                            <span>₦0</span>
+                            <span id="price-label">Up to ₦3,000,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toggle Options -->
+                <div class="space-y-3 pt-4 border-t border-outline-variant/30 pb-6">
+                    <h4 class="font-label-caps text-[10px] tracking-wider text-outline uppercase font-bold font-bold">Badging</h4>
+                    <div class="space-y-3 text-xs">
+                        <!-- Custom In Stock Switch -->
+                        <label class="flex items-center justify-between cursor-pointer group">
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">In Stock Only</span>
+                            <input id="instock-toggle" type="checkbox" class="w-8 h-4 border-outline-variant focus:ring-0 text-primary cursor-pointer" onchange="filterAndRenderCatalog()"/>
+                        </label>
+                        <!-- Custom Sale Switch -->
+                        <label class="flex items-center justify-between cursor-pointer group">
+                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">On Sale Only</span>
+                            <input id="onsale-toggle" type="checkbox" class="w-8 h-4 border-outline-variant focus:ring-0 text-primary cursor-pointer" onchange="filterAndRenderCatalog()"/>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Product Grid Container -->
+            <div class="lg:col-span-9 space-y-12">
+                
+                <!-- Product grid (rendered via JS) -->
+                <div id="catalog-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-gutter">
+                    <!-- Products will be loaded dynamically via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="catalog-empty-state" class="hidden flex-col items-center justify-center py-20 text-center text-outline-variant space-y-4">
+                    <span class="material-symbols-outlined text-[48px]">search_off</span>
+                    <p class="font-serif italic text-lg">No products match your active filter edits</p>
+                    <button onclick="resetAllFilters()" class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors">CLEAR FILTERS</button>
+                </div>
+
+                <!-- Pagination controls -->
+                <div id="catalog-pagination" class="flex justify-center items-center gap-2 pt-12 border-t border-outline-variant/30">
+                    <!-- Pagination buttons rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MOBILE FILTER DRAWER -->
+    <div id="mobile-filter-drawer" class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="toggleMobileFilter(false)"></div>
+        <div class="fixed left-0 top-0 bottom-0 w-full max-w-[320px] bg-surface p-6 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-4 mb-6">
+                <h3 class="font-label-caps text-xs tracking-widest font-bold">FILTERS</h3>
+                <button class="p-2 text-primary hover:text-gold transition-colors" onclick="toggleMobileFilter(false)">
+                    <span class="material-symbols-outlined text-[24px]">close</span>
+                </button>
+            </div>
+            
+            <div id="mobile-filter-content" class="space-y-8 text-left">
+                <!-- Mobile filters mirror desktop. Render catalog JS references both! -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. FOOTER -->
+    <footer class="bg-primary text-[#FBFBF9] py-24 border-t border-outline-variant/10 mt-32">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-gutter">
+            
+            <div class="lg:col-span-4 space-y-8 text-left">
+                <a class="font-serif text-3xl font-bold tracking-[0.2em] text-[#FBFBF9] block" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+                <p class="text-xs text-outline-variant font-light leading-relaxed max-w-xs uppercase tracking-wider">
+                    "Where Style Meets Elegance"<br/>
+                    Curating high-end clothing, timepieces, bags, and luxury design lifestyle edits for the modern connoisseur.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">public</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">camera</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">chat_bubble</span></a>
+                    <a class="w-10 h-10 border border-[#FBFBF9]/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300" href="#"><span class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">SHOP</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=clothing">Clothing</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=shoes">Shoes</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=bags">Bags</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../the_watch_collection/">Watches</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/?category=jewelry">Jewelry</a></li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-3 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">CUSTOMER SERVICE</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-3 text-left">
+                <h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-8 pb-2 border-b border-[#FBFBF9]/10">THE BRAND</h4>
+                <ul class="space-y-4 text-xs font-light text-outline-variant">
+                    <li><a class="hover:text-gold transition-colors block font-semibold text-[#FBFBF9]" href="../our_story_j_o/">Our Heritage Story</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../j_o_editorial/">Editorial Journal</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../our_story_j_o/">Press Room</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../privacy_policy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
+            <div class="text-left text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
+                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span>
+                    <span>•</span>
+                    <span class="text-outline-variant">PCI-DSS COMPLIANT</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3 justify-center text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/70">
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">VISA</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">MASTERCARD</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">PAYPAL</span>
+                <span class="px-3 py-2 border border-[#FBFBF9]/10 bg-white/5 uppercase select-none">APPLE PAY</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // Product Database — uses global NGN catalog from products.js
+        const PRODUCT_DATABASE = (function() {
+            // Map JO_PRODUCTS to the format this page's filter/render expects
+            if(!window.JO_PRODUCTS) return [];
+            return window.JO_PRODUCTS.map(p => ({
+                id: p.id,
+                name: p.name,
+                brand: p.brand,
+                category: p.category,
+                sub: p.sub,
+                gender: p.isMen ? 'Men' : 'Women',
+                price: p.price,
+                originalPrice: p.originalPrice,
+                sale: !!(p.originalPrice && p.originalPrice > p.price),
+                img: p.img,
+                imgAlt: p.img2 || p.img,
+                sizes: p.sizes,
+                colors: p.colors,
+                rating: p.rating,
+                reviews: p.reviews,
+                stock: p.stock,
+                isNew: p.isNew,
+                isBestseller: p.isBestseller,
+                isPetite: p.isPetite,
+                isMen: p.isMen,
+                tags: p.tags,
+                desc: p.desc
+            }));
+        })()
+
+        // Active State variables
+        let cartItems = [];
+        let wishlistItems = [];
+        let activeFilters = {
+            categories: [],
+            genders: [],
+            sizes: [],
+            colors: [],
+            maxPrice: 3000000,
+            inStock: false,
+            onSale: false,
+            searchQuery: ""
+        };
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        // Initialize Catalog
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load state from local storage
+            if (localStorage.getItem('j_o_cart')) {
+                try { cartItems = JSON.parse(localStorage.getItem('j_o_cart')); } catch(e){}
+            }
+            if (localStorage.getItem('j_o_wishlist')) {
+                try { wishlistItems = JSON.parse(localStorage.getItem('j_o_wishlist')); } catch(e){}
+            }
+            
+            // Check for search query params
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('category')) {
+                const cat = params.get('category');
+                const cleanCat = cat.charAt(0).toUpperCase() + cat.slice(1);
+                // Check matching checkbox on desktop
+                const checkboxes = document.querySelectorAll('.category-checkbox');
+                checkboxes.forEach(cb => {
+                    if (cb.value.toLowerCase() === cat.toLowerCase() || (cat === 'jewelry' && cb.value === 'Jewelry')) {
+                        cb.checked = true;
+                        activeFilters.categories.push(cb.value);
+                    }
+                });
+            }
+            if (params.get('gender')) {
+                const gen = params.get('gender');
+                const cleanGen = gen.charAt(0).toUpperCase() + gen.slice(1);
+                const checkboxes = document.querySelectorAll('.gender-checkbox');
+                checkboxes.forEach(cb => {
+                    if (cb.value.toLowerCase() === gen.toLowerCase()) {
+                        cb.checked = true;
+                        activeFilters.genders.push(cb.value);
+                    }
+                });
+            }
+            if (params.get('sale')) {
+                const saleToggle = document.getElementById('onsale-toggle');
+                if (saleToggle) {
+                    saleToggle.checked = true;
+                    activeFilters.onSale = true;
+                }
+            }
+
+            // Sync filters for mobile layout
+            buildMobileFilters();
+            
+            // Initial render
+            updateCartUI();
+            updateWishlistUI();
+            filterAndRenderCatalog();
+
+            // Setup search overlay trigger
+            const searchInput = document.getElementById('catalog-search-input');
+            searchInput.addEventListener('input', (e) => {
+                activeFilters.searchQuery = e.target.value.trim().toLowerCase();
+                filterAndRenderCatalog();
+            });
+        });
+
+        // Mirror desktop filters into mobile filter sidebar
+        function buildMobileFilters() {
+            const container = document.getElementById('mobile-filter-content');
+            const desktopAside = document.getElementById('desktop-filter-sidebar');
+            // Duplicate inner HTML but change IDs to avoid collisions
+            let cleanHTML = desktopAside.innerHTML;
+            cleanHTML = cleanHTML.replace(/id="price-slider"/g, 'id="price-slider-mobile"');
+            cleanHTML = cleanHTML.replace(/id="price-label"/g, 'id="price-label-mobile"');
+            cleanHTML = cleanHTML.replace(/id="instock-toggle"/g, 'id="instock-toggle-mobile"');
+            cleanHTML = cleanHTML.replace(/id="onsale-toggle"/g, 'id="onsale-toggle-mobile"');
+            cleanHTML = cleanHTML.replace(/onchange="filterAndRenderCatalog\(\)"/g, 'onchange="syncMobileToDesktop()"');
+            cleanHTML = cleanHTML.replace(/oninput="updatePriceLabel\(this.value\)"/g, 'oninput="syncMobilePrice(this.value)"');
+            cleanHTML = cleanHTML.replace(/toggleSizeFilter\(this/g, 'toggleMobileSizeFilter(this');
+            cleanHTML = cleanHTML.replace(/toggleColorFilter\(this/g, 'toggleMobileColorFilter(this');
+            cleanHTML = cleanHTML.replace(/resetAllFilters\(\)/g, 'resetAllFilters(); toggleMobileFilter(false);');
+            
+            container.innerHTML = cleanHTML;
+        }
+
+        // Sync Mobile actions back to state
+        function syncMobileToDesktop() {
+            // Categories
+            const mobileCats = document.querySelectorAll('#mobile-filter-content .category-checkbox');
+            const destCats = document.querySelectorAll('#desktop-filter-sidebar .category-checkbox');
+            activeFilters.categories = [];
+            mobileCats.forEach((cb, idx) => {
+                destCats[idx].checked = cb.checked;
+                if (cb.checked) activeFilters.categories.push(cb.value);
+            });
+
+            // Genders
+            const mobileGens = document.querySelectorAll('#mobile-filter-content .gender-checkbox');
+            const destGens = document.querySelectorAll('#desktop-filter-sidebar .gender-checkbox');
+            activeFilters.genders = [];
+            mobileGens.forEach((cb, idx) => {
+                destGens[idx].checked = cb.checked;
+                if (cb.checked) activeFilters.genders.push(cb.value);
+            });
+
+            // Toggles
+            const mobileStock = document.getElementById('instock-toggle-mobile').checked;
+            document.getElementById('instock-toggle').checked = mobileStock;
+            activeFilters.inStock = mobileStock;
+
+            const mobileSale = document.getElementById('onsale-toggle-mobile').checked;
+            document.getElementById('onsale-toggle').checked = mobileSale;
+            activeFilters.onSale = mobileSale;
+
+            filterAndRenderCatalog();
+        }
+
+        function syncMobilePrice(val) {
+            document.getElementById('price-slider').value = val;
+            updatePriceLabel(val);
+        }
+
+        function toggleMobileSizeFilter(btn, size) {
+            // Mirror back to desktop
+            const desktopBtns = document.querySelectorAll('#desktop-filter-sidebar .size-btn');
+            desktopBtns.forEach(dBtn => {
+                if (dBtn.innerText === size) {
+                    toggleSizeFilter(dBtn, size);
+                }
+            });
+            // Re-render mobile states
+            if (activeFilters.sizes.includes(size)) {
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('border-outline-variant');
+            } else {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('border-outline-variant');
+            }
+        }
+
+        function toggleMobileColorFilter(btn, color) {
+            const desktopBtns = document.querySelectorAll('#desktop-filter-sidebar .color-btn');
+            desktopBtns.forEach(dBtn => {
+                if (dBtn.title === color) {
+                    toggleColorFilter(dBtn, color);
+                }
+            });
+            // Highlight mobile border
+            if (activeFilters.colors.includes(color)) {
+                btn.classList.add('ring-2', 'ring-offset-2', 'ring-primary');
+            } else {
+                btn.classList.remove('ring-2', 'ring-offset-2', 'ring-primary');
+            }
+        }
+
+        // Drawers / Overlay toggles
+        function toggleSearchOverlay(open) {
+            const el = document.getElementById('search-overlay');
+            if (open) {
+                el.classList.remove('invisible');
+                el.classList.add('opacity-100');
+                document.getElementById('catalog-search-input').focus();
+            } else {
+                el.classList.remove('opacity-100');
+                setTimeout(() => el.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleWishlistDrawer(open) {
+            const drawer = document.getElementById('wishlist-drawer');
+            const inner = drawer.querySelector('div:last-child');
+            if (open) {
+                drawer.classList.remove('invisible');
+                drawer.classList.add('opacity-100');
+                inner.classList.remove('translate-x-full');
+            } else {
+                inner.classList.add('translate-x-full');
+                drawer.classList.remove('opacity-100');
+                setTimeout(() => drawer.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleCartPanel(open) {
+            const cartPanel = document.getElementById('cart-panel');
+            const inner = cartPanel.querySelector('div:last-child');
+            if (open) {
+                cartPanel.classList.remove('invisible');
+                cartPanel.classList.add('opacity-100');
+                inner.classList.remove('translate-x-full');
+            } else {
+                inner.classList.add('translate-x-full');
+                cartPanel.classList.remove('opacity-100');
+                setTimeout(() => cartPanel.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleMobileDrawer(open) {
+            const drawer = document.getElementById('mobile-drawer');
+            const inner = drawer.querySelector('div:last-child');
+            if (open) {
+                drawer.classList.remove('invisible');
+                drawer.classList.add('opacity-100');
+                inner.classList.remove('-translate-x-full');
+            } else {
+                inner.classList.add('-translate-x-full');
+                drawer.classList.remove('opacity-100');
+                setTimeout(() => drawer.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleMobileFilter(open) {
+            const drawer = document.getElementById('mobile-filter-drawer');
+            const inner = drawer.querySelector('div:last-child');
+            if (open) {
+                drawer.classList.remove('invisible');
+                drawer.classList.add('opacity-100');
+                inner.classList.remove('-translate-x-full');
+            } else {
+                inner.classList.add('-translate-x-full');
+                drawer.classList.remove('opacity-100');
+                setTimeout(() => drawer.classList.add('invisible'), 300);
+            }
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const arrow = document.getElementById('accordion-arrow');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('flex');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('flex');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Filter Handlers
+        function updatePriceLabel(val) {
+            activeFilters.maxPrice = parseFloat(val);
+            document.getElementById('price-label').innerText = `Up to ₦${parseInt(val).toLocaleString("en-NG")}`;
+            const mobileLabel = document.getElementById('price-label-mobile');
+            if (mobileLabel) mobileLabel.innerText = `Up to ₦${parseInt(val).toLocaleString("en-NG")}`;
+            filterAndRenderCatalog();
+        }
+
+        function toggleSizeFilter(btn, size) {
+            const index = activeFilters.sizes.indexOf(size);
+            if (index > -1) {
+                activeFilters.sizes.splice(index, 1);
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('border-outline-variant');
+            } else {
+                activeFilters.sizes.push(size);
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('border-outline-variant');
+            }
+            filterAndRenderCatalog();
+        }
+
+        function toggleColorFilter(btn, color) {
+            const index = activeFilters.colors.indexOf(color);
+            if (index > -1) {
+                activeFilters.colors.splice(index, 1);
+                btn.classList.remove('ring-2', 'ring-offset-2', 'ring-primary');
+            } else {
+                activeFilters.colors.push(color);
+                btn.classList.add('ring-2', 'ring-offset-2', 'ring-primary');
+            }
+            filterAndRenderCatalog();
+        }
+
+        function resetAllFilters() {
+            activeFilters = {
+                categories: [],
+                genders: [],
+                sizes: [],
+                colors: [],
+                maxPrice: 3000000,
+                inStock: false,
+                onSale: false,
+                searchQuery: ""
+            };
+            
+            // Reset checkboxes
+            document.querySelectorAll('.category-checkbox').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.gender-checkbox').forEach(cb => cb.checked = false);
+            const inStockToggle = document.getElementById('instock-toggle');
+            if (inStockToggle) inStockToggle.checked = false;
+            const onSaleToggle = document.getElementById('onsale-toggle');
+            if (onSaleToggle) onSaleToggle.checked = false;
+            
+            // Reset buttons
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('border-outline-variant');
+            });
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-offset-2', 'ring-primary');
+            });
+            
+            // Reset price slider
+            const slider = document.getElementById('price-slider');
+            if (slider) {
+                slider.value = 5000;
+                updatePriceLabel(3000000);
+            }
+
+            // Sync to mobile
+            buildMobileFilters();
+            
+            filterAndRenderCatalog();
+        }
+
+        // FILTER & SORT COMPILER
+        function filterAndRenderCatalog() {
+            // Update active category array from checkboxes
+            activeFilters.categories = [];
+            document.querySelectorAll('#desktop-filter-sidebar .category-checkbox:checked').forEach(cb => {
+                activeFilters.categories.push(cb.value);
+            });
+
+            // Genders
+            activeFilters.genders = [];
+            document.querySelectorAll('#desktop-filter-sidebar .gender-checkbox:checked').forEach(cb => {
+                activeFilters.genders.push(cb.value);
+            });
+
+            // Toggles
+            const inStock = document.getElementById('instock-toggle');
+            activeFilters.inStock = inStock ? inStock.checked : false;
+            const onSale = document.getElementById('onsale-toggle');
+            activeFilters.onSale = onSale ? onSale.checked : false;
+
+            // Perform Filter
+            let filtered = PRODUCT_DATABASE.filter(prod => {
+                // Search query
+                if (activeFilters.searchQuery && !prod.name.toLowerCase().includes(activeFilters.searchQuery)) {
+                    return false;
+                }
+                // Category
+                if (activeFilters.categories.length > 0 && !activeFilters.categories.includes(prod.category)) {
+                    return false;
+                }
+                // Gender
+                if (activeFilters.genders.length > 0 && !activeFilters.genders.includes(prod.gender)) {
+                    return false;
+                }
+                // Price
+                if (prod.price > activeFilters.maxPrice) {
+                    return false;
+                }
+                // Size
+                if (activeFilters.sizes.length > 0) {
+                    const hasSize = prod.sizes.some(s => activeFilters.sizes.includes(s)) || prod.sizes.includes("One Size");
+                    if (!hasSize) return false;
+                }
+                // Color
+                if (activeFilters.colors.length > 0) {
+                    const hasColor = prod.colors.some(c => activeFilters.colors.includes(c));
+                    if (!hasColor) return false;
+                }
+                // Stock
+                if (activeFilters.inStock && prod.stock === 0) {
+                    return false;
+                }
+                // Sale
+                if (activeFilters.onSale && !prod.sale) {
+                    return false;
+                }
+                return true;
+            });
+
+            // Perform Sort
+            const sortVal = document.getElementById('catalog-sort').value;
+            if (sortVal === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'bestsellers') {
+                // Bestsellers are sorted by stock rating & reviews count
+                filtered.sort((a, b) => b.rating - a.rating || b.reviews - a.reviews);
+            } else if (sortVal === 'reviews') {
+                filtered.sort((a, b) => b.reviews - a.reviews);
+            } else {
+                // Newest (Default by ID desc)
+                filtered.sort((a, b) => b.id - a.id);
+            }
+
+            // Pagination calculations
+            const totalItems = filtered.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            // Adjust current page if out of bounds
+            if (currentPage > totalPages) currentPage = Math.max(1, totalPages);
+            
+            const startIdx = (currentPage - 1) * itemsPerPage;
+            const endIdx = startIdx + itemsPerPage;
+            const paginatedItems = filtered.slice(startIdx, endIdx);
+
+            renderProductGrid(paginatedItems, totalItems);
+            renderPagination(totalPages);
+        }
+
+        // Render Product Cards
+        function renderProductGrid(items, totalCount) {
+            const grid = document.getElementById('catalog-product-grid');
+            const emptyState = document.getElementById('catalog-empty-state');
+            
+            if (items.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            emptyState.classList.remove('flex');
+            
+            let html = "";
+            items.forEach(prod => {
+                const saleBadge = prod.sale ? `<div class="absolute top-4 left-4 bg-gold text-primary font-label-caps text-[9px] tracking-widest px-3 py-1 font-bold z-10">SALE</div>` : "";
+                const originalPriceStr = prod.sale && prod.originalPrice ? `<span class="font-body-md text-outline line-through text-xs ml-2">₦${prod.originalPrice.toLocaleString('en-NG')}</span>` : "";
+                
+                // Construct stars HTML
+                let starsHTML = "";
+                for(let i=1; i<=5; i++) {
+                    if (i <= prod.rating) {
+                        starsHTML += `<span class="material-symbols-outlined text-[12px] fill-current">star</span>`;
+                    } else {
+                        starsHTML += `<span class="material-symbols-outlined text-[12px]">star</span>`;
+                    }
+                }
+
+                html += `
+                    <div class="group cursor-pointer relative" onclick="viewProductDetail(${prod.id})">
+                        <div class="relative aspect-[3/4] overflow-hidden bg-white mb-6 product-image-hover">
+                            <img alt="${prod.name}" class="primary-image w-full h-full object-cover transition-slow" src="${prod.img}"/>
+                            <img alt="${prod.name} Alternate" class="secondary-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" src="${prod.imgAlt}"/>
+                            ${saleBadge}
+                            <!-- Quick add overlay -->
+                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-20">
+                                <button class="w-full bg-primary text-white py-4 font-label-caps text-xs tracking-widest hover:bg-gold hover:text-primary transition-colors focus:outline-none" onclick="event.stopPropagation(); addToCart('${prod.name}', ${prod.price}, '${prod.img}')">
+                                    QUICK ADD
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <div class="flex items-center justify-between">
+                                <p class="font-label-caps text-[10px] text-outline tracking-wider">${prod.brand}</p>
+                                <div class="flex text-gold">
+                                    ${starsHTML}
+                                </div>
+                            </div>
+                            <h3 class="font-serif text-lg text-primary font-medium tracking-wide">${prod.name}</h3>
+                            <p class="font-body-md text-gold text-sm inline-flex items-baseline font-semibold">
+                                ₦${prod.price.toLocaleString('en-NG')}
+                                ${originalPriceStr}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        // Render Pagination numbers
+        function renderPagination(totalPages) {
+            const container = document.getElementById('catalog-pagination');
+            if (totalPages <= 1) {
+                container.innerHTML = "";
+                return;
+            }
+            
+            let html = "";
+            
+            // Previous button
+            if (currentPage > 1) {
+                html += `
+                    <button onclick="changePage(${currentPage - 1})" class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:border-primary transition-colors focus:outline-none">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                `;
+            }
+            
+            // Pages loop
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    html += `
+                        <button class="w-10 h-10 bg-primary text-white font-label-caps text-[11px] font-bold text-center focus:outline-none">${i}</button>
+                    `;
+                } else {
+                    html += `
+                        <button onclick="changePage(${i})" class="w-10 h-10 border border-outline-variant hover:border-primary font-label-caps text-[11px] text-center transition-colors focus:outline-none">${i}</button>
+                    `;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                html += `
+                    <button onclick="changePage(${currentPage + 1})" class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:border-primary transition-colors focus:outline-none">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            filterAndRenderCatalog();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Setup local storage selection for dynamic detail views
+        function viewProductDetail(productId) {
+            const selectedProduct = PRODUCT_DATABASE.find(prod => prod.id === productId);
+            if (selectedProduct) {
+                localStorage.setItem('j_o_current_product', JSON.stringify(selectedProduct));
+                // Also cache database so Detail page is always synchronized
+                localStorage.setItem('j_o_db', JSON.stringify(PRODUCT_DATABASE));
+            }
+            window.location.href = '../product_detail_showcase/';
+        }
+
+        // Add to Cart Logic
+        function addToCart(name, price, img) {
+            const existing = cartItems.find(item => item.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cartItems.push({
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                });
+            }
+            localStorage.setItem('j_o_cart', JSON.stringify(cartItems)); JO.syncCart(cartItems);
+            updateCartUI();
+            toggleCartPanel(true);
+        }
+
+        function removeFromCart(name) {
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem('j_o_cart', JSON.stringify(cartItems)); JO.syncCart(cartItems);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cart-badge');
+            const drawerCount = document.getElementById('cart-drawer-count');
+            const container = document.getElementById('cart-items-container');
+            const emptyState = document.getElementById('cart-empty-state');
+            const summaryBlock = document.getElementById('cart-summary-block');
+            const subtotalText = document.getElementById('cart-subtotal');
+            
+            const totalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+            
+            countBadge.innerText = totalCount;
+            drawerCount.innerText = totalCount;
+            
+            if (totalCount > 0) {
+                if(emptyState) emptyState.classList.add('hidden');
+                summaryBlock.classList.remove('hidden');
+                
+                let html = '';
+                let subtotal = 0;
+                
+                cartItems.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                    html += `
+                        <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4">
+                            <div class="w-16 h-20 bg-surface-container overflow-hidden flex-shrink-0">
+                                <img src="${item.img}" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
+                                <p class="text-xs text-outline mt-1">₦${item.price.toLocaleString('en-NG')} x ${item.quantity}</p>
+                            </div>
+                            <button onclick="removeFromCart('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                subtotalText.innerText = `₦${subtotal.toLocaleString('en-NG')}`;
+            } else {
+                container.innerHTML = `
+                    <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                        <span class="material-symbols-outlined text-[48px]">shopping_bag</span>
+                        <p class="font-serif italic text-lg">Your bag is currently empty</p>
+                        <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">SHOP COLLECTION</a>
+                    </div>
+                `;
+                summaryBlock.classList.add('hidden');
+            }
+        }
+
+        // Wishlist
+        function updateWishlistUI() {
+            const badge = document.getElementById('wishlist-badge');
+            const container = document.getElementById('wishlist-items-container');
+            
+            if (wishlistItems.length > 0) {
+                badge.innerText = wishlistItems.length;
+                badge.classList.remove('hidden');
+                
+                let html = '';
+                wishlistItems.forEach(item => {
+                    html += `
+                        <div class="flex items-center gap-4 border-b border-outline-variant/30 pb-4">
+                            <div class="w-16 h-20 bg-surface-container overflow-hidden flex-shrink-0">
+                                <img src="${item.img}" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="flex-grow text-left">
+                                <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
+                                <p class="text-xs text-gold mt-1">₦${item.price.toLocaleString('en-NG')}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="addToCart('${item.name}', ${item.price}, '${item.img}'); removeFromWishlist('${item.name}')" class="p-2 text-primary hover:text-gold transition-colors">
+                                    <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                                </button>
+                                <button onclick="removeFromWishlist('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
+                                    <span class="material-symbols-outlined text-[18px]">close</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            } else {
+                badge.classList.add('hidden');
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
+                        <span class="material-symbols-outlined text-[48px]">favorite</span>
+                        <p class="font-serif italic text-lg">Your wishlist is empty</p>
+                        <a class="bg-primary text-white py-3 px-8 text-xs font-label-caps hover:bg-gold transition-colors" href="../shop_all_collections/">EXPLORE CATALOG</a>
+                    </div>
+                `;
+            }
+        }
+
+        function removeFromWishlist(name) {
+            wishlistItems = wishlistItems.filter(item => item.name !== name);
+            localStorage.setItem('j_o_wishlist', JSON.stringify(wishlistItems));
+            updateWishlistUI();
+        }
+
+        // Header shadow scroll effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            if (scrolled > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('h-20');
+                header.classList.add('h-16');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('h-20');
+                header.classList.remove('h-16');
+            }
+        });
+
+        // ── Load full product catalog from products.js ────────────────
+        function loadFullCatalog() {
+            if (!window.JO_PRODUCTS) return;
+
+            // Find or create the main products grid
+            const grid = document.getElementById('catalog-product-grid') ||
+                         document.getElementById('products-grid') ||
+                         document.querySelector('[id*="product"][id*="grid"]') ||
+                         document.querySelector('.grid[class*="grid-cols"]');
+
+            if (!grid) return;
+
+            // Read URL params for pre-filtering
+            const urlParams  = new URLSearchParams(window.location.search);
+            const urlCat     = urlParams.get('category') || urlParams.get('cat') || null;
+            const urlQuery   = urlParams.get('q') || urlParams.get('search') || null;
+            const urlGender  = urlParams.get('gender');
+
+            // Update page heading if category passed
+            if (urlCat) {
+                const heading = document.querySelector('h1');
+                if (heading) heading.textContent = urlCat.charAt(0).toUpperCase() + urlCat.slice(1).replace(/-/g,' ') + ' Collection';
+            }
+
+            // Clear existing static products
+            grid.innerHTML = '';
+
+            const catFilter  = urlGender === 'men' ? 'men' : (urlGender === 'women' ? 'women' : urlCat);
+            const prods = window.JO_FILTER(catFilter, urlQuery);
+
+            prods.forEach(p => {
+                const salePercent = p.originalPrice ? Math.round((1 - p.price/p.originalPrice)*100) : 0;
+                const card = document.createElement('div');
+                card.className = 'group cursor-pointer relative product-card';
+                card.setAttribute('data-category', p.category.toLowerCase());
+                card.setAttribute('data-name', p.name.toLowerCase());
+                card.setAttribute('data-tags', (p.tags || []).join(' '));
+                card.innerHTML = `
+                    <div class="relative aspect-[3/4] overflow-hidden bg-white mb-4">
+                        <img src="${p.img}" alt="${p.name}" loading="lazy"
+                             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"/>
+                        ${p.img2 ? `<img src="${p.img2}" alt="${p.name}" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>` : ''}
+                        ${p.isNew ? `<span style="position:absolute;top:10px;left:10px;background:#000;color:#C5A059;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.15em;padding:3px 8px;z-index:10;">NEW IN</span>` : ''}
+                        ${salePercent > 0 ? `<span style="position:absolute;top:10px;left:10px;background:#C0392B;color:#fff;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;">-${salePercent}%</span>` : ''}
+                        ${p.isPetite ? `<span style="position:absolute;top:${p.isNew||salePercent>0?'34px':'10px'};left:10px;background:#C5A059;color:#000;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;">PETITE</span>` : ''}
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.08);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:16px;z-index:20;"
+                             class="group-hover:opacity-100">
+                            <button style="width:100%;background:#000;color:#fff;border:none;padding:14px;font-family:Montserrat,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:background 0.25s;"
+                                    onmouseover="this.style.background='#C5A059';this.style.color='#000';"
+                                    onmouseout="this.style.background='#000';this.style.color='#fff';"
+                                    onclick="event.stopPropagation(); if(typeof addToCart==='function'){addToCart('${p.name.replace(/'/g,"\\'")}',${p.price},'${p.img}');}">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                    <div style="text-align:left;">
+                        <p style="font-family:Montserrat,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#747878;margin:0 0 4px;">${p.brand}</p>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#000;margin:0 0 6px;line-height:1.3;">${p.name}</h3>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <span style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;color:#C5A059;">${window.JO_PRICE(p.price)}</span>
+                            ${p.originalPrice ? `<span style="font-family:Montserrat,sans-serif;font-size:11px;color:#aaa;text-decoration:line-through;">${window.JO_PRICE(p.originalPrice)}</span>` : ''}
+                        </div>
+                    </div>`;
+
+                card.onclick = () => {
+                    localStorage.setItem('j_o_current_product', JSON.stringify(p));
+                    localStorage.setItem('j_o_db', JSON.stringify(window.JO_PRODUCTS));
+                    window.location.href = '../product_detail_showcase/';
+                };
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Run after page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadFullCatalog);
+        } else {
+            setTimeout(loadFullCatalog, 100);
+        }
+
+    </script>
+    <script src="../js/conversion.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/logo.js"></script>
+    <script src="../js/live.js"></script>
+</body>
+</html>
+

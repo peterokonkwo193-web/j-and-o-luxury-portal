@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Concierge &amp; FAQ — J &amp; O | Where Style Meets Elegance</title>
+<meta name="description" content="Get in touch with J & O's dedicated concierge team. Browse frequently asked questions about delivery, returns, sizing, and more. We're here to ensure your luxury experience is exceptional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/supabase-sync.js"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{gold:'#C5A059','gold-light':'#d4b76f','gold-dark':'#a8864a',ivory:'#FBFBF9','surface-low':'#f5f5f3','surface-mid':'#eeeeeb'},fontFamily:{serif:['Playfair Display','Georgia','serif'],sans:['Montserrat','Helvetica','Arial','sans-serif']}}}}
+</script>
+<style>
+*,*::before,*::after{border-radius:0 !important;}
+body{font-family:'Montserrat',sans-serif;color:#1b1c1c;background:#FBFBF9;overflow-x:hidden;}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;}
+
+/* Announcement bar */
+.announcement-bar{background:#000;color:#FBFBF9;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'Montserrat',sans-serif;padding:10px 0;text-align:center;font-weight:400;}
+
+/* Navbar */
+.navbar{background:#000;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(197,160,89,.15);}
+.nav-link{color:#FBFBF9;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:400;transition:color .3s;position:relative;padding:4px 0;}
+.nav-link:hover,.nav-link.active{color:#C5A059;}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:#C5A059;transition:width .3s;}
+.nav-link:hover::after{width:100%;}
+.logo-text{font-family:'Playfair Display',serif;font-size:28px;color:#FBFBF9;letter-spacing:.08em;font-weight:600;}
+.logo-text span{color:#C5A059;}
+.icon-btn{color:#FBFBF9;transition:color .3s;position:relative;cursor:pointer;}
+.icon-btn:hover{color:#C5A059;}
+.badge-dot{position:absolute;top:-4px;right:-6px;width:16px;height:16px;background:#C5A059;color:#000;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;}
+
+/* Mega Menu */
+.mega-menu{position:absolute;top:100%;left:0;width:100%;background:#000;border-top:1px solid rgba(197,160,89,.12);padding:40px 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .35s cubic-bezier(.4,0,.2,1);z-index:999;}
+.shop-trigger:hover .mega-menu,.mega-menu:hover{opacity:1;visibility:visible;transform:translateY(0);}
+.mega-col-title{color:#C5A059;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.mega-link{display:block;color:#ccc;font-size:12px;padding:4px 0;transition:color .25s;letter-spacing:.04em;}
+.mega-link:hover{color:#C5A059;}
+
+/* Search Overlay */
+.search-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:120px;opacity:0;visibility:hidden;transition:all .35s;}
+.search-overlay.active{opacity:1;visibility:visible;}
+.search-box{width:90%;max-width:640px;border-bottom:2px solid #C5A059;display:flex;align-items:center;gap:12px;padding-bottom:12px;transform:translateY(-20px);transition:transform .4s;opacity:0;}
+.search-overlay.active .search-box{transform:translateY(0);opacity:1;transition-delay:.1s;}
+.search-box input{flex:1;background:transparent;border:none;outline:none;color:#FBFBF9;font-size:20px;font-family:'Montserrat',sans-serif;letter-spacing:.06em;}
+.search-box input::placeholder{color:#666;}
+
+/* Mobile Drawer */
+.mobile-drawer{position:fixed;top:0;left:0;width:320px;max-width:85vw;height:100%;background:#000;z-index:3000;transform:translateX(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:0;}
+.mobile-drawer.active{transform:translateX(0);}
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2999;opacity:0;visibility:hidden;transition:all .3s;}
+.drawer-overlay.active{opacity:1;visibility:visible;}
+.drawer-link{display:block;color:#FBFBF9;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);transition:color .25s;font-weight:400;}
+.drawer-link:hover{color:#C5A059;}
+.accordion-sub{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.accordion-sub.open{max-height:600px;}
+.accordion-sub a{display:block;color:#999;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:10px 40px;transition:color .25s;}
+.accordion-sub a:hover{color:#C5A059;}
+
+/* Hero */
+.hero-concierge{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;}
+@media(min-width:640px){.hero-concierge{min-height:50vh;}}
+.hero-concierge::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(197,160,89,.12) 1px,transparent 1px);background-size:28px 28px;z-index:1;}
+.hero-concierge .hero-content{position:relative;z-index:2;text-align:center;padding:40px 20px;}
+
+/* Floating Label */
+.field-wrap{position:relative;}
+.field-wrap input,.field-wrap select,.field-wrap textarea{width:100%;border:1px solid #c4c7c7;padding:20px 14px 8px;background:#fff;font-size:13px;color:#1b1c1c;outline:none;transition:border-color .25s;border-radius:0 !important;font-family:'Montserrat',sans-serif;}
+.field-wrap input:focus,.field-wrap select:focus,.field-wrap textarea:focus{border-color:#1b1c1c;}
+.field-wrap label.float-label{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:12px;color:#747878;pointer-events:none;transition:all .2s;letter-spacing:.05em;text-transform:uppercase;}
+.field-wrap.is-textarea label.float-label{top:20px;transform:none;}
+.field-wrap.has-select label.float-label{top:14px;transform:none;font-size:10px;}
+.field-wrap input:focus+label.float-label,.field-wrap input:not(:placeholder-shown)+label.float-label,.field-wrap textarea:focus+label.float-label,.field-wrap textarea:not(:placeholder-shown)+label.float-label{top:10px;transform:none;font-size:10px;}
+
+/* FAQ */
+.faq-item{border:1px solid #ddd;margin-bottom:-1px;transition:border-color .3s;}
+.faq-item.open{border-left:3px solid #C5A059;}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:16px;cursor:pointer;transition:background .25s;gap:12px;}
+@media(min-width:640px){.faq-question{padding:20px 24px;gap:16px;}}
+.faq-question:hover{background:rgba(197,160,89,.04);}
+.faq-question h3{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:.03em;color:#1b1c1c;margin:0;flex:1;}
+@media(min-width:640px){.faq-question h3{font-size:14px;}}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
+.faq-answer-inner{padding:0 16px 20px;color:#555;font-size:13px;line-height:1.8;letter-spacing:.02em;}
+@media(min-width:640px){.faq-answer-inner{padding:0 24px 24px;font-size:13.5px;}}
+
+/* Contact card */
+.contact-card{border:1px solid #e0e0dd;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .3s,box-shadow .3s;}
+.contact-card:hover{border-color:#C5A059;box-shadow:0 4px 20px rgba(197,160,89,.08);}
+.contact-icon-box{width:48px;height:48px;background:#C5A059;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon-box .material-symbols-outlined{color:#000;font-size:22px;font-variation-settings:'FILL' 1;}
+
+/* Toast */
+.toast{position:fixed;top:24px;right:24px;background:#000;color:#FBFBF9;padding:20px 28px;z-index:9999;transform:translateX(120%);transition:transform .4s cubic-bezier(.4,0,.2,1);max-width:420px;border-left:3px solid #C5A059;box-shadow:0 8px 30px rgba(0,0,0,.3);}
+.toast.show{transform:translateX(0);}
+
+/* Footer */
+.footer{background:#000;color:#FBFBF9;}
+.footer a{color:#999;transition:color .25s;font-size:12px;letter-spacing:.04em;}
+.footer a:hover{color:#C5A059;}
+.footer-title{color:#C5A059;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;font-weight:600;}
+.footer-divider{border-color:rgba(255,255,255,.08);}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f1f1f1;}
+::-webkit-scrollbar-thumb{background:#C5A059;}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.animate-fade-up{animation:fadeUp .7s ease forwards;opacity:0;}
+.delay-100{animation-delay:.1s;}
+.delay-200{animation-delay:.2s;}
+.delay-300{animation-delay:.3s;}
+.delay-400{animation-delay:.4s;}
+
+/* Gold btn */
+.btn-gold{background:#C5A059;color:#000;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;padding:16px 36px;border:2px solid #C5A059;transition:all .3s;display:inline-block;text-align:center;cursor:pointer;}
+.btn-gold:hover{background:transparent;color:#C5A059;}
+.btn-outline-gold{background:transparent;color:#C5A059;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;padding:16px 36px;border:2px solid #C5A059;transition:all .3s;display:inline-block;text-align:center;cursor:pointer;}
+.btn-outline-gold:hover{background:#C5A059;color:#000;}
+.btn-submit{width:100%;background:#000;color:#FBFBF9;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;padding:18px;border:2px solid #000;transition:all .3s;cursor:pointer;}
+.btn-submit:hover{background:#C5A059;color:#000;border-color:#C5A059;}
+</style>
+</head>
+<body class="bg-ivory">
+
+<!-- ═══════ ANNOUNCEMENT BAR ═══════ -->
+<div class="announcement-bar" id="announcement-bar">
+  COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &bull; INSURED SHIPPING ON ALL ORDERS
+</div>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav class="navbar" id="main-navbar">
+  <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
+    <div class="grid items-center h-[56px] md:h-[68px]" style="grid-template-columns:1fr auto 1fr;">
+
+      <!-- Column 1: Left Nav + Mobile Toggle -->
+      <div class="flex items-center">
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="../j_o_luxury_boutique_home/" class="nav-link">Home</a>
+        <div class="relative shop-trigger">
+          <a href="../shop_all_collections/" class="nav-link flex items-center gap-1">Shop <span class="material-symbols-outlined text-[14px]">expand_more</span></a>
+          <!-- Mega Menu -->
+          <div class="mega-menu">
+            <div class="max-w-[1400px] mx-auto px-8">
+              <div class="grid grid-cols-8 gap-6">
+                <div>
+                  <div class="mega-col-title">Clothing</div>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Dresses</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Tops</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Blazers</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Trousers</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Knitwear</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Coats</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Shoes</div>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Heels</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Flats</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Boots</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Sneakers</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Sandals</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Bags</div>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Tote Bags</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Shoulder Bags</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Clutches</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Crossbody</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Backpacks</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Watches &amp; Jewelry</div>
+                  <a href="../the_watch_collection/" class="mega-link">Watches</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Rings</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Necklaces</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Bracelets</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Earrings</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Accessories</div>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Sunglasses</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Scarves</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Belts</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Hats</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Gloves</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Beauty</div>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Skincare</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Fragrance</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Makeup</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Haircare</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Body Care</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Lifestyle</div>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Home Décor</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Candles</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Stationery</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Books</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Travel</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Gift Card</div>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">E-Gift Card</a>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">Physical Card</a>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">Corporate Gifts</a>
+                </div>
+              </div>
+              <!-- Editorial -->
+              <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
+                <span class="material-symbols-outlined text-gold text-[18px]">auto_stories</span>
+                <a href="../j_o_editorial/" class="text-[11px] text-white/60 hover:text-gold tracking-[.14em] uppercase transition-colors">The Editorial — Journal &amp; Insights</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="../new_in_collections/" class="nav-link">New In</a>
+        <a href="../sale_collections/" class="nav-link">Sale</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger-btn" class="lg:hidden icon-btn" aria-label="Menu">
+        <span class="material-symbols-outlined text-[26px]">menu</span>
+      </button>
+      </div><!-- end column 1 -->
+
+      <!-- Column 2: Logo — own dedicated column, can never be touched -->
+      <div class="flex justify-center items-center px-4">
+        <a href="../j_o_luxury_boutique_home/" class="logo-text" style="white-space:nowrap;">J <span>&</span> O</a>
+      </div>
+
+      <!-- Column 3: Right icons -->
+      <div class="flex items-center gap-3 justify-end">
+        <!-- About & Contact — Contact is active on this page -->
+        <div class="hidden lg:flex items-center gap-5 pr-4 mr-1 border-r border-white/10">
+          <a href="../our_story_j_o/" class="nav-link">About</a>
+          <a href="../concierge_faq/" class="nav-link active">Contact</a>
+        </div>
+
+        <button id="search-btn" class="icon-btn" aria-label="Search">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <a href="../my_wishlist/" class="icon-btn hidden sm:block" aria-label="Wishlist" id="wishlist-icon">
+          <span class="material-symbols-outlined text-[22px]">favorite_border</span>
+          <span class="badge-dot hidden" id="wishlist-badge">0</span>
+        </a>
+        <a href="../shopping_bag/" class="icon-btn" aria-label="Shopping bag" id="cart-icon">
+          <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+          <span class="badge-dot hidden" id="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ SEARCH OVERLAY ═══════ -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <span class="material-symbols-outlined text-gold text-[28px]">search</span>
+    <input type="text" placeholder="Search the collection…" id="search-input" autocomplete="off">
+    <button id="search-close" class="icon-btn"><span class="material-symbols-outlined text-[28px]">close</span></button>
+  </div>
+</div>
+
+<!-- ═══════ MOBILE DRAWER ═══════ -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="flex items-center justify-between p-5 border-b border-white/10">
+    <span class="text-ivory text-sm tracking-[.1em] uppercase font-semibold font-serif">Menu</span>
+    <button id="drawer-close" class="icon-btn"><span class="material-symbols-outlined text-[24px]">close</span></button>
+  </div>
+  <a href="../j_o_luxury_boutique_home/" class="drawer-link">Home</a>
+  <div class="drawer-accordion">
+    <button class="drawer-link flex items-center justify-between w-full text-left" data-accordion="shop-acc">
+      Shop <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+    </button>
+    <div class="accordion-sub" id="shop-acc">
+      <a href="../shop_all_collections/?cat=clothing">Clothing</a>
+      <a href="../shop_all_collections/?cat=shoes">Shoes</a>
+      <a href="../shop_all_collections/?cat=bags">Bags</a>
+      <a href="../the_watch_collection/">Watches &amp; Jewelry</a>
+      <a href="../shop_all_collections/?cat=accessories">Accessories</a>
+      <a href="../shop_all_collections/?cat=beauty">Beauty</a>
+      <a href="../shop_all_collections/?cat=lifestyle">Lifestyle</a>
+      <a href="../shop_all_collections/?cat=gift-card">Gift Card</a>
+    </div>
+  </div>
+  <a href="../new_in_collections/" class="drawer-link">New In</a>
+  <a href="../sale_collections/" class="drawer-link">Sale</a>
+  <a href="../our_story_j_o/" class="drawer-link">About</a>
+  <a href="../concierge_faq/" class="drawer-link" style="color:#C5A059;">Contact</a>
+  <a href="../my_wishlist/" class="drawer-link">Wishlist</a>
+  <a href="../shopping_bag/" class="drawer-link">Shopping Bag</a>
+  <div class="mt-4 mx-6 pt-4 border-t border-white/10">
+    <a href="../j_o_editorial/" class="flex items-center gap-2 text-white/50 hover:text-gold text-[10px] tracking-[.12em] uppercase transition-colors py-3">
+      <span class="material-symbols-outlined text-[16px]">auto_stories</span> The Editorial
+    </a>
+  </div>
+</div>
+
+<!-- ═══════ HERO SECTION ═══════ -->
+<section class="hero-concierge" id="hero-section">
+  <div class="hero-content">
+    <!-- Breadcrumb -->
+    <div class="animate-fade-up mb-8">
+      <nav class="flex items-center justify-center gap-2 text-[10px] tracking-[.18em] uppercase text-white/40">
+        <a href="../j_o_luxury_boutique_home/" class="hover:text-gold transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-gold">Concierge &amp; FAQ</span>
+      </nav>
+    </div>
+    <h1 class="animate-fade-up delay-100 text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-[.06em] mb-6">CONCIERGE &amp; FAQ</h1>
+    <p class="animate-fade-up delay-200 text-gold italic font-serif text-lg sm:text-xl md:text-2xl mb-4">How can we help you today?</p>
+    <p class="animate-fade-up delay-300 text-white/50 text-xs sm:text-sm tracking-[.08em] max-w-lg mx-auto">Our dedicated team is here to ensure your experience is exceptional</p>
+  </div>
+</section>
+
+<!-- ═══════ CONTACT FORM SECTION ═══════ -->
+<section class="py-16 md:py-24 px-4" id="contact-section">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+
+      <!-- LEFT COLUMN — Form (3 cols) -->
+      <div class="lg:col-span-3 animate-fade-up">
+        <p class="text-gold text-[11px] tracking-[.2em] uppercase font-semibold mb-3">Get In Touch</p>
+        <h2 class="font-serif text-3xl md:text-4xl mb-4" style="color:#1b1c1c;">Send Us a Message</h2>
+        <p class="text-sm text-[#666] leading-relaxed mb-10 max-w-lg">Whether you have a question about your order, need styling advice, or want to share feedback — we're here for you.</p>
+
+        <form id="contact-form" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <!-- Full Name -->
+            <div class="field-wrap">
+              <input type="text" id="contact-name" placeholder=" " required>
+              <label for="contact-name" class="float-label">Full Name *</label>
+            </div>
+            <!-- Email -->
+            <div class="field-wrap">
+              <input type="email" id="contact-email" placeholder=" " required>
+              <label for="contact-email" class="float-label">Email Address *</label>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <!-- Order Number -->
+            <div class="field-wrap">
+              <input type="text" id="contact-order" placeholder=" ">
+              <label for="contact-order" class="float-label">Order Number</label>
+              <p class="text-[10px] text-[#999] mt-1.5 tracking-[.04em] pl-1">If related to an existing order</p>
+            </div>
+            <!-- Subject -->
+            <div class="field-wrap has-select">
+              <select id="contact-subject" required>
+                <option value="">Select a subject…</option>
+                <option value="general">General Enquiry</option>
+                <option value="order">Order Issue</option>
+                <option value="styling">Styling Advice</option>
+                <option value="returns">Returns &amp; Exchanges</option>
+                <option value="press">Press &amp; Partnerships</option>
+                <option value="other">Other</option>
+              </select>
+              <label class="float-label">Subject *</label>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="field-wrap is-textarea mb-8">
+            <textarea id="contact-message" rows="5" placeholder=" " required></textarea>
+            <label for="contact-message" class="float-label">Your Message *</label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- RIGHT COLUMN — Contact Info (2 cols) -->
+      <div class="lg:col-span-2 animate-fade-up delay-200">
+        <h3 class="font-serif text-xl md:text-2xl mb-8" style="color:#1b1c1c;">Other Ways to Reach Us</h3>
+
+        <div class="flex flex-col gap-4 mb-8">
+          <!-- Email Card -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined">mail</span>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-1">Email</p>
+              <a href="mailto:concierge@jandoluxury.com" class="text-sm text-gold hover:underline">concierge@jandoluxury.com</a>
+              <p class="text-[11px] text-[#888] mt-1">For general enquiries and order support</p>
+            </div>
+          </div>
+
+          <!-- WhatsApp Card -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined">chat</span>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-1">WhatsApp</p>
+              <a href="https://wa.me/2349012345678" class="text-sm text-gold hover:underline" target="_blank" rel="noopener">+234 (0) 901 234 5678</a>
+              <p class="text-[11px] text-[#888] mt-1">Chat with us in real-time</p>
+            </div>
+          </div>
+
+          <!-- Instagram Card -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined">photo_camera</span>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-1">Instagram</p>
+              <a href="https://instagram.com/jandoluxury" class="text-sm text-gold hover:underline" target="_blank" rel="noopener">@jandoluxury</a>
+              <p class="text-[11px] text-[#888] mt-1">DM us for styling tips and inspiration</p>
+            </div>
+          </div>
+
+          <!-- Visit Us Card -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-1">Visit the Atelier</p>
+              <p class="text-sm text-gold font-semibold">15 Adeola Odeku Street</p>
+              <p class="text-[11px] text-[#888]">Victoria Island, Lagos, Nigeria</p>
+              <p class="text-[11px] text-[#888] mt-1">By appointment — contact us to book</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Response Time -->
+        <div class="border border-gold/30 bg-gold/5 p-5 mb-6">
+          <p class="text-[11px] tracking-[.12em] uppercase font-semibold text-gold mb-2">⏱ Response Time</p>
+          <p class="text-[12.5px] text-[#555] leading-relaxed">We respond within 24 hours during business days. Priority support available for existing orders.</p>
+        </div>
+
+        <!-- Business Hours -->
+        <div>
+          <p class="text-[11px] tracking-[.14em] uppercase font-semibold text-[#1b1c1c] mb-4">Business Hours</p>
+          <div class="space-y-2">
+            <div class="flex justify-between text-[12.5px] text-[#555]">
+              <span>Monday – Friday</span><span>9:00 AM – 6:00 PM WAT</span>
+            </div>
+            <div class="flex justify-between text-[12.5px] text-[#555]">
+              <span>Saturday</span><span>10:00 AM – 4:00 PM WAT</span>
+            </div>
+            <div class="flex justify-between text-[12.5px] text-[#555]">
+              <span>Sunday</span><span class="text-[#999]">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ACCORDION SECTION ═══════ -->
+<section class="py-16 md:py-24 px-4 bg-surface-low" id="faq-section">
+  <div class="max-w-[860px] mx-auto">
+    <div class="text-center mb-12 animate-fade-up">
+      <p class="text-gold text-[11px] tracking-[.2em] uppercase font-semibold mb-3">Frequently Asked Questions</p>
+      <h2 class="font-serif text-3xl md:text-4xl" style="color:#1b1c1c;">Everything You Need to Know</h2>
+    </div>
+
+    <div class="animate-fade-up delay-100" id="faq-accordion">
+      <!-- Q1 -->
+      <div class="faq-item" data-faq="0">
+        <div class="faq-question" onclick="toggleFaq(0)">
+          <h3>How long does delivery take?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Standard delivery takes 5–7 business days and is complimentary on orders over $500. Express delivery (2–3 business days) is available for $35, and Next Day delivery with white-glove concierge service is available for $65. All orders are fully tracked and insured.</div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item" data-faq="1">
+        <div class="faq-question" onclick="toggleFaq(1)">
+          <h3>What is your returns policy?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We offer a 30-day complimentary returns policy on all full-price items. Items must be unworn, unwashed, and in their original packaging with all tags attached. Sale items can be returned within 14 days for store credit. To initiate a return, please contact our concierge team or use the prepaid returns label included in your order.</div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item" data-faq="2">
+        <div class="faq-question" onclick="toggleFaq(2)">
+          <h3>How do I find my size?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Each product page includes a detailed size guide specific to that item. We recommend measuring yourself and comparing to our size charts. If you're between sizes, our styling team is happy to help — simply reach out via the contact form or WhatsApp. We also offer complimentary exchanges if the fit isn't quite right.</div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item" data-faq="3">
+        <div class="faq-question" onclick="toggleFaq(3)">
+          <h3>What payment methods do you accept?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We accept Visa, Mastercard, American Express, PayPal, Apple Pay, and Google Pay. All transactions are processed through our secure, PCI-DSS compliant payment system with 256-bit SSL encryption. We also offer interest-free installment plans on orders over $500.</div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item" data-faq="4">
+        <div class="faq-question" onclick="toggleFaq(4)">
+          <h3>Are all products authentic?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Every piece in the J &amp; O collection is 100% authentic and sourced directly from the brands and ateliers we partner with. We have a zero-tolerance policy for counterfeit goods. Each order includes a certificate of authenticity, and our quality assurance team inspects every item before dispatch.</div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item" data-faq="5">
+        <div class="faq-question" onclick="toggleFaq(5)">
+          <h3>How do I track my order?</h3>
+          <span class="material-symbols-outlined text-gold text-[22px] faq-icon transition-transform">expand_more</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Once your order is dispatched, you'll receive a tracking email with a unique tracking number and a link to monitor your delivery in real-time. You can also track your order by contacting our concierge team with your order number. For Next Day deliveries, we provide live GPS tracking of your white-glove courier.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BOTTOM CTA STRIP ═══════ -->
+<section class="bg-black py-16 md:py-20 px-4" id="cta-strip">
+  <div class="max-w-[700px] mx-auto text-center">
+    <h2 class="font-serif text-2xl md:text-3xl text-ivory mb-3 animate-fade-up">Still have questions?</h2>
+    <p class="text-white/50 text-sm tracking-[.06em] mb-10 animate-fade-up delay-100">Our concierge team is just a message away.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-200">
+      <a href="https://wa.me/2349012345678" target="_blank" rel="noopener" class="btn-outline-gold">WhatsApp Us</a>
+      <a href="../shop_all_collections/" class="btn-gold">Shop the Collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer pt-16 pb-8 px-4" id="main-footer">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Col 1 -->
+      <div>
+        <p class="footer-title">Customer Care</p>
+        <div class="flex flex-col gap-3">
+          <a href="../concierge_faq/">Contact Us</a>
+          <a href="../concierge_faq/#faq-section">FAQs</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Returns &amp; Exchanges</a>
+          <a href="#">Size Guide</a>
+          <a href="#">Track Your Order</a>
+        </div>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <p class="footer-title">The House of J &amp; O</p>
+        <div class="flex flex-col gap-3">
+          <a href="../our_story_j_o/">Our Story</a>
+          <a href="#">Careers</a>
+          <a href="#">Sustainability</a>
+          <a href="#">Press</a>
+          <a href="../j_o_editorial/">Editorial Journal</a>
+          <a href="../size_guide/">Size Guide</a>
+          <a href="../privacy_policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <!-- Col 3 -->
+      <div>
+        <p class="footer-title">Legal</p>
+        <div class="flex flex-col gap-3">
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <!-- Col 4 -->
+      <div>
+        <p class="footer-title">Stay Connected</p>
+        <p class="text-[12px] text-[#888] mb-5 leading-relaxed">Subscribe for exclusive access to new arrivals, private sales, and editorial content.</p>
+        <div class="flex mb-6">
+          <input type="email" placeholder="Email address" class="flex-1 bg-transparent border border-white/15 text-ivory text-xs px-4 py-3 outline-none focus:border-gold transition-colors" style="border-radius:0 !important;">
+          <button class="bg-gold text-black text-[10px] tracking-[.14em] uppercase font-semibold px-5 hover:bg-gold-light transition-colors" style="border-radius:0 !important;">Join</button>
+        </div>
+        <div class="flex gap-5">
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Instagram</a>
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Pinterest</a>
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="footer-divider mb-8">
+
+    <!-- Payment + Copyright -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[11px] text-white/30 tracking-[.06em]">&copy; 2025 J &amp; O. All rights reserved. Where Style Meets Elegance.</p>
+      <div class="flex items-center gap-3">
+        <span class="text-[10px] text-white/30 tracking-[.08em] uppercase">We accept:</span>
+        <div class="flex gap-2">
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">VISA</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">MC</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">AMEX</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">PAYPAL</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold hidden sm:inline-block">APPLE PAY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════ TOAST ═══════ -->
+<div class="toast" id="success-toast">
+  <div class="flex items-start gap-3">
+    <span class="material-symbols-outlined text-gold text-[22px] mt-0.5">check_circle</span>
+    <div>
+      <p class="text-[12px] font-semibold tracking-[.08em] uppercase mb-1">Message Sent</p>
+      <p class="text-[12px] text-white/60 leading-relaxed">Thank you — your message has been received. We'll respond within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ——— Cart & Wishlist Badges ——— */
+  function updateBadges(){
+    try{
+      const cart=JSON.parse(localStorage.getItem('j_o_cart')||'[]');
+      const cb=document.getElementById('cart-badge');
+      if(cart.length>0){cb.textContent=cart.length;cb.classList.remove('hidden');}
+      else{cb.classList.add('hidden');}
+    }catch(e){}
+    try{
+      const wish=JSON.parse(localStorage.getItem('j_o_wishlist')||'[]');
+      const wb=document.getElementById('wishlist-badge');
+      if(wish.length>0){wb.textContent=wish.length;wb.classList.remove('hidden');}
+      else{wb.classList.add('hidden');}
+    }catch(e){}
+  }
+  updateBadges();
+  window.addEventListener('storage',updateBadges);
+
+  /* ——— Search Overlay ——— */
+  const searchBtn=document.getElementById('search-btn');
+  const searchOverlay=document.getElementById('search-overlay');
+  const searchClose=document.getElementById('search-close');
+  const searchInput=document.getElementById('search-input');
+  searchBtn.addEventListener('click',()=>{searchOverlay.classList.add('active');setTimeout(()=>searchInput.focus(),200);});
+  searchClose.addEventListener('click',()=>searchOverlay.classList.remove('active'));
+  searchOverlay.addEventListener('click',(e)=>{if(e.target===searchOverlay)searchOverlay.classList.remove('active');});
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape')searchOverlay.classList.remove('active');});
+
+  /* ——— Mobile Drawer ——— */
+  const hamburger=document.getElementById('hamburger-btn');
+  const drawer=document.getElementById('mobile-drawer');
+  const drawerOverlay=document.getElementById('drawer-overlay');
+  const drawerClose=document.getElementById('drawer-close');
+  function openDrawer(){drawer.classList.add('active');drawerOverlay.classList.add('active');document.body.style.overflow='hidden';}
+  function closeDrawer(){drawer.classList.remove('active');drawerOverlay.classList.remove('active');document.body.style.overflow='';}
+  hamburger.addEventListener('click',openDrawer);
+  drawerClose.addEventListener('click',closeDrawer);
+  drawerOverlay.addEventListener('click',closeDrawer);
+
+  /* ——— Drawer Accordion ——— */
+  document.querySelectorAll('[data-accordion]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const target=document.getElementById(btn.dataset.accordion);
+      const icon=btn.querySelector('.material-symbols-outlined');
+      target.classList.toggle('open');
+      icon.style.transform=target.classList.contains('open')?'rotate(180deg)':'';
+    });
+  });
+
+  /* ——— Scroll Animations ——— */
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.style.animationPlayState='running';}});
+  },{threshold:0.15});
+  document.querySelectorAll('.animate-fade-up').forEach(el=>{el.style.animationPlayState='paused';observer.observe(el);});
+
+  /* ——— FAQ Accordion ——— */
+  window.toggleFaq=function(index){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach((item,i)=>{
+      const answer=item.querySelector('.faq-answer');
+      const icon=item.querySelector('.faq-icon');
+      if(i===index){
+        const isOpen=item.classList.contains('open');
+        if(isOpen){
+          item.classList.remove('open');
+          answer.style.maxHeight='0';
+          icon.style.transform='';
+        }else{
+          item.classList.add('open');
+          answer.style.maxHeight=answer.scrollHeight+'px';
+          icon.style.transform='rotate(180deg)';
+        }
+      }else{
+        item.classList.remove('open');
+        answer.style.maxHeight='0';
+        icon.style.transform='';
+      }
+    });
+  };
+
+  /* ——— Contact Form ——— */
+  const form=document.getElementById('contact-form');
+  const toast=document.getElementById('success-toast');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const name=document.getElementById('contact-name');
+    const email=document.getElementById('contact-email');
+    const subject=document.getElementById('contact-subject');
+    const message=document.getElementById('contact-message');
+    const orderNum=document.getElementById('contact-order');
+    let valid=true;
+
+    [name,email,subject,message].forEach(f=>{ f.style.borderColor=''; });
+
+    if(!name.value.trim()){name.style.borderColor='#c00';valid=false;}
+    if(!email.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){email.style.borderColor='#c00';valid=false;}
+    if(!subject.value){subject.style.borderColor='#c00';valid=false;}
+    if(!message.value.trim()){message.style.borderColor='#c00';valid=false;}
+
+    if(!valid){
+      const first=form.querySelector('[style*="border-color: rgb(204, 0, 0)"]');
+      if(first)first.focus();
+      return;
+    }
+
+    // Save to Supabase
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : '';
+    if(submitBtn){ submitBtn.textContent = 'SENDING...'; submitBtn.disabled = true; }
+
+    try {
+      const sb = window.supabase.createClient(
+        'https://sbvjlyssocivvttdqjjl.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmpseXNzb2NpdnZ0dGRxampsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMjc4OTEsImV4cCI6MjA5NTkwMzg5MX0.cbqNEagoj5FRuyp4G_5esvL6Mdabptz_-4JOZTlotPw'
+      );
+      await sb.from('contact_enquiries').insert([{
+        full_name: name.value.trim(),
+        email: email.value.trim(),
+        subject: subject.value,
+        message: message.value.trim(),
+        order_number: orderNum ? orderNum.value.trim() : null
+      }]);
+    } catch(err) {
+      console.warn('Enquiry save error:', err);
+    }
+
+    if(submitBtn){ submitBtn.textContent = originalText; submitBtn.disabled = false; }
+
+    // Show toast & reset
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),5000);
+    form.reset();
+  });
+
+})();
+</script>
+    <script src="../js/conversion.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/logo.js"></script>
+    <script src="../js/live.js"></script>
+</body>
+</html>
+

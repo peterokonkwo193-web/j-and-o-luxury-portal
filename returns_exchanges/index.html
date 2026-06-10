@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>J &amp; O | Returns &amp; Exchanges</title>
+    <meta name="description" content="J &amp; O 30-day hassle-free returns policy. Return or exchange any unworn piece with complimentary collection."/>
+    <link rel="stylesheet" href="../global.css"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-sync.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: { extend: { colors: { "on-surface":"#1b1c1c","outline":"#747878","surface":"#fbf9f9","outline-variant":"#c4c7c7","primary":"#000000","surface-container-low":"#f5f3f3","surface-container":"#efeded","on-surface-variant":"#444748","gold":"#C5A059","error":"#ba1a1a","secondary-container":"#fed488","surface-container-high":"#e9e8e7" }, spacing: { "container-max":"1440px","margin-desktop":"80px","margin-mobile":"20px" }, fontFamily: { "body-md":["Montserrat"],"label-caps":["Montserrat"] } } }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24; font-size:22px; }
+        h1,h2,h3,h4,h5,.font-serif { font-family:'Playfair Display',serif !important; }
+        body,button,a,span,input,select,textarea,label { font-family:'Montserrat',sans-serif; }
+        * { border-radius:0 !important; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden">
+
+<div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em]">
+    COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;•&nbsp; 30-DAY HASSLE-FREE RETURNS
+</div>
+
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 w-full z-50 border-b border-outline-variant">
+    <nav class="flex justify-between items-center px-5 md:px-[80px] h-[72px] max-w-[1440px] mx-auto relative">
+        <a href="../j_o_luxury_boutique_home/" class="text-on-surface-variant hover:text-gold text-[11px] font-label-caps tracking-widest transition-colors flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span> BACK TO STORE
+        </a>
+        <a class="font-serif text-[28px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors absolute left-1/2 -translate-x-1/2" href="../j_o_luxury_boutique_home/">J &amp; O</a>
+        <a href="../concierge_faq/" class="text-[11px] font-label-caps tracking-widest text-on-surface-variant hover:text-gold transition-colors hidden md:block">CONCIERGE</a>
+    </nav>
+</header>
+
+<section class="bg-primary text-[#FBFBF9] py-20 px-5 md:px-[80px] text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+        <nav class="flex justify-center gap-2 text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/40 mb-6">
+            <a href="../j_o_luxury_boutique_home/" class="hover:text-gold transition-colors">HOME</a>
+            <span>›</span><a href="../concierge_faq/" class="hover:text-gold transition-colors">CUSTOMER SERVICE</a>
+            <span>›</span><span class="text-gold">RETURNS &amp; EXCHANGES</span>
+        </nav>
+        <h1 class="font-serif text-4xl md:text-6xl font-bold tracking-tight text-[#FBFBF9] mb-6">Returns &amp; Exchanges</h1>
+        <p class="text-sm text-[#FBFBF9]/70 font-light leading-relaxed max-w-lg mx-auto">30-day hassle-free returns on all orders. Every return is handled personally by our concierge team.</p>
+    </div>
+</section>
+
+<section class="py-20 px-5 md:px-[80px] max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant border border-outline-variant">
+        <div class="bg-surface p-10 text-center space-y-4">
+            <span class="material-symbols-outlined text-gold" style="font-size:40px">autorenew</span>
+            <h3 class="font-serif text-xl font-semibold text-primary">30-Day Returns</h3>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">Return any unworn, undamaged piece within 30 days of delivery for a full refund or exchange — no questions asked.</p>
+        </div>
+        <div class="bg-surface p-10 text-center space-y-4">
+            <span class="material-symbols-outlined text-gold" style="font-size:40px">local_shipping</span>
+            <h3 class="font-serif text-xl font-semibold text-primary">Free Return Shipping</h3>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">We provide complimentary return pickup from Lagos and Abuja. Returns from other Nigerian states are subsidised at a flat ₦5,000 rate. International returns at a flat $20 rate.</p>
+        </div>
+        <div class="bg-surface p-10 text-center space-y-4">
+            <span class="material-symbols-outlined text-gold" style="font-size:40px">payments</span>
+            <h3 class="font-serif text-xl font-semibold text-primary">Refund in 5–7 Days</h3>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">Once we receive and inspect your return, your refund is processed within 5–7 business days to your original payment method.</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-5 md:px-[80px] max-w-[1440px] mx-auto bg-surface-container-low border-t border-b border-outline-variant/30">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16 space-y-3">
+            <p class="font-label-caps text-[10px] tracking-[0.3em] text-gold uppercase">STEP BY STEP</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary">The Return Process</h2>
+            <div class="w-12 h-[1px] bg-gold mx-auto"></div>
+        </div>
+        <div class="space-y-0">
+            <div class="flex gap-8 items-start pb-12 border-l-2 border-outline-variant ml-7 pl-10 relative">
+                <div class="absolute -left-[22px] top-0 w-11 h-11 border-2 border-gold bg-surface flex items-center justify-center flex-shrink-0">
+                    <span class="font-serif text-lg font-bold text-gold">01</span>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold text-primary mb-2">Contact Our Concierge</h3>
+                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Email <strong class="text-primary">returns@jandoluxury.com</strong> or use the contact form on our Concierge page with your order number and the reason for your return. Our team responds within 4 business hours.</p>
+                </div>
+            </div>
+            <div class="flex gap-8 items-start pb-12 border-l-2 border-outline-variant ml-7 pl-10 relative">
+                <div class="absolute -left-[22px] top-0 w-11 h-11 border-2 border-gold bg-surface flex items-center justify-center flex-shrink-0">
+                    <span class="font-serif text-lg font-bold text-gold">02</span>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold text-primary mb-2">Receive Your Returns Label</h3>
+                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Within 24 hours, our concierge team will send a pre-paid, tracked returns label and full packaging instructions directly to your email.</p>
+                </div>
+            </div>
+            <div class="flex gap-8 items-start pb-12 border-l-2 border-outline-variant ml-7 pl-10 relative">
+                <div class="absolute -left-[22px] top-0 w-11 h-11 border-2 border-gold bg-surface flex items-center justify-center flex-shrink-0">
+                    <span class="font-serif text-lg font-bold text-gold">03</span>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold text-primary mb-2">Pack &amp; Send</h3>
+                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Repackage the item in its original dust bag and box. Attach the provided label and drop it at any designated partner courier point. Keep your tracking receipt.</p>
+                </div>
+            </div>
+            <div class="flex gap-8 items-start ml-7 pl-10 relative">
+                <div class="absolute -left-[22px] top-0 w-11 h-11 border-2 border-primary bg-primary flex items-center justify-center flex-shrink-0">
+                    <span class="font-serif text-lg font-bold text-gold">04</span>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold text-primary mb-2">Refund Processed</h3>
+                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Once received and quality-checked at our atelier, your full refund will be issued to your original payment method within 5–7 business days. A confirmation email is sent at every stage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-5 md:px-[80px] max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+            <p class="font-label-caps text-[10px] tracking-[0.3em] text-gold uppercase">EXCHANGE POLICY</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight">Prefer a Different Size or Colour?</h2>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">We are happy to exchange any item for a different size or colourway of the same piece, subject to stock availability. If your preferred size is unavailable, we will issue a full store credit valid for 12 months.</p>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">For exchanges for a completely different product, we recommend returning your item for a full refund and placing a new order to ensure the fastest fulfilment time.</p>
+            <a href="../concierge_faq/" class="inline-block bg-primary text-white font-label-caps text-[11px] tracking-[0.2em] px-8 py-4 hover:bg-gold hover:text-primary transition-all duration-300 mt-4">INITIATE AN EXCHANGE</a>
+        </div>
+        <div class="border border-gold/40 bg-surface-container-low p-10 space-y-4">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-gold">support_agent</span>
+                <span class="font-label-caps text-[10px] tracking-[0.2em] text-primary font-bold">PERSONAL STYLING ASSISTANCE</span>
+            </div>
+            <p class="font-serif text-lg font-semibold text-primary">Not sure what to exchange for?</p>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">Our Personal Stylists are available to help you find the perfect alternative. Contact us directly and we'll guide you through the current collection.</p>
+            <div class="pt-4 space-y-3 border-t border-outline-variant">
+                <div class="flex items-center gap-3"><span class="material-symbols-outlined text-gold text-[16px]">mail</span><span class="text-xs font-semibold text-primary">returns@jandoluxury.com</span></div>
+                <div class="flex items-center gap-3"><span class="material-symbols-outlined text-gold text-[16px]">chat</span><span class="text-xs font-semibold text-primary">WhatsApp: +234 (0) 901 234 5678</span></div>
+                <div class="flex items-center gap-3"><span class="material-symbols-outlined text-gold text-[16px]">schedule</span><span class="text-xs text-on-surface-variant">Mon–Fri, 9am–6pm GMT</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-5 md:px-[80px] max-w-[1440px] mx-auto bg-surface-container-low border-t border-b border-outline-variant/30">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="space-y-6">
+            <p class="font-label-caps text-[10px] tracking-[0.3em] text-gold uppercase">CONDITIONS</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-primary">Return Conditions</h2>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">To ensure all J &amp; O pieces are in perfect condition, please confirm your return meets all of the following:</p>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-4"><span class="material-symbols-outlined text-gold text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-light">Item is unworn and in its original, undamaged condition</span></li>
+                <li class="flex items-start gap-4"><span class="material-symbols-outlined text-gold text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-light">All original tags, labels, and authenticity cards remain attached</span></li>
+                <li class="flex items-start gap-4"><span class="material-symbols-outlined text-gold text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-light">Item is returned in its original J &amp; O dust bag and packaging where possible</span></li>
+                <li class="flex items-start gap-4"><span class="material-symbols-outlined text-gold text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-light">Return is initiated within 30 days of the confirmed delivery date</span></li>
+                <li class="flex items-start gap-4"><span class="material-symbols-outlined text-gold text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-light">Item is not in our non-returnable categories</span></li>
+            </ul>
+        </div>
+        <div class="space-y-6">
+            <p class="font-label-caps text-[10px] tracking-[0.3em] text-[#C0392B] uppercase">NON-RETURNABLE ITEMS</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-primary">Exclusions</h2>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">For hygiene, safety, and quality control reasons, the following items cannot be returned:</p>
+            <div class="border border-[#C0392B]/30 bg-[#C0392B]/[0.03] p-8 space-y-3">
+                <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#C0392B] text-[16px] mt-0.5">remove_circle</span><span class="text-sm font-light">Earrings and intimate fine jewellery (hygiene regulations)</span></div>
+                <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#C0392B] text-[16px] mt-0.5">remove_circle</span><span class="text-sm font-light">Personalised, monogrammed, or bespoke pieces</span></div>
+                <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#C0392B] text-[16px] mt-0.5">remove_circle</span><span class="text-sm font-light">Fragrances, skincare, and beauty products once opened or used</span></div>
+                <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#C0392B] text-[16px] mt-0.5">remove_circle</span><span class="text-sm font-light">Items marked as Final Sale at the point of purchase</span></div>
+                <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#C0392B] text-[16px] mt-0.5">remove_circle</span><span class="text-sm font-light">Items without original tags or authenticity documentation</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-5 md:px-[80px] max-w-[1440px] mx-auto">
+    <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
+        <p class="font-label-caps text-[10px] tracking-[0.3em] text-gold uppercase">REFUND TIMELINE</p>
+        <h2 class="font-serif text-3xl font-bold text-primary">What to Expect</h2>
+        <div class="w-12 h-[1px] bg-gold mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant border border-outline-variant max-w-4xl mx-auto">
+        <div class="bg-surface p-8 text-center space-y-3"><p class="font-serif text-3xl font-bold text-gold">Day 0</p><p class="font-label-caps text-[10px] tracking-widest text-primary font-bold">RECEIVED</p><p class="text-xs text-on-surface-variant font-light">Return arrives and is logged at our warehouse</p></div>
+        <div class="bg-surface p-8 text-center space-y-3"><p class="font-serif text-3xl font-bold text-gold">Day 1–2</p><p class="font-label-caps text-[10px] tracking-widest text-primary font-bold">INSPECTED</p><p class="text-xs text-on-surface-variant font-light">Quality inspection completed by our atelier team</p></div>
+        <div class="bg-surface p-8 text-center space-y-3"><p class="font-serif text-3xl font-bold text-gold">Day 3–5</p><p class="font-label-caps text-[10px] tracking-widest text-primary font-bold">REFUND ISSUED</p><p class="text-xs text-on-surface-variant font-light">Refund initiated to your original payment method</p></div>
+        <div class="bg-surface p-8 text-center space-y-3"><p class="font-serif text-3xl font-bold text-gold">Day 5–7</p><p class="font-label-caps text-[10px] tracking-widest text-primary font-bold">FUNDS CLEAR</p><p class="text-xs text-on-surface-variant font-light">Funds visible in your account (bank-dependent)</p></div>
+    </div>
+</section>
+
+<section class="bg-primary py-16 px-5 md:px-[80px] text-center">
+    <div class="max-w-xl mx-auto space-y-6">
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#FBFBF9]">Still Have Questions?</h2>
+        <p class="text-sm text-[#FBFBF9]/60 font-light">Our concierge team is available Monday–Friday, 9am–6pm GMT.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="../concierge_faq/" class="bg-gold text-primary font-label-caps text-[11px] tracking-[0.2em] font-bold px-10 py-4 hover:bg-[#FBFBF9] transition-all duration-300">CONTACT CONCIERGE</a>
+            <a href="../shopping_bag/" class="border border-[#FBFBF9]/30 text-[#FBFBF9] font-label-caps text-[11px] tracking-[0.2em] px-10 py-4 hover:border-gold hover:text-gold transition-all duration-300">VIEW MY BAG</a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-primary text-[#FBFBF9] py-16 border-t border-[#FBFBF9]/10">
+    <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="col-span-2 md:col-span-1 space-y-4"><a class="font-serif text-2xl font-bold tracking-[0.2em] text-[#FBFBF9] block" href="../j_o_luxury_boutique_home/">J &amp; O</a><p class="text-xs text-[#747878] font-light leading-relaxed uppercase tracking-wider">"Where Style Meets Elegance"</p></div>
+        <div><h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-6 pb-2 border-b border-[#FBFBF9]/10">SHOP</h4><ul class="space-y-3 text-xs font-light text-[#747878]"><li><a class="hover:text-gold transition-colors block" href="../new_in_collections/">New In</a></li><li><a class="hover:text-gold transition-colors block" href="../shop_all_collections/">All Collections</a></li><li><a class="hover:text-gold transition-colors block" href="../sale_collections/">Sale</a></li><li><a class="hover:text-gold transition-colors block" href="../the_watch_collection/">Watches</a></li></ul></div>
+        <div><h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-6 pb-2 border-b border-[#FBFBF9]/10">CUSTOMER SERVICE</h4><ul class="space-y-3 text-xs font-light text-[#747878]"><li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li><li><a class="hover:text-gold transition-colors block text-[#FBFBF9] font-semibold" href="../returns_exchanges/">Returns &amp; Exchanges</a></li><li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li><li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li></ul></div>
+        <div><h4 class="font-label-caps text-[11px] tracking-[0.2em] font-bold text-gold uppercase mb-6 pb-2 border-b border-[#FBFBF9]/10">THE BRAND</h4><ul class="space-y-3 text-xs font-light text-[#747878]"><li><a class="hover:text-gold transition-colors block" href="../our_story_j_o/">Our Heritage Story</a></li><li><a class="hover:text-gold transition-colors block" href="../j_o_editorial/">Editorial Journal</a></li><li><a class="hover:text-gold transition-colors block" href="../privacy_policy/">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="max-w-[1440px] mx-auto px-5 md:px-[80px] mt-12 pt-6 border-t border-[#FBFBF9]/10 text-center"><p class="text-[10px] text-[#747878]">© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p></div>
+</footer>
+</body>
+</html>
