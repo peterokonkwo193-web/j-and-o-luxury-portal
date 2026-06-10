@@ -14,8 +14,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -50,8 +50,8 @@ window.JO_PRODUCTS = [
         "price": 320000,
         "originalPrice": 395000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -86,8 +86,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -121,8 +121,8 @@ window.JO_PRODUCTS = [
         "price": 485000,
         "originalPrice": 520000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -157,8 +157,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -192,8 +192,8 @@ window.JO_PRODUCTS = [
         "price": 195000,
         "originalPrice": 245000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -229,8 +229,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=900&q=90",
         "sizes": [
             "XSP",
             "SP",
@@ -266,8 +266,8 @@ window.JO_PRODUCTS = [
         "price": 135000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=900&q=90",
         "sizes": [
             "XSP",
             "SP",
@@ -303,8 +303,8 @@ window.JO_PRODUCTS = [
         "price": 285000,
         "originalPrice": 320000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=900&q=90",
         "sizes": [
             "XSP",
             "SP",
@@ -340,8 +340,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?w=900&q=90",
         "sizes": [
             "XSP",
             "SP",
@@ -376,8 +376,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -412,8 +412,8 @@ window.JO_PRODUCTS = [
         "price": 650000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -448,8 +448,8 @@ window.JO_PRODUCTS = [
         "price": 265000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1584273143981-44c21010f611?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1561932690-3b47f0709a3c?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1584273143981-44c21010f611?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1561932690-3b47f0709a3c?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -484,8 +484,8 @@ window.JO_PRODUCTS = [
         "price": 345000,
         "originalPrice": 390000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -520,8 +520,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -556,8 +556,8 @@ window.JO_PRODUCTS = [
         "price": 245000,
         "originalPrice": 295000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -592,8 +592,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -629,8 +629,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": 195000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -667,8 +667,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -703,8 +703,8 @@ window.JO_PRODUCTS = [
         "price": 195000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -741,8 +741,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1518049362265-d5b2a6467637?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1518049362265-d5b2a6467637?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -778,8 +778,8 @@ window.JO_PRODUCTS = [
         "price": 285000,
         "originalPrice": 350000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1621996346565-e3bb62747d84?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1621996346565-e3bb62747d84?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -813,8 +813,8 @@ window.JO_PRODUCTS = [
         "price": 485000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -845,8 +845,8 @@ window.JO_PRODUCTS = [
         "price": 750000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -878,8 +878,8 @@ window.JO_PRODUCTS = [
         "price": 285000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -911,8 +911,8 @@ window.JO_PRODUCTS = [
         "price": 445000,
         "originalPrice": 495000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1581553680321-4fffae59f4fa?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1581553680321-4fffae59f4fa?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -943,8 +943,8 @@ window.JO_PRODUCTS = [
         "price": 195000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1598532163257-ae3c6b2524d6?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1598532163257-ae3c6b2524d6?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -975,8 +975,8 @@ window.JO_PRODUCTS = [
         "price": 325000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1605733513597-a8f8d410f286?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1605733513597-a8f8d410f286?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1007,8 +1007,8 @@ window.JO_PRODUCTS = [
         "price": 685000,
         "originalPrice": 750000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1614179924047-e164b5261d11?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1614179924047-e164b5261d11?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1039,8 +1039,8 @@ window.JO_PRODUCTS = [
         "price": 1850000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1070,8 +1070,8 @@ window.JO_PRODUCTS = [
         "price": 1250000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1101,8 +1101,8 @@ window.JO_PRODUCTS = [
         "price": 850000,
         "originalPrice": 950000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1133,8 +1133,8 @@ window.JO_PRODUCTS = [
         "price": 2450000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1165,8 +1165,8 @@ window.JO_PRODUCTS = [
         "price": 1150000,
         "originalPrice": 1350000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1587836374828-4dbaba94cf0e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1587836374828-4dbaba94cf0e?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1197,8 +1197,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1228,8 +1228,8 @@ window.JO_PRODUCTS = [
         "price": 625000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1260,8 +1260,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": 225000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1291,8 +1291,8 @@ window.JO_PRODUCTS = [
         "price": 285000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1599830728362-ea6ca7bebe62?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1599830728362-ea6ca7bebe62?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1322,8 +1322,8 @@ window.JO_PRODUCTS = [
         "price": 895000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1354,8 +1354,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": 265000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1603903631889-b5f3ba4d5b9b?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1603903631889-b5f3ba4d5b9b?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1385,8 +1385,8 @@ window.JO_PRODUCTS = [
         "price": 245000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1598560917505-59a3ad559071?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1598560917505-59a3ad559071?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1418,8 +1418,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": 195000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1602752275312-d00667559609?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1602752275312-d00667559609?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1451,8 +1451,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1481841587457-d3d0d9702734?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1481841587457-d3d0d9702734?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1484,8 +1484,8 @@ window.JO_PRODUCTS = [
         "price": 95000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900&q=90",
         "sizes": [
             "XS/S",
             "M/L",
@@ -1519,8 +1519,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": 225000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1552,8 +1552,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1586,8 +1586,8 @@ window.JO_PRODUCTS = [
         "price": 95000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1617,8 +1617,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1648,8 +1648,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": 195000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1617897903246-719242758050?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1679,8 +1679,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -1711,8 +1711,8 @@ window.JO_PRODUCTS = [
         "price": 75000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1751,8 +1751,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1534126511673-b6899657816a?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1534126511673-b6899657816a?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1790,8 +1790,8 @@ window.JO_PRODUCTS = [
         "price": 95000,
         "originalPrice": 115000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1827,8 +1827,8 @@ window.JO_PRODUCTS = [
         "price": 85000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1865,8 +1865,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1905,8 +1905,8 @@ window.JO_PRODUCTS = [
         "price": 95000,
         "originalPrice": 115000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1943,8 +1943,8 @@ window.JO_PRODUCTS = [
         "price": 265000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1983,8 +1983,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2022,8 +2022,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": 175000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2062,8 +2062,8 @@ window.JO_PRODUCTS = [
         "price": 895000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1548142813-c348350df52b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1548142813-c348350df52b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=90",
         "sizes": [
             "38",
             "40",
@@ -2102,8 +2102,8 @@ window.JO_PRODUCTS = [
         "price": 85000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1558203728-00f45181dd84?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1558203728-00f45181dd84?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2142,8 +2142,8 @@ window.JO_PRODUCTS = [
         "price": 115000,
         "originalPrice": 135000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=90",
         "sizes": [
             "28",
             "30",
@@ -2183,8 +2183,8 @@ window.JO_PRODUCTS = [
         "price": 385000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1588516987418-7b9bc0195e0c?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1588516987418-7b9bc0195e0c?w=900&q=90",
         "sizes": [
             "M",
             "L",
@@ -2221,8 +2221,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1595959183075-c1d09e77bc34?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1595959183075-c1d09e77bc34?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=900&q=90",
         "sizes": [
             "M",
             "L",
@@ -2260,8 +2260,8 @@ window.JO_PRODUCTS = [
         "price": 265000,
         "originalPrice": 315000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1611590027211-b954fd027b51?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1611590027211-b954fd027b51?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2299,8 +2299,8 @@ window.JO_PRODUCTS = [
         "price": 445000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1618151313441-bc79b11e5090?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1618151313441-bc79b11e5090?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2337,8 +2337,8 @@ window.JO_PRODUCTS = [
         "price": 395000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2372,8 +2372,8 @@ window.JO_PRODUCTS = [
         "price": 585000,
         "originalPrice": 650000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1618263137737-226400c25a07?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1628413993904-94ecb60f1239?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1618263137737-226400c25a07?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1628413993904-94ecb60f1239?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2406,8 +2406,8 @@ window.JO_PRODUCTS = [
         "price": 285000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1575032617751-6ddec2089882?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1575032617751-6ddec2089882?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2441,8 +2441,8 @@ window.JO_PRODUCTS = [
         "price": 325000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1524498250048-5249f7e44fec?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1524498250048-5249f7e44fec?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2475,8 +2475,8 @@ window.JO_PRODUCTS = [
         "price": 365000,
         "originalPrice": 425000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1565192647048-f997ded879f9?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1565192647048-f997ded879f9?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2509,8 +2509,8 @@ window.JO_PRODUCTS = [
         "price": 85000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-mlytk?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-76e4b?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2541,8 +2541,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-pjgit?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-3a5nf?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1614179924047-e164b5261d11?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1601524909162-ae8725290836?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2574,8 +2574,8 @@ window.JO_PRODUCTS = [
         "price": 195000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1619176378411-cf013f9bd479?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1619176378411-cf013f9bd479?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=900&q=90",
         "sizes": [
             "One Size",
             "S/M",
@@ -2612,8 +2612,8 @@ window.JO_PRODUCTS = [
         "price": 485000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1621072156002-e2fcc103e86c?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1621072156002-e2fcc103e86c?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -2651,8 +2651,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -2689,8 +2689,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1485460289631-128229e7694f?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1485460289631-128229e7694f?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -2725,8 +2725,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1532453242-23055e117495?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1532453242-23055e117495?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -2764,8 +2764,8 @@ window.JO_PRODUCTS = [
         "price": 175000,
         "originalPrice": 195000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1496217590455-aa63a8350eff?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1520004434532-66d45ee95a55?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1496217590455-aa63a8350eff?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1520004434532-66d45ee95a55?w=900&q=90",
         "sizes": [
             "XS",
             "S",
@@ -2803,8 +2803,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-ca19b?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-hg9h7?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2837,8 +2837,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-sfd89?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-5pfcs?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2871,8 +2871,8 @@ window.JO_PRODUCTS = [
         "price": 55000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-2mtds?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-z1o0d?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2905,8 +2905,8 @@ window.JO_PRODUCTS = [
         "price": 525000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-e22vu?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-c8kz6?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1581553680321-4fffae59f4fa?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2939,8 +2939,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1603487265274-5b6823c448d3?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1603487265274-5b6823c448d3?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=900&q=90",
         "sizes": [
             "40",
             "41",
@@ -2980,8 +2980,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": 165000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1531310197839-ccf54664f2c5?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1531310197839-ccf54664f2c5?w=900&q=90",
         "sizes": [
             "40",
             "41",
@@ -3021,8 +3021,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=900&q=90",
         "sizes": [
             "36",
             "37",
@@ -3059,8 +3059,8 @@ window.JO_PRODUCTS = [
         "price": 185000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1599643477877-537ef527852c?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1599643477877-537ef527852c?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3094,8 +3094,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-l87ql?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-migoj?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3128,8 +3128,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1781125833398-r2soo?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1781125833398-o6c2y?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3162,8 +3162,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1534774592507-488885376ad3?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1534774592507-488885376ad3?w=900&q=90",
         "sizes": [
             "2-3Y",
             "4-5Y",
@@ -3200,8 +3200,8 @@ window.JO_PRODUCTS = [
         "price": 75000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1537244948664-00d82425b3eb?w=600&q=80",
-        "img2": "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?w=600&q=80",
+        "img": "https://images.unsplash.com/photo-1537244948664-00d82425b3eb?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?w=900&q=90",
         "sizes": [
             "2-3Y",
             "4-5Y",
@@ -3237,7 +3237,7 @@ window.JO_PRODUCTS = [
 
 // ── Helper: format price in Naira ────────────────────────────────
 window.JO_PRICE = function(amount) {
-    return '₦' + amount.toLocaleString('en-NG');
+    return '₦' + Number(amount).toLocaleString('en-NG');
 };
 
 // ── Helper: get products by category ─────────────────────────────

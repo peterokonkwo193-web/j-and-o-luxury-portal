@@ -132,7 +132,7 @@
 
     <!-- Top sticky bar notification -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 • ATELIER SHIPPING GLOBAL
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 ï¿½ ATELIER SHIPPING GLOBAL
     </div>
 
     <!-- 1. STICKY NAVBAR -->
@@ -235,14 +235,14 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo — dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo ï¿½ dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
 
             <!-- Column 3: Right icons -->
             <div class="flex items-center gap-2 md:gap-4 justify-end">
-                <!-- About & Contact moved here — right of logo -->
+                <!-- About & Contact moved here ï¿½ right of logo -->
                 <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
@@ -379,8 +379,8 @@
                             <a class="hover:text-gold block py-1" href="../shop_all_collections/">Lifestyle</a>
                         </div>
                     </div>
-                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In ?</a>
-                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale ??</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30 text-gold font-bold" href="../new_in_collections/">New In</a>
+                    <a class="hover:opacity-70 py-2 border-b border-outline-variant/30 text-[#C0392B] font-bold" href="../sale_collections/">Sale</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
@@ -419,8 +419,8 @@
                         <span class="font-label-caps text-[10px] text-outline tracking-wider uppercase">SORT BY:</span>
                         <select id="catalog-sort" onchange="filterAndRenderCatalog()" class="border-outline-variant bg-transparent text-xs font-label-caps py-2 pl-3 pr-8 focus:ring-0 focus:border-primary">
                             <option value="newest">Newest</option>
-                            <option value="price-low">Price Low–High</option>
-                            <option value="price-high">Price High–Low</option>
+                            <option value="price-low">Price Lowï¿½High</option>
+                            <option value="price-high">Price Highï¿½Low</option>
                             <option value="bestsellers">Bestsellers</option>
                             <option value="reviews">Most Reviewed</option>
                         </select>
@@ -525,8 +525,8 @@
                     <div class="space-y-2">
                         <input id="price-slider" type="range" min="0" max="3000000" step="50000" value="3000000" class="w-full h-1 bg-outline-variant accent-primary appearance-none cursor-pointer" oninput="updatePriceLabel(this.value)"/>
                         <div class="flex justify-between font-label-caps text-[10px] text-on-surface-variant font-semibold">
-                            <span>?0</span>
-                            <span id="price-label">Up to ?3,000,000</span>
+                            <span>â‚¦0</span>
+                            <span id="price-label">Up to â‚¦3,000,000</span>
                         </div>
                     </div>
                 </div>
@@ -642,10 +642,10 @@
 
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div class="text-left text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
-                <p>© 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <p>ï¿½ 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
                 <div class="flex gap-4 justify-center lg:justify-start">
                     <span class="text-gold font-bold">100% SECURE CHECKOUT</span>
-                    <span>•</span>
+                    <span>ï¿½</span>
                     <span class="text-outline-variant">PCI-DSS COMPLIANT</span>
                 </div>
             </div>
@@ -662,7 +662,7 @@
 
     <!-- JAVASCRIPT CODE -->
     <script>
-        // Product Database — uses global NGN catalog from products.js
+        // Product Database ï¿½ uses global NGN catalog from products.js
         const PRODUCT_DATABASE = (function() {
             // Map JO_PRODUCTS to the format this page's filter/render expects
             if(!window.JO_PRODUCTS) return [];
@@ -1124,7 +1124,7 @@
             let html = "";
             items.forEach(prod => {
                 const saleBadge = prod.sale ? `<div class="absolute top-4 left-4 bg-gold text-primary font-label-caps text-[9px] tracking-widest px-3 py-1 font-bold z-10">SALE</div>` : "";
-                const originalPriceStr = prod.sale && prod.originalPrice ? `<span class="font-body-md text-outline line-through text-xs ml-2">?${prod.originalPrice.toLocaleString('en-NG')}</span>` : "";
+                const originalPriceStr = prod.sale && prod.originalPrice ? `<span class="font-body-md text-outline line-through text-xs ml-2">â‚¦${prod.originalPrice.toLocaleString('en-NG')}</span>` : "";
                 
                 // Construct stars HTML
                 let starsHTML = "";
@@ -1158,7 +1158,7 @@
                             </div>
                             <h3 class="font-serif text-lg text-primary font-medium tracking-wide">${prod.name}</h3>
                             <p class="font-body-md text-gold text-sm inline-flex items-baseline font-semibold">
-                                ?${prod.price.toLocaleString('en-NG')}
+                                â‚¦${prod.price.toLocaleString('en-NG')}
                                 ${originalPriceStr}
                             </p>
                         </div>
@@ -1282,7 +1282,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-outline mt-1">?${item.price.toLocaleString('en-NG')} x ${item.quantity}</p>
+                                <p class="text-xs text-outline mt-1">â‚¦${item.price.toLocaleString('en-NG')} x ${item.quantity}</p>
                             </div>
                             <button onclick="removeFromCart('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
                                 <span class="material-symbols-outlined text-[18px]">delete</span>
@@ -1292,7 +1292,7 @@
                 });
                 
                 container.innerHTML = html;
-                subtotalText.innerText = `?${subtotal.toLocaleString('en-NG')}`;
+                subtotalText.innerText = `â‚¦${subtotal.toLocaleString('en-NG')}`;
             } else {
                 container.innerHTML = `
                     <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
@@ -1323,7 +1323,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-gold mt-1">?${item.price.toLocaleString('en-NG')}</p>
+                                <p class="text-xs text-gold mt-1">â‚¦${item.price.toLocaleString('en-NG')}</p>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button onclick="addToCart('${item.name}', ${item.price}, '${item.img}'); removeFromWishlist('${item.name}')" class="p-2 text-primary hover:text-gold transition-colors">
