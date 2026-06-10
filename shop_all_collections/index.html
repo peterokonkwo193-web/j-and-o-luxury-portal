@@ -331,7 +331,7 @@
             <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
                 <div class="flex justify-between items-end">
                     <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
-                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">₦0</span>
                 </div>
                 <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
                 <div class="space-y-3">
@@ -486,10 +486,7 @@
                             <input type="checkbox" value="Men" class="gender-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
                             <span class="text-on-surface-variant group-hover:text-gold transition-colors">Men</span>
                         </label>
-                        <label class="flex items-center gap-3 cursor-pointer group">
-                            <input type="checkbox" value="Unisex" class="gender-checkbox w-4 h-4 border-outline-variant focus:ring-0 text-primary" onchange="filterAndRenderCatalog()"/>
-                            <span class="text-on-surface-variant group-hover:text-gold transition-colors">Unisex</span>
-                        </label>
+                        
                     </div>
                 </div>
 
@@ -942,9 +939,9 @@
         // Filter Handlers
         function updatePriceLabel(val) {
             activeFilters.maxPrice = parseFloat(val);
-            document.getElementById('price-label').innerText = `Up to ?${parseInt(val).toLocaleString("en-NG")}`;
+            document.getElementById('price-label').innerText = `Up to ₦${parseInt(val).toLocaleString("en-NG")}`;
             const mobileLabel = document.getElementById('price-label-mobile');
-            if (mobileLabel) mobileLabel.innerText = `Up to ?${parseInt(val).toLocaleString("en-NG")}`;
+            if (mobileLabel) mobileLabel.innerText = `Up to ₦${parseInt(val).toLocaleString("en-NG")}`;
             filterAndRenderCatalog();
         }
 

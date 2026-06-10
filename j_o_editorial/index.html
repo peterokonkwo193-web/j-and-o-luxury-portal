@@ -251,7 +251,7 @@
             <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
                 <div class="flex justify-between items-end">
                     <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
-                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">₦0</span>
                 </div>
                 <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
                 <div class="space-y-3">
@@ -731,20 +731,25 @@
         let wishlistItems = [];
 
         // ── Product Database (same 12 products as homepage) ────────
-        const PRODUCT_DATABASE = [
-            { id: 1,  name: "Sculpted Midi Dress",          brand: "J & O ATELIER",   category: "Clothing",          price: 450.00,  img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L"],          colors: ["Beige","White"],   rating: 5, reviews: 18, stock: 8,  desc: "A beautifully sculpted midi dress in premium cotton jersey.", details: ["100% Organic Cotton","Made in France"] },
-            { id: 2,  name: "Oversized Wool Blazer",        brand: "J & O ATELIER",   category: "Clothing",          price: 890.00,  img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M","L","XL"],colors: ["Black","Grey"],    rating: 5, reviews: 32, stock: 3,  desc: "Classic double-breasted oversized jacket in cold-pressed virgin wool.", details: ["100% Virgin Wool","Made in Italy"] },
-            { id: 3,  name: "The Sculptural Tote",          brand: "J & O BAGS",      category: "Bags",              price: 1200.00, img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Beige","Brown"],   rating: 5, reviews: 24, stock: 10, desc: "An architectural trapezoidal handbag made from hand-tanned calfskin leather.", details: ["Full Grain Calfskin","Made in Florence"] },
-            { id: 4,  name: "Helix Gold Chain",             brand: "J & O JEWELRY",   category: "Jewelry",           price: 320.00,  img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold"],            rating: 4, reviews: 15, stock: 15, desc: "A solid 18k gold-plated helix link chain.", details: ["18k Gold Plated Brass"] },
-            { id: 5,  name: "The Grand Chronograph Noir",   brand: "J & O HOROLOGY",  category: "Watches",           price: 4250.00, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200",  link: "../the_watch_collection/",     sizes: ["One Size"],           colors: ["Black"],           rating: 5, reviews: 47, stock: 2,  desc: "A masterclass in horological minimalism.", details: ["Automatic mechanism","Sapphire case back"] },
-            { id: 6,  name: "Calfskin Saddle Bag",          brand: "J & O BAGS",      category: "Bags",              price: 1850.00, img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200",    link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Brown","Black"],   rating: 5, reviews: 19, stock: 6,  desc: "Classic equestrian-inspired saddle handbag.", details: ["Vegetable-tanned leather"] },
-            { id: 7,  name: "Silk Utility Shirt",           brand: "J & O ATELIER",   category: "Clothing",          price: 390.00,  img: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M","L"],     colors: ["White","Beige"],   rating: 4, reviews: 12, stock: 12, desc: "Fluid Mulberry silk shirt.", details: ["100% Mulberry Silk","Made in Switzerland"] },
-            { id: 8,  name: "Diamond Pave Hoop Rings",      brand: "J & O JEWELRY",   category: "Jewelry",           price: 1450.00, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold","White"],    rating: 5, reviews: 8,  stock: 4,  desc: "Stunning 14k solid gold hoop rings adorned with fine pave diamonds.", details: ["14k Solid Yellow Gold"] },
-            { id: 9,  name: "Minimalist Trench Coat",       brand: "J & O ATELIER",   category: "Clothing",          price: 1890.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L","XL"],     colors: ["Beige","Black"],   rating: 5, reviews: 22, stock: 5,  desc: "Signature double-breasted trench in weather-resistant gabardine canvas.", details: ["Premium Cotton Gabardine","Made in England"] },
-            { id: 10, name: "L'Artiste Silk Slip",          brand: "J & O ATELIER",   category: "Clothing",          price: 850.00,  img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=200",  link: "../product_detail_showcase/",  sizes: ["XS","S","M"],         colors: ["Grey","Black"],    rating: 4, reviews: 14, stock: 7,  desc: "An elegant slip dress made of double-weight satin silk.", details: ["100% Silk Satin"] },
-            { id: 11, name: "Archival Leather Chelsea Boot",brand: "J & O SHOES",     category: "Shoes",             price: 1200.00, img: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=200",  link: "../product_detail_showcase/",  sizes: ["S","M","L"],          colors: ["Black","Brown"],   rating: 5, reviews: 38, stock: 3,  desc: "Sleek Chelsea boots crafted in full-grain calfskin.", details: ["100% Italian Calf Leather","Made in Spain"] },
-            { id: 12, name: "Luxury Amber Fragrance",       brand: "J & O BEAUTY",    category: "Beauty & Fragrance",price: 240.00,  img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=200",  link: "../product_detail_showcase/",  sizes: ["One Size"],           colors: ["Gold"],            rating: 4, reviews: 9,  stock: 14, desc: "An intense amber, sandalwood, and floral musk elixir.", details: ["Eau de Parfum 100ML"] }
-        ];
+        const PRODUCT_DATABASE = (function() {
+            if (!window.JO_PRODUCTS) return [];
+            return window.JO_PRODUCTS.map(p => ({
+                id: p.id,
+                name: p.name,
+                brand: p.brand,
+                category: p.category,
+                price: p.price,
+                img: p.img.replace('?w=900', '?w=200'),
+                link: '../product_detail_showcase/',
+                sizes: p.sizes,
+                colors: p.colors,
+                rating: p.rating,
+                reviews: p.reviews,
+                stock: p.stock,
+                desc: p.desc || 'A luxury J & O piece.',
+                details: p.details || ['Premium materials', 'Expert craftsmanship']
+            }));
+        })();
 
         // ── Data Load ───────────────────────────────────────────────
         (async () => {

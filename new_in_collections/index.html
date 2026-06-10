@@ -321,7 +321,7 @@
             <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
                 <div class="flex justify-between items-end">
                     <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
-                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">₦0</span>
                 </div>
                 <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
                 <div class="space-y-3">
@@ -520,216 +520,31 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Full Product Database matching Catalog and Detail Showcase
-        const PRODUCT_DATABASE = [
-            {
-                id: 1,
-                name: "Sculpted Midi Dress",
-                brand: "J & O ATELIER",
-                category: "Clothing",
-                gender: "Women",
-                price: 450.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=90",
-                sizes: ["S", "M", "L"],
-                colors: ["Beige", "White"],
-                rating: 5,
-                reviews: 18,
-                stock: 8,
-                dateAdded: "2026-05-24"
-            },
-            {
-                id: 2,
-                name: "Oversized Wool Blazer",
-                brand: "J & O ATELIER",
-                category: "Clothing",
-                gender: "Unisex",
-                price: 890.00,
-                originalPrice: 1100.00,
-                sale: true,
-                img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=900&q=90",
-                sizes: ["XS", "S", "M", "L", "XL"],
-                colors: ["Black", "Grey"],
-                rating: 5,
-                reviews: 32,
-                stock: 3,
-                dateAdded: "2026-05-22"
-            },
-            {
-                id: 3,
-                name: "The Sculptural Tote",
-                brand: "J & O BAGS",
-                category: "Bags",
-                gender: "Women",
-                price: 1200.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Beige", "Brown"],
-                rating: 5,
-                reviews: 24,
-                stock: 10,
-                dateAdded: "2026-05-25"
-            },
-            {
-                id: 4,
-                name: "Helix Gold Chain",
-                brand: "J & O JEWELRY",
-                category: "Jewelry",
-                gender: "Unisex",
-                price: 320.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Gold"],
-                rating: 4,
-                reviews: 15,
-                stock: 15,
-                dateAdded: "2026-05-18"
-            },
-            {
-                id: 5,
-                name: "The Grand Chronograph Noir",
-                brand: "J & O HOROLOGY",
-                category: "Watches",
-                gender: "Men",
-                price: 4250.00,
-                originalPrice: 5800.00,
-                sale: true,
-                img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Black"],
-                rating: 5,
-                reviews: 47,
-                stock: 2,
-                dateAdded: "2026-05-23"
-            },
-            {
-                id: 6,
-                name: "Calfskin Saddle Bag",
-                brand: "J & O BAGS",
-                category: "Bags",
-                gender: "Women",
-                price: 1850.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Brown", "Black"],
-                rating: 5,
-                reviews: 19,
-                stock: 6,
-                dateAdded: "2026-05-15"
-            },
-            {
-                id: 7,
-                name: "Silk Utility Shirt",
-                brand: "J & O ATELIER",
-                category: "Clothing",
-                gender: "Women",
-                price: 390.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=90",
-                sizes: ["XS", "S", "M", "L"],
-                colors: ["White", "Beige"],
-                rating: 4,
-                reviews: 12,
-                stock: 12,
-                dateAdded: "2026-05-24"
-            },
-            {
-                id: 8,
-                name: "Diamond Pave Hoop Rings",
-                brand: "J & O JEWELRY",
-                category: "Jewelry",
-                gender: "Women",
-                price: 1450.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Gold", "White"],
-                rating: 5,
-                reviews: 8,
-                stock: 4,
-                dateAdded: "2026-05-10"
-            },
-            {
-                id: 9,
-                name: "Minimalist Trench Coat",
-                brand: "J & O ATELIER",
-                category: "Clothing",
-                gender: "Unisex",
-                price: 1890.00,
-                originalPrice: 2200.00,
-                sale: true,
-                img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1544923246-77307dd654cb?w=900&q=90",
-                sizes: ["S", "M", "L", "XL"],
-                colors: ["Beige", "Black"],
-                rating: 5,
-                reviews: 22,
-                stock: 5,
-                dateAdded: "2026-05-12"
-            },
-            {
-                id: 10,
-                name: "L�Artiste Silk Slip",
-                brand: "J & O ATELIER",
-                category: "Clothing",
-                gender: "Women",
-                price: 850.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=90",
-                sizes: ["XS", "S", "M"],
-                colors: ["Grey", "Black"],
-                rating: 4,
-                reviews: 14,
-                stock: 7,
-                dateAdded: "2026-05-25"
-            },
-            {
-                id: 11,
-                name: "Archival Leather Chelsea Boot",
-                brand: "J & O SHOES",
-                category: "Shoes",
-                gender: "Men",
-                price: 1200.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1618242479322-4f727a87e828?w=900&q=90",
-                sizes: ["S", "M", "L"],
-                colors: ["Black", "Brown"],
-                rating: 5,
-                reviews: 38,
-                stock: 3,
-                dateAdded: "2026-05-21"
-            },
-            {
-                id: 12,
-                name: "Luxury Amber Fragrance",
-                brand: "J & O BEAUTY",
-                category: "Beauty & Fragrance",
-                gender: "Unisex",
-                price: 240.00,
-                sale: false,
-                img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=900&q=90",
-                imgAlt: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=900&q=90",
-                sizes: ["One Size"],
-                colors: ["Gold"],
-                rating: 4,
-                reviews: 9,
-                stock: 14,
-                dateAdded: "2026-05-05"
-            }
-        ];
+        // Product Database — uses global NGN catalog from products.js
+        const PRODUCT_DATABASE = (function() {
+            if (!window.JO_PRODUCTS) return [];
+            const BASE_DATE = new Date('2026-05-25');
+            return window.JO_PRODUCTS.map((p, idx) => ({
+                id: p.id,
+                name: p.name,
+                brand: p.brand,
+                category: p.category,
+                gender: p.isMen ? 'Men' : 'Women',
+                price: p.price,
+                originalPrice: p.originalPrice || null,
+                sale: !!(p.originalPrice && p.originalPrice > p.price),
+                img: p.img,
+                imgAlt: p.img2 || p.img,
+                sizes: p.sizes,
+                colors: p.colors,
+                rating: p.rating,
+                reviews: p.reviews,
+                stock: p.stock,
+                dateAdded: p.isNew
+                    ? new Date(BASE_DATE.getTime() - (idx % 7) * 24*60*60*1000).toISOString().split('T')[0]
+                    : new Date(BASE_DATE.getTime() - (7 + idx % 14) * 24*60*60*1000).toISOString().split('T')[0]
+            }));
+        })();
 
         // Active State variables
         let cartItems = [];
@@ -907,7 +722,7 @@
                             </div>
                             <h3 class="font-serif text-lg text-primary font-medium tracking-wide">${prod.name}</h3>
                             <div class="flex items-center justify-between">
-                                <p class="font-body-md text-gold text-sm font-semibold">$${prod.price.toFixed(2)}</p>
+                                <p class="font-body-md text-gold text-sm font-semibold">${window.JO_PRICE ? window.JO_PRICE(prod.price) : ("₦" + Number(prod.price).toLocaleString("en-NG"))}</p>
                                 <span class="font-label-caps text-[8px] text-outline tracking-wider">${prod.dateAdded}</span>
                             </div>
                         </div>

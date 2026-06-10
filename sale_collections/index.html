@@ -400,7 +400,7 @@
             <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
                 <div class="flex justify-between items-end">
                     <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
-                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">₦0</span>
                 </div>
                 <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
                 <div class="space-y-3">
@@ -687,189 +687,30 @@
     let cart = JSON.parse(localStorage.getItem('j_o_cart') || '[]');
     let wishlist = JSON.parse(localStorage.getItem('j_o_wishlist') || '[]');
 
-    // --- Product Database (sale items only) ------------------
-    const SALE_PRODUCTS = [
-        {
-            id: 2,
-            name: "Oversized Wool Blazer",
-            brand: "J & O ATELIER",
-            category: "Clothing",
-            price: 890.00,
-            originalPrice: 1100.00,
-            img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=900&q=90",
-            sizes: ["XS","S","M","L","XL"],
-            stock: 3,
-            rating: 5,
-            reviews: 32,
-            dateAdded: "2026-05-22"
-        },
-        {
-            id: 5,
-            name: "The Grand Chronograph Noir",
-            brand: "J & O HOROLOGY",
-            category: "Watches",
-            price: 4250.00,
-            originalPrice: 5800.00,
-            img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 2,
-            rating: 5,
-            reviews: 47,
-            dateAdded: "2026-05-23"
-        },
-        {
-            id: 9,
-            name: "Minimalist Trench Coat",
-            brand: "J & O ATELIER",
-            category: "Clothing",
-            price: 1890.00,
-            originalPrice: 2200.00,
-            img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1544923246-77307dd654cb?w=900&q=90",
-            sizes: ["S","M","L","XL"],
-            stock: 5,
-            rating: 5,
-            reviews: 22,
-            dateAdded: "2026-05-12"
-        },
-        {
-            id: 11,
-            name: "L'Artiste Silk Slip Dress",
-            brand: "J & O ATELIER",
-            category: "Clothing",
-            price: 595.00,
-            originalPrice: 850.00,
-            img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=90",
-            sizes: ["XS","S","M"],
-            stock: 4,
-            rating: 4,
-            reviews: 19,
-            dateAdded: "2026-05-20"
-        },
-        {
-            id: 13,
-            name: "Leather Chelsea Boot",
-            brand: "J & O SHOES",
-            category: "Shoes",
-            price: 480.00,
-            originalPrice: 680.00,
-            img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&q=90",
-            sizes: ["38","39","40","41","42"],
-            stock: 7,
-            rating: 4,
-            reviews: 28,
-            dateAdded: "2026-05-10"
-        },
-        {
-            id: 14,
-            name: "Crocodile-Embossed Clutch",
-            brand: "J & O BAGS",
-            category: "Bags",
-            price: 640.00,
-            originalPrice: 920.00,
-            img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 6,
-            rating: 5,
-            reviews: 14,
-            dateAdded: "2026-05-08"
-        },
-        {
-            id: 15,
-            name: "Sculptural Gold Cuff",
-            brand: "J & O JEWELRY",
-            category: "Jewelry",
-            price: 195.00,
-            originalPrice: 280.00,
-            img: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 9,
-            rating: 4,
-            reviews: 11,
-            dateAdded: "2026-05-05"
-        },
-        {
-            id: 16,
-            name: "Cashmere Turtleneck",
-            brand: "J & O ATELIER",
-            category: "Clothing",
-            price: 310.00,
-            originalPrice: 460.00,
-            img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1608234807905-4466023792f5?w=900&q=90",
-            sizes: ["XS","S","M","L"],
-            stock: 10,
-            rating: 5,
-            reviews: 36,
-            dateAdded: "2026-05-03"
-        },
-        {
-            id: 17,
-            name: "Slim Suede Loafer",
-            brand: "J & O SHOES",
-            category: "Shoes",
-            price: 295.00,
-            originalPrice: 420.00,
-            img: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=90",
-            sizes: ["39","40","41","42","43"],
-            stock: 8,
-            rating: 4,
-            reviews: 17,
-            dateAdded: "2026-04-28"
-        },
-        {
-            id: 18,
-            name: "Heritage Canvas Holdall",
-            brand: "J & O BAGS",
-            category: "Bags",
-            price: 790.00,
-            originalPrice: 1150.00,
-            img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 3,
-            rating: 5,
-            reviews: 23,
-            dateAdded: "2026-04-20"
-        },
-        {
-            id: 19,
-            name: "Silk Bandeau Scarf",
-            brand: "J & O ACCESSORIES",
-            category: "Accessories",
-            price: 98.00,
-            originalPrice: 160.00,
-            img: "https://images.unsplash.com/photo-1601924638867-3a6de6b7a500?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 12,
-            rating: 4,
-            reviews: 9,
-            dateAdded: "2026-04-15"
-        },
-        {
-            id: 20,
-            name: "Automatic Rose Gold Watch",
-            brand: "J & O HOROLOGY",
-            category: "Watches",
-            price: 2100.00,
-            originalPrice: 3200.00,
-            img: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=900&q=90",
-            imgAlt: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=900&q=90",
-            sizes: ["One Size"],
-            stock: 2,
-            rating: 5,
-            reviews: 31,
-            dateAdded: "2026-04-10"
-        }
-    ];
+    // Product Database — uses global NGN catalog from products.js (sale items only)
+    const SALE_PRODUCTS = (function() {
+        if (!window.JO_PRODUCTS) return [];
+        return window.JO_PRODUCTS
+            .filter(p => p.originalPrice && p.originalPrice > p.price)
+            .map(p => ({
+                id: p.id,
+                name: p.name,
+                brand: p.brand,
+                category: p.category,
+                sub: p.sub,
+                gender: p.isMen ? 'Men' : 'Women',
+                price: p.price,
+                originalPrice: p.originalPrice,
+                img: p.img,
+                imgAlt: p.img2 || p.img,
+                sizes: p.sizes,
+                colors: p.colors,
+                rating: p.rating,
+                reviews: p.reviews,
+                stock: p.stock,
+                desc: p.desc || 'A luxury J & O piece, now on sale.'
+            }));
+    })();
 
     // --- Discount helpers -------------------------------------
     function getDiscountPct(p) {

@@ -1095,9 +1095,10 @@ window.JO_PRODUCTS = [
     {
         "id": 32,
         "name": "Minimalist Silver Watch",
+        "isMen": true,
         "brand": "J & O HOROLOGY",
         "category": "Watches",
-        "sub": "Unisex",
+        "sub": "Classic",
         "price": 850000,
         "originalPrice": 950000,
         "currency": "NGN",
@@ -1119,7 +1120,6 @@ window.JO_PRODUCTS = [
             "watch",
             "silver",
             "minimalist",
-            "unisex",
             "clean"
         ],
         "desc": "Clean, borderless dial. Japanese quartz movement. Scratch-resistant sapphire crystal. The watch that goes with everything."
@@ -1603,8 +1603,7 @@ window.JO_PRODUCTS = [
             "fragrance",
             "perfume",
             "amber",
-            "woody",
-            "unisex"
+            "woody"
         ],
         "desc": "Eau de Parfum. 100ml. Top notes: Amber & Sandalwood. Heart: Cardamom & White Musk. Base: Oud & Vetiver."
     },
@@ -2051,7 +2050,7 @@ window.JO_PRODUCTS = [
             "casual",
             "fleece"
         ],
-        "desc": "400gsm French terry zip-up hoodie. Front kangaroo pocket, metal zip pull. Unisex fit — also popular with women."
+        "desc": "400gsm French terry zip-up hoodie. Front kangaroo pocket, metal zip pull. Relaxed oversized fit."
     },
     {
         "id": 60,
@@ -2495,10 +2494,9 @@ window.JO_PRODUCTS = [
             "luxury",
             "leather",
             "work",
-            "travel",
-            "unisex"
+            "travel"
         ],
-        "desc": "Premium leather backpack with laptop compartment (15\"), water bottle pockets, and a sleek top handle. Unisex appeal."
+        "desc": "Premium leather backpack with laptop compartment (15\"), water bottle pockets, and a sleek top handle. Suitable for all occasions."
     },
     {
         "id": 72,
@@ -2541,7 +2539,7 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1614179924047-e164b5261d11?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=900&q=90",
         "img2": "https://images.unsplash.com/photo-1601524909162-ae8725290836?w=900&q=90",
         "sizes": [
             "One Size"
@@ -2803,8 +2801,8 @@ window.JO_PRODUCTS = [
         "price": 225000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1594385208974-2e75f9d3bb48?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2871,8 +2869,8 @@ window.JO_PRODUCTS = [
         "price": 55000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1623998021451-31d013b1fb5d?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1587301620028-5964c6ab62d7?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -2905,8 +2903,8 @@ window.JO_PRODUCTS = [
         "price": 525000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1581553680321-4fffae59f4fa?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1608962776412-f04bf4ea2605?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1621600411688-497726f77f2e?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3095,7 +3093,7 @@ window.JO_PRODUCTS = [
         "originalPrice": null,
         "currency": "NGN",
         "img": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1616150638538-ffb0679a3fc6?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3128,8 +3126,8 @@ window.JO_PRODUCTS = [
         "price": 165000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=900&q=90",
         "sizes": [
             "One Size"
         ],
@@ -3231,6 +3229,8 @@ window.JO_PRODUCTS = [
         "desc": "A smart shirt-and-trouser set for boys. Premium cotton, easy-care finish. For parties, naming ceremonies, and special occasions."
     }
 ];
+
+
 
 
 
