@@ -424,14 +424,14 @@
 
     // ── INITIALISE ALL ───────────────────────────────────────────
     function init() {
-        initWhatsApp();
+        // initWhatsApp(); // Disabled per user request
         initSocialProof();
         initExitIntent();
         initStockUrgency();
         initViewingCounter();
         initStickyCartBar();
         initTrustBar();
-        initCurrencyToggle();
+        // initCurrencyToggle(); // Disabled per user request
     }
 
     if (document.readyState === 'loading') {

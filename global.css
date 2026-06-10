@@ -764,11 +764,6 @@ body {
   .py-32 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
 }
 
-/* ── Floating buttons: adjust position on mobile ── */
-@media (max-width: 768px) {
-  #jo-whatsapp-btn    { bottom: 16px; right: 12px; }
-  #jo-currency-toggle { bottom: 76px; right: 12px; }
-}
 
 /* ── Nav height offset for sticky header ── */
 @media (max-width: 1024px) {
