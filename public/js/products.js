@@ -1059,7 +1059,8 @@ window.JO_PRODUCTS = [
             "automatic",
             "black"
         ],
-        "desc": "A masterclass in horological minimalism. Handcrafted obsidian dial, surgical steel chassis, and deep black calf leather straps."
+        "desc": "A masterclass in horological minimalism. Handcrafted obsidian dial, surgical steel chassis, and deep black calf leather straps.",
+        "isMen": true
     },
     {
         "id": 31,
@@ -1186,7 +1187,8 @@ window.JO_PRODUCTS = [
             "rubber",
             "mens"
         ],
-        "desc": "High-performance luxury sport watch. Titanium case, rubber strap, 200m water resistance. From boardroom to beach."
+        "desc": "High-performance luxury sport watch. Titanium case, rubber strap, 200m water resistance. From boardroom to beach.",
+        "isMen": true
     },
     {
         "id": 35,
@@ -1710,8 +1712,8 @@ window.JO_PRODUCTS = [
         "price": 75000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1750,8 +1752,8 @@ window.JO_PRODUCTS = [
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1534126511673-b6899657816a?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1789,8 +1791,8 @@ window.JO_PRODUCTS = [
         "price": 95000,
         "originalPrice": 115000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1826,8 +1828,8 @@ window.JO_PRODUCTS = [
         "price": 85000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1550246140-5119ae4790b8?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1864,8 +1866,8 @@ window.JO_PRODUCTS = [
         "price": 125000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1905,7 +1907,7 @@ window.JO_PRODUCTS = [
         "originalPrice": 115000,
         "currency": "NGN",
         "img": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1942,8 +1944,8 @@ window.JO_PRODUCTS = [
         "price": 265000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1505503693641-1926193e8d57?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -1975,15 +1977,15 @@ window.JO_PRODUCTS = [
     },
     {
         "id": 58,
-        "name": "Luxury Sport Shorts",
+        "name": "Men's Cotton Singlet",
         "brand": "J & O SPORT",
         "category": "Men",
-        "sub": "Joggers",
+        "sub": "Singlets",
         "price": 65000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2004,13 +2006,14 @@ window.JO_PRODUCTS = [
         "isBestseller": false,
         "isMen": true,
         "tags": [
-            "shorts",
-            "men",
-            "sport",
-            "gym",
-            "athletic"
+            "singlet",
+            "sleeveless",
+            "cotton",
+            "underwear",
+            "loungewear",
+            "men"
         ],
-        "desc": "Lightweight quick-dry sport shorts with inner liner. Side pockets, elastic waist with drawcord. Performance meets luxury."
+        "desc": "A premium sleeveless cotton singlet for men, perfect for layering or warm-weather lounging. Soft, breathable rib-knit."
     },
     {
         "id": 59,
@@ -2022,7 +2025,7 @@ window.JO_PRODUCTS = [
         "originalPrice": 175000,
         "currency": "NGN",
         "img": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2061,8 +2064,8 @@ window.JO_PRODUCTS = [
         "price": 895000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1548142813-c348350df52b?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1504257486363-07656f037889?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1542156822-6924d1a71aba?w=900&q=90",
         "sizes": [
             "38",
             "40",
@@ -2101,8 +2104,8 @@ window.JO_PRODUCTS = [
         "price": 85000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1558203728-00f45181dd84?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2141,8 +2144,8 @@ window.JO_PRODUCTS = [
         "price": 115000,
         "originalPrice": 135000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1618898909019-010e4e234c55?w=900&q=90",
         "sizes": [
             "28",
             "30",
@@ -2182,8 +2185,8 @@ window.JO_PRODUCTS = [
         "price": 385000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1588516987418-7b9bc0195e0c?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1605369572399-05d8d64a0f6e?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1583073525797-a4c6a5879ab6?w=900&q=90",
         "sizes": [
             "M",
             "L",
@@ -2220,8 +2223,8 @@ window.JO_PRODUCTS = [
         "price": 145000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1595959183075-c1d09e77bc34?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1620921556988-d4a6ef9a7c6f?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?w=900&q=90",
         "sizes": [
             "M",
             "L",
@@ -2259,8 +2262,8 @@ window.JO_PRODUCTS = [
         "price": 265000,
         "originalPrice": 315000,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1611590027211-b954fd027b51?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -2298,8 +2301,8 @@ window.JO_PRODUCTS = [
         "price": 445000,
         "originalPrice": null,
         "currency": "NGN",
-        "img": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=900&q=90",
-        "img2": "https://images.unsplash.com/photo-1618151313441-bc79b11e5090?w=900&q=90",
+        "img": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=900&q=90",
+        "img2": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=90",
         "sizes": [
             "S",
             "M",
@@ -3226,9 +3229,12 @@ window.JO_PRODUCTS = [
             "children",
             "occasion"
         ],
-        "desc": "A smart shirt-and-trouser set for boys. Premium cotton, easy-care finish. For parties, naming ceremonies, and special occasions."
+        "desc": "A smart shirt-and-trouser set for boys. Premium cotton, easy-care finish. For parties, naming ceremonies, and special occasions.",
+        "isMen": true
     }
 ];
+
+
 
 
 
