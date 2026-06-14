@@ -33,7 +33,7 @@
                         "surface-container-low":    "#f5f3f3",
                         "on-surface-variant":       "#444748",
                         "surface-container":        "#efeded",
-                        "gold":                     "#C5A059",
+                        "gold":                     "#B8860B",
                         "sale-red":                 "#C0392B"
                     },
                     spacing: {
@@ -67,7 +67,7 @@
 
         /* -- Dot pattern -- */
         .dot-bg {
-            background-image: radial-gradient(#C5A059 1px, transparent 1px);
+            background-image: radial-gradient(#B8860B 1px, transparent 1px);
             background-size: 28px 28px;
         }
 
@@ -99,7 +99,7 @@
 
         /* -- Step tracker line -- */
         .tracker-line { position:absolute; top:50%; left:0; right:0; height:2px; background:#c4c7c7; z-index:0; transform:translateY(-50%); }
-        .tracker-line-fill { position:absolute; top:0; left:0; height:100%; background:#C5A059; transition:width 1.2s ease 1.8s; }
+        .tracker-line-fill { position:absolute; top:0; left:0; height:100%; background:#B8860B; transition:width 1.2s ease 1.8s; }
 
         /* -- Card fadeUp -- */
         @keyframes fadeUp {
@@ -258,14 +258,14 @@
             <div class="absolute inset-0 dot-bg opacity-[0.25] pointer-events-none"></div>
 
             <!-- Gold gradient bar at top -->
-            <div class="absolute top-0 left-0 right-0 h-[3px]" style="background: linear-gradient(90deg,#C5A059 0%,#e8c97a 50%,#C5A059 100%);"></div>
+            <div class="absolute top-0 left-0 right-0 h-[3px]" style="background: linear-gradient(90deg,#B8860B 0%,#e8c97a 50%,#B8860B 100%);"></div>
 
             <div class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-[80px] py-20 md:py-28 flex flex-col items-center text-center gap-8">
 
                 <!-- Animated checkmark -->
                 <div class="check-ring w-28 h-28 md:w-36 md:h-36 bg-primary flex items-center justify-center flex-shrink-0 relative">
                     <div class="absolute inset-0 dot-bg opacity-[0.15]"></div>
-                    <svg class="check-svg relative z-10" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#C5A059" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="check-svg relative z-10" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#B8860B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="10,30 22,42 46,16"/>
                     </svg>
                 </div>
@@ -412,7 +412,7 @@
                             <div class="px-6 py-6 space-y-4">
                                 <div class="flex justify-between items-center">
                                     <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">SUBTOTAL</span>
-                                    <span class="font-serif text-base font-semibold text-primary" id="sum-subtotal">$0.00</span>
+                                    <span class="font-serif text-base font-semibold text-primary" id="sum-subtotal">&#x20A6;0</span>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="font-label-caps text-[10px] tracking-widest text-on-surface-variant">SHIPPING</span>
@@ -425,7 +425,7 @@
                             </div>
                             <div class="flex justify-between items-end px-6 pb-6 pt-4 border-t border-outline-variant/30">
                                 <span class="font-label-caps text-[11px] tracking-[0.2em] font-black text-primary">TOTAL PAID</span>
-                                <span class="font-serif text-3xl font-black text-primary" id="sum-total">$0.00</span>
+                                <span class="font-serif text-3xl font-black text-primary" id="sum-total">&#x20A6;0</span>
                             </div>
                         </div>
 
@@ -547,7 +547,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                 </ul>
             </div>
             <div class="lg:col-span-3 text-left">
@@ -639,13 +639,13 @@
         const total      = subtotal + shipping + tax;
 
         // Pricing panel
-        document.getElementById('sum-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('sum-subtotal').textContent = `₦${Math.round(subtotal).toLocaleString('en-NG')}`;
         const shipEl = document.getElementById('sum-shipping');
         shipEl.innerHTML = shipping === 0
             ? `<span class="text-gold font-bold">COMPLIMENTARY</span>`
-            : `$${shipping.toFixed(2)}`;
-        document.getElementById('sum-tax').textContent   = `$${tax.toFixed(2)}`;
-        document.getElementById('sum-total').textContent = `$${total.toFixed(2)}`;
+            : `&#x20A6;${Math.round(shipping).toLocaleString('en-NG')}`;
+        document.getElementById('sum-tax').textContent   = `₦${Math.round(tax).toLocaleString('en-NG')}`;
+        document.getElementById('sum-total').textContent = `₦${Math.round(total).toLocaleString('en-NG')}`;
 
         // Address
         const addrEl = document.getElementById('sum-address');
@@ -706,9 +706,9 @@
                     </div>
                     <div class="flex items-center gap-3 mt-3">
                         ${hasSale
-                            ? `<span class="font-serif text-base font-bold text-[#C0392B]">$${(item.price*item.qty).toFixed(2)}</span>
-                               <span class="text-xs line-through text-outline-variant">$${(item.originalPrice*item.qty).toFixed(2)}</span>`
-                            : `<span class="font-serif text-base font-semibold text-primary">$${(item.price*item.qty).toFixed(2)}</span>`
+                            ? `<span class="font-serif text-base font-bold text-[#C0392B]">&#x20A6;${Math.round(item.price*item.qty).toLocaleString('en-NG')}</span>
+                               <span class="text-xs line-through text-outline-variant">&#x20A6;${Math.round(item.originalPrice*item.qty).toLocaleString('en-NG')}</span>`
+                            : `<span class="font-serif text-base font-semibold text-primary">&#x20A6;${Math.round(item.price*item.qty).toLocaleString('en-NG')}</span>`
                         }
                     </div>
                 </div>
@@ -778,9 +778,9 @@
                 <div class="text-gold text-xs mb-1" aria-label="${p.rating} stars">${stars}</div>
                 <div class="flex items-center gap-2">
                     ${hasSale
-                        ? `<span class="font-bold text-[#C0392B] text-sm">$${p.price.toFixed(2)}</span>
-                           <span class="line-through text-outline text-xs">$${p.originalPrice.toFixed(2)}</span>`
-                        : `<span class="font-serif text-sm font-semibold text-primary">$${p.price.toFixed(2)}</span>`
+                        ? `<span class="font-bold text-[#C0392B] text-sm">&#x20A6;${Math.round(p.price).toLocaleString('en-NG')}</span>
+                           <span class="line-through text-outline text-xs">&#x20A6;${Math.round(p.originalPrice).toLocaleString('en-NG')}</span>`
+                        : `<span class="font-serif text-sm font-semibold text-primary">&#x20A6;${Math.round(p.price).toLocaleString('en-NG')}</span>`
                     }
                 </div>
             </div>`;

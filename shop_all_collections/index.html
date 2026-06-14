@@ -69,7 +69,7 @@
                         "on-surface-variant": "#444748",
                         "on-secondary-container": "#785a1a",
                         "surface-container": "#efeded",
-                        "gold": "#C5A059"
+                        "gold": "#B8860B"
                     },
                     spacing: {
                         "gutter": "32px",
@@ -384,6 +384,7 @@
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../order_tracking/">Track Order</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_editorial/">The Editorial</a>
                 </div>
             </div>
@@ -510,7 +511,7 @@
                         <button onclick="toggleColorFilter(this, 'Black')" class="color-btn w-6 h-6 bg-black border border-outline-variant transition-all" title="Black"></button>
                         <button onclick="toggleColorFilter(this, 'White')" class="color-btn w-6 h-6 bg-white border border-outline-variant transition-all" title="White"></button>
                         <button onclick="toggleColorFilter(this, 'Grey')" class="color-btn w-6 h-6 bg-[#808080] border border-outline-variant transition-all" title="Grey"></button>
-                        <button onclick="toggleColorFilter(this, 'Gold')" class="color-btn w-6 h-6 bg-[#C5A059] border border-outline-variant transition-all" title="Gold"></button>
+                        <button onclick="toggleColorFilter(this, 'Gold')" class="color-btn w-6 h-6 bg-[#B8860B] border border-outline-variant transition-all" title="Gold"></button>
                         <button onclick="toggleColorFilter(this, 'Beige')" class="color-btn w-6 h-6 bg-[#F5F5DC] border border-outline-variant transition-all" title="Beige"></button>
                         <button onclick="toggleColorFilter(this, 'Brown')" class="color-btn w-6 h-6 bg-[#8B4513] border border-outline-variant transition-all" title="Brown"></button>
                     </div>
@@ -621,7 +622,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                 </ul>
             </div>
 
@@ -1409,13 +1410,13 @@
                         <img src="${p.img}" alt="${p.name}" loading="lazy"
                              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"/>
                         ${p.img2 ? `<img src="${p.img2}" alt="${p.name}" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>` : ''}
-                        ${p.isNew ? `<span style="position:absolute;top:10px;left:10px;background:#000;color:#C5A059;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.15em;padding:3px 8px;z-index:10;">NEW IN</span>` : ''}
+                        ${p.isNew ? `<span style="position:absolute;top:10px;left:10px;background:#000;color:#B8860B;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.15em;padding:3px 8px;z-index:10;">NEW IN</span>` : ''}
                         ${salePercent > 0 ? `<span style="position:absolute;top:10px;left:10px;background:#C0392B;color:#fff;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;">-${salePercent}%</span>` : ''}
-                        ${p.isPetite ? `<span style="position:absolute;top:${p.isNew||salePercent>0?'34px':'10px'};left:10px;background:#C5A059;color:#000;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;">PETITE</span>` : ''}
+                        ${p.isPetite ? `<span style="position:absolute;top:${p.isNew||salePercent>0?'34px':'10px'};left:10px;background:#B8860B;color:#000;font-family:Montserrat,sans-serif;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;">PETITE</span>` : ''}
                         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.08);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:16px;z-index:20;"
                              class="group-hover:opacity-100">
                             <button style="width:100%;background:#000;color:#fff;border:none;padding:14px;font-family:Montserrat,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:background 0.25s;"
-                                    onmouseover="this.style.background='#C5A059';this.style.color='#000';"
+                                    onmouseover="this.style.background='#B8860B';this.style.color='#000';"
                                     onmouseout="this.style.background='#000';this.style.color='#fff';"
                                     onclick="event.stopPropagation(); if(typeof addToCart==='function'){addToCart('${p.name.replace(/'/g,"\\'")}',${p.price},'${p.img}');}">
                                 ADD TO BAG
@@ -1426,7 +1427,7 @@
                         <p style="font-family:Montserrat,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#747878;margin:0 0 4px;">${p.brand}</p>
                         <h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#000;margin:0 0 6px;line-height:1.3;">${p.name}</h3>
                         <div style="display:flex;align-items:center;gap:8px;">
-                            <span style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;color:#C5A059;">${window.JO_PRICE(p.price)}</span>
+                            <span style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;color:#B8860B;">${window.JO_PRICE(p.price)}</span>
                             ${p.originalPrice ? `<span style="font-family:Montserrat,sans-serif;font-size:11px;color:#aaa;text-decoration:line-through;">${window.JO_PRICE(p.originalPrice)}</span>` : ''}
                         </div>
                     </div>`;

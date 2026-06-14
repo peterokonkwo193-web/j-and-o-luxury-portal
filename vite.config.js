@@ -21,7 +21,8 @@ export default defineConfig({
         editorial: resolve(__dirname, 'j_o_editorial/index.html'),
         returns: resolve(__dirname, 'returns_exchanges/index.html'),
         privacy: resolve(__dirname, 'privacy_policy/index.html'),
-        size_guide: resolve(__dirname, 'size_guide/index.html')
+        size_guide: resolve(__dirname, 'size_guide/index.html'),
+        order_tracking: resolve(__dirname, 'order_tracking/index.html')
       }
     }
   }

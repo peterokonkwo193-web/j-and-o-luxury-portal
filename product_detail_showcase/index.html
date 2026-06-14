@@ -69,7 +69,7 @@
                         "on-surface-variant": "#444748",
                         "on-secondary-container": "#785a1a",
                         "surface-container": "#efeded",
-                        "gold": "#C5A059"
+                        "gold": "#B8860B"
                     },
                     spacing: {
                         "gutter": "32px",
@@ -374,6 +374,7 @@
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../order_tracking/">Track Order</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_editorial/">The Editorial</a>
                 </div>
             </div>
@@ -657,7 +658,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                 </ul>
             </div>
 
@@ -867,7 +868,7 @@
                 
                 // Set approximate CSS colors
                 let cssColor = color.toLowerCase();
-                if (cssColor === 'gold') cssColor = '#C5A059';
+                if (cssColor === 'gold') cssColor = '#B8860B';
                 if (cssColor === 'beige') cssColor = '#F5F5DC';
                 
                 colorHTML += `
@@ -1258,7 +1259,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-outline mt-1">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                                <p class="text-xs text-outline mt-1">&#x20A6;${Math.round(item.price).toLocaleString('en-NG')} x ${item.quantity}</p>
                             </div>
                             <button onclick="removeFromCart('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
                                 <span class="material-symbols-outlined text-[18px]">delete</span>
@@ -1268,7 +1269,7 @@
                 });
                 
                 container.innerHTML = html;
-                subtotalText.innerText = `$${subtotal.toFixed(2)}`;
+                subtotalText.innerText = `₦${Math.round(subtotal).toLocaleString('en-NG')}`;
             } else {
                 container.innerHTML = `
                     <div id="cart-empty-state" class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
@@ -1299,7 +1300,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-gold mt-1">$${item.price.toFixed(2)}</p>
+                                <p class="text-xs text-gold mt-1">&#x20A6;${Math.round(item.price).toLocaleString('en-NG')}</p>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button onclick="addToCartSimple('${item.name}', ${item.price}, '${item.img}'); removeFromWishlist('${item.name}')" class="p-2 text-primary hover:text-gold transition-colors">

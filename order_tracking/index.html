@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.SUPABASE_URL = "%VITE_SUPABASE_URL%";
+        window.SUPABASE_KEY = "%VITE_SUPABASE_ANON_KEY%";
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Track Your Order &mdash; J &amp; O | Where Style Meets Elegance</title>
+<meta name="description" content="Track your J &amp; O order status. Enter your order reference and email address to see real-time updates on your luxury pieces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global.css"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/products.js"></script>
+<script src="/js/supabase-sync.js"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{gold:'#B8860B','gold-light':'#d4b76f','gold-dark':'#a8864a',ivory:'#FBFBF9','surface-low':'#f5f5f3','surface-mid':'#eeeeeb'},fontFamily:{serif:['Playfair Display','Georgia','serif'],sans:['Montserrat','Helvetica','Arial','sans-serif']}}}}}
+</script>
+<style>
+*,*::before,*::after{border-radius:0 !important;}
+body{font-family:'Montserrat',sans-serif;color:#1b1c1c;background:#FBFBF9;overflow-x:hidden;}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;}
+
+/* Announcement bar */
+.announcement-bar{background:#000;color:#FBFBF9;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'Montserrat',sans-serif;padding:10px 0;text-align:center;font-weight:400;}
+
+/* Navbar */
+.navbar{background:#000;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(184,134,11,.15);}
+.nav-link{color:#FBFBF9;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:400;transition:color .3s;position:relative;padding:4px 0;}
+.nav-link:hover,.nav-link.active{color:#B8860B;}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:#B8860B;transition:width .3s;}
+.nav-link:hover::after{width:100%;}
+.logo-text{font-family:'Playfair Display',serif;font-size:28px;color:#FBFBF9;letter-spacing:.08em;font-weight:600;}
+.logo-text span{color:#B8860B;}
+.icon-btn{color:#FBFBF9;transition:color .3s;position:relative;cursor:pointer;}
+.icon-btn:hover{color:#B8860B;}
+.badge-dot{position:absolute;top:-4px;right:-6px;width:16px;height:16px;background:#B8860B;color:#000;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;}
+
+/* Mega Menu */
+.mega-menu{position:absolute;top:100%;left:0;width:100%;background:#000;border-top:1px solid rgba(184,134,11,.12);padding:40px 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .35s cubic-bezier(.4,0,.2,1);z-index:999;}
+.shop-trigger:hover .mega-menu,.mega-menu:hover{opacity:1;visibility:visible;transform:translateY(0);}
+.mega-col-title{color:#B8860B;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.mega-link{display:block;color:#ccc;font-size:12px;padding:4px 0;transition:color .25s;letter-spacing:.04em;}
+.mega-link:hover{color:#B8860B;}
+
+/* Search Overlay */
+.search-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:120px;opacity:0;visibility:hidden;transition:all .35s;}
+.search-overlay.active{opacity:1;visibility:visible;}
+.search-box{width:90%;max-width:640px;border-bottom:2px solid #B8860B;display:flex;align-items:center;gap:12px;padding-bottom:12px;transform:translateY(-20px);transition:transform .4s;opacity:0;}
+.search-overlay.active .search-box{transform:translateY(0);opacity:1;transition-delay:.1s;}
+.search-box input{flex:1;background:transparent;border:none;outline:none;color:#FBFBF9;font-size:20px;font-family:'Montserrat',sans-serif;letter-spacing:.06em;}
+.search-box input::placeholder{color:#666;}
+
+/* Mobile Drawer */
+.mobile-drawer{position:fixed;top:0;left:0;width:320px;max-width:85vw;height:100%;background:#000;z-index:3000;transform:translateX(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:0;}
+.mobile-drawer.active{transform:translateX(0);}
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2999;opacity:0;visibility:hidden;transition:all .3s;}
+.drawer-overlay.active{opacity:1;visibility:visible;}
+.drawer-link{display:block;color:#FBFBF9;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);transition:color .25s;font-weight:400;}
+.drawer-link:hover{color:#B8860B;}
+.accordion-sub{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.accordion-sub.open{max-height:600px;}
+.accordion-sub a{display:block;color:#999;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:10px 40px;transition:color .25s;}
+.accordion-sub a:hover{color:#B8860B;}
+
+/* Hero */
+.hero-track{position:relative;min-height:38vh;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden;}
+@media(min-width:640px){.hero-track{min-height:46vh;}}
+.hero-track::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(184,134,11,.12) 1px,transparent 1px);background-size:28px 28px;z-index:1;}
+.hero-track .hero-content{position:relative;z-index:2;text-align:center;padding:40px 20px;}
+
+/* Form */
+.field-wrap{position:relative;}
+.field-wrap input{width:100%;border:1px solid #c4c7c7;padding:20px 14px 8px;background:#fff;font-size:13px;color:#1b1c1c;outline:none;transition:border-color .25s;border-radius:0 !important;font-family:'Montserrat',sans-serif;}
+.field-wrap input:focus{border-color:#1b1c1c;}
+.field-wrap label.float-label{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:12px;color:#747878;pointer-events:none;transition:all .2s;letter-spacing:.05em;text-transform:uppercase;}
+.field-wrap input:focus+label.float-label,.field-wrap input:not(:placeholder-shown)+label.float-label{top:10px;transform:none;font-size:10px;}
+
+/* Buttons */
+.btn-gold{background:#B8860B;color:#000;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;padding:16px 36px;border:2px solid #B8860B;transition:all .3s;display:inline-block;text-align:center;cursor:pointer;}
+.btn-gold:hover{background:transparent;color:#B8860B;}
+.btn-submit{width:100%;background:#000;color:#FBFBF9;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;padding:18px;border:2px solid #000;transition:all .3s;cursor:pointer;}
+.btn-submit:hover{background:#B8860B;color:#000;border-color:#B8860B;}
+.btn-submit:disabled{opacity:.55;cursor:not-allowed;}
+
+/* Status timeline */
+.step-line{flex:1;height:2px;background:#e0e0dd;position:relative;}
+.step-line.done{background:#B8860B;}
+.step-circle{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid #e0e0dd;background:#fff;flex-shrink:0;}
+.step-circle.done{border-color:#B8860B;background:#B8860B;color:#fff;}
+.step-circle.active{border-color:#B8860B;color:#B8860B;}
+
+/* Order card */
+.order-card{border:1px solid #e0e0dd;background:#fff;}
+.order-card:hover{border-color:#B8860B;}
+.status-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:5px 12px;}
+.status-badge.processing{background:#fff8e7;color:#B8860B;border:1px solid #B8860B;}
+.status-badge.shipped{background:#e8f5e9;color:#2e7d32;border:1px solid #2e7d32;}
+.status-badge.delivered{background:#e3f2fd;color:#1565c0;border:1px solid #1565c0;}
+.status-badge.cancelled{background:#fce4ec;color:#c62828;border:1px solid #c62828;}
+.status-badge.pending{background:#f5f5f5;color:#616161;border:1px solid #bdbdbd;}
+
+/* Toast */
+.toast{position:fixed;top:24px;right:24px;background:#000;color:#FBFBF9;padding:20px 28px;z-index:9999;transform:translateX(120%);transition:transform .4s cubic-bezier(.4,0,.2,1);max-width:420px;border-left:3px solid #B8860B;box-shadow:0 8px 30px rgba(0,0,0,.3);}
+.toast.show{transform:translateX(0);}
+
+/* Footer */
+.footer{background:#000;color:#FBFBF9;}
+.footer a{color:#999;transition:color .25s;font-size:12px;letter-spacing:.04em;}
+.footer a:hover{color:#B8860B;}
+.footer-title{color:#B8860B;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;font-weight:600;}
+.footer-divider{border-color:rgba(255,255,255,.08);}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f1f1f1;}
+::-webkit-scrollbar-thumb{background:#B8860B;}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.animate-fade-up{animation:fadeUp .7s ease forwards;opacity:0;}
+.delay-100{animation-delay:.1s;}
+.delay-200{animation-delay:.2s;}
+.delay-300{animation-delay:.3s;}
+</style>
+</head>
+<body class="bg-ivory">
+
+<!-- ------- ANNOUNCEMENT BAR ------- -->
+<div class="announcement-bar" id="announcement-bar">
+  COMPLIMENTARY WHITE-GLOVE DELIVERY OVER &#x20A6;500,000 &bull; INSURED SHIPPING ON ALL ORDERS
+</div>
+
+<!-- ------- NAVBAR ------- -->
+<nav class="navbar" id="main-navbar">
+  <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
+    <div class="grid items-center h-[56px] md:h-[68px]" style="grid-template-columns:1fr auto 1fr;">
+
+      <!-- Column 1: Left Nav + Mobile Toggle -->
+      <div class="flex items-center">
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="../j_o_luxury_boutique_home/" class="nav-link">Home</a>
+        <div class="relative shop-trigger">
+          <a href="../shop_all_collections/" class="nav-link flex items-center gap-1">Shop <span class="material-symbols-outlined text-[14px]">expand_more</span></a>
+          <!-- Mega Menu -->
+          <div class="mega-menu">
+            <div class="max-w-[1400px] mx-auto px-8">
+              <div class="grid grid-cols-8 gap-6">
+                <div>
+                  <div class="mega-col-title">Clothing</div>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Dresses</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Tops</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Blazers</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Trousers</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Knitwear</a>
+                  <a href="../shop_all_collections/?cat=clothing" class="mega-link">Coats</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Shoes</div>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Heels</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Flats</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Boots</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Sneakers</a>
+                  <a href="../shop_all_collections/?cat=shoes" class="mega-link">Sandals</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Bags</div>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Tote Bags</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Shoulder Bags</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Clutches</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Crossbody</a>
+                  <a href="../shop_all_collections/?cat=bags" class="mega-link">Backpacks</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Watches &amp; Jewelry</div>
+                  <a href="../the_watch_collection/" class="mega-link">Watches</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Rings</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Necklaces</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Bracelets</a>
+                  <a href="../shop_all_collections/?cat=jewelry" class="mega-link">Earrings</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Accessories</div>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Sunglasses</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Scarves</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Belts</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Hats</a>
+                  <a href="../shop_all_collections/?cat=accessories" class="mega-link">Gloves</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Beauty</div>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Skincare</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Fragrance</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Makeup</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Haircare</a>
+                  <a href="../shop_all_collections/?cat=beauty" class="mega-link">Body Care</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Lifestyle</div>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Home D&eacute;cor</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Candles</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Stationery</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Books</a>
+                  <a href="../shop_all_collections/?cat=lifestyle" class="mega-link">Travel</a>
+                </div>
+                <div>
+                  <div class="mega-col-title">Gift Card</div>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">E-Gift Card</a>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">Physical Card</a>
+                  <a href="../shop_all_collections/?cat=gift-card" class="mega-link">Corporate Gifts</a>
+                </div>
+              </div>
+              <!-- Editorial -->
+              <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
+                <span class="material-symbols-outlined text-gold text-[18px]">auto_stories</span>
+                <a href="../j_o_editorial/" class="text-[11px] text-white/60 hover:text-gold tracking-[.14em] uppercase transition-colors">The Editorial &mdash; Journal &amp; Insights</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="../new_in_collections/" class="nav-link">New In</a>
+        <a href="../sale_collections/" class="nav-link">Sale</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger-btn" class="lg:hidden icon-btn" aria-label="Menu">
+        <span class="material-symbols-outlined text-[26px]">menu</span>
+      </button>
+      </div><!-- end column 1 -->
+
+      <!-- Column 2: Logo -->
+      <div class="flex justify-center items-center px-4">
+        <a href="../j_o_luxury_boutique_home/" class="logo-text" style="white-space:nowrap;">J <span>&</span> O</a>
+      </div>
+
+      <!-- Column 3: Right icons -->
+      <div class="flex items-center gap-3 justify-end">
+        <div class="hidden lg:flex items-center gap-5 pr-4 mr-1 border-r border-white/10">
+          <a href="../our_story_j_o/" class="nav-link">About</a>
+          <a href="../concierge_faq/" class="nav-link">Contact</a>
+        </div>
+        <button id="search-btn" class="icon-btn" aria-label="Search">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <a href="../my_wishlist/" class="icon-btn hidden sm:block" aria-label="Wishlist" id="wishlist-icon">
+          <span class="material-symbols-outlined text-[22px]">favorite_border</span>
+          <span class="badge-dot hidden" id="wishlist-badge">0</span>
+        </a>
+        <a href="../shopping_bag/" class="icon-btn" aria-label="Shopping bag" id="cart-icon">
+          <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+          <span class="badge-dot hidden" id="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ------- SEARCH OVERLAY ------- -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <span class="material-symbols-outlined text-gold text-[28px]">search</span>
+    <input type="text" placeholder="Search the collection&hellip;" id="search-input" autocomplete="off">
+    <button id="search-close" class="icon-btn"><span class="material-symbols-outlined text-[28px]">close</span></button>
+  </div>
+</div>
+
+<!-- ------- MOBILE DRAWER ------- -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="flex items-center justify-between p-5 border-b border-white/10">
+    <span class="text-ivory text-sm tracking-[.1em] uppercase font-semibold font-serif">Menu</span>
+    <button id="drawer-close" class="icon-btn"><span class="material-symbols-outlined text-[24px]">close</span></button>
+  </div>
+  <a href="../j_o_luxury_boutique_home/" class="drawer-link">Home</a>
+  <div class="drawer-accordion">
+    <button class="drawer-link flex items-center justify-between w-full text-left" data-accordion="shop-acc">
+      Shop <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+    </button>
+    <div class="accordion-sub" id="shop-acc">
+      <a href="../shop_all_collections/?cat=clothing">Clothing</a>
+      <a href="../shop_all_collections/?cat=shoes">Shoes</a>
+      <a href="../shop_all_collections/?cat=bags">Bags</a>
+      <a href="../the_watch_collection/">Watches &amp; Jewelry</a>
+      <a href="../shop_all_collections/?cat=accessories">Accessories</a>
+      <a href="../shop_all_collections/?cat=beauty">Beauty</a>
+      <a href="../shop_all_collections/?cat=lifestyle">Lifestyle</a>
+      <a href="../shop_all_collections/?cat=gift-card">Gift Card</a>
+    </div>
+  </div>
+  <a href="../new_in_collections/" class="drawer-link">New In</a>
+  <a href="../sale_collections/" class="drawer-link">Sale</a>
+  <a href="../our_story_j_o/" class="drawer-link">About</a>
+  <a href="../concierge_faq/" class="drawer-link">Contact</a>
+  <a href="../order_tracking/" class="drawer-link" style="color:#B8860B;">Track Order</a>
+  <a href="../my_wishlist/" class="drawer-link">Wishlist</a>
+  <a href="../shopping_bag/" class="drawer-link">Shopping Bag</a>
+  <div class="mt-4 mx-6 pt-4 border-t border-white/10">
+    <a href="../j_o_editorial/" class="flex items-center gap-2 text-white/50 hover:text-gold text-[10px] tracking-[.12em] uppercase transition-colors py-3">
+      <span class="material-symbols-outlined text-[16px]">auto_stories</span> The Editorial
+    </a>
+  </div>
+</div>
+
+<!-- ------- HERO ------- -->
+<section class="hero-track">
+  <div class="hero-content">
+    <p class="text-gold text-[10px] tracking-[.25em] uppercase mb-4 animate-fade-up">Customer Service</p>
+    <h1 class="font-serif text-3xl sm:text-5xl text-ivory font-semibold leading-tight animate-fade-up delay-100">Track Your Order</h1>
+    <p class="text-white/50 text-sm tracking-[.06em] mt-4 max-w-md mx-auto animate-fade-up delay-200">Enter your order reference and email to see real-time updates on your luxury pieces.</p>
+  </div>
+</section>
+
+<!-- ------- BREADCRUMB ------- -->
+<div class="bg-surface-low border-b border-[#e0e0dd]">
+  <div class="max-w-[1400px] mx-auto px-4 lg:px-8 py-3">
+    <nav class="flex items-center gap-2 text-[11px] text-[#888] tracking-[.06em] uppercase">
+      <a href="../j_o_luxury_boutique_home/" class="hover:text-gold transition-colors">Home</a>
+      <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+      <span class="text-[#1b1c1c]">Track Order</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ------- MAIN CONTENT ------- -->
+<main class="max-w-[800px] mx-auto px-4 lg:px-8 py-16">
+
+  <!-- Lookup Form -->
+  <div id="lookup-section" class="animate-fade-up">
+    <div class="text-center mb-10">
+      <h2 class="font-serif text-2xl font-semibold text-[#1b1c1c] mb-3">Find Your Order</h2>
+      <p class="text-[13px] text-[#555] leading-relaxed max-w-sm mx-auto">Your order reference was included in your confirmation email. It starts with <strong>#JO-</strong></p>
+    </div>
+
+    <form id="track-form" class="max-w-md mx-auto space-y-5" novalidate>
+      <div class="field-wrap">
+        <input type="text" id="order-ref-input" placeholder=" " autocomplete="off"
+               pattern="[A-Za-z0-9\-]+" maxlength="30" required>
+        <label for="order-ref-input" class="float-label">Order Reference (e.g. #JO-123456)</label>
+      </div>
+      <div class="field-wrap">
+        <input type="email" id="order-email-input" placeholder=" " autocomplete="email" required>
+        <label for="order-email-input" class="float-label">Email Address</label>
+      </div>
+      <p class="text-[11px] text-red-600 hidden" id="track-error"></p>
+      <button type="submit" class="btn-submit flex items-center justify-center gap-2" id="track-btn">
+        <span class="material-symbols-outlined text-[18px]">search</span>
+        TRACK ORDER
+      </button>
+    </form>
+
+    <!-- Help line -->
+    <p class="text-center text-[12px] text-[#888] mt-8">
+      Can&rsquo;t find your order?
+      <a href="../concierge_faq/" class="text-gold hover:underline">Contact our concierge team</a>
+    </p>
+  </div>
+
+  <!-- Results panel (hidden until search) -->
+  <div id="results-section" class="hidden">
+
+    <!-- Back link -->
+    <button id="back-btn" class="flex items-center gap-2 text-[11px] text-[#888] tracking-[.08em] uppercase hover:text-gold transition-colors mb-8">
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+      Search Again
+    </button>
+
+    <!-- Order summary card -->
+    <div class="order-card p-6 sm:p-8 mb-8 animate-fade-up" id="order-summary-card">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+        <div>
+          <p class="text-[10px] text-[#888] tracking-[.12em] uppercase mb-1">Order Reference</p>
+          <p class="font-serif text-2xl font-semibold text-[#1b1c1c]" id="result-ref">&mdash;</p>
+        </div>
+        <span class="status-badge pending" id="result-status-badge">
+          <span class="material-symbols-outlined text-[14px]" id="result-status-icon">schedule</span>
+          <span id="result-status-text">Pending</span>
+        </span>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 text-[13px] border-t border-[#e0e0dd] pt-6">
+        <div>
+          <p class="text-[10px] text-[#888] tracking-[.1em] uppercase mb-1">Order Date</p>
+          <p class="font-semibold text-[#1b1c1c]" id="result-date">&mdash;</p>
+        </div>
+        <div>
+          <p class="text-[10px] text-[#888] tracking-[.1em] uppercase mb-1">Total</p>
+          <p class="font-semibold text-[#1b1c1c]" id="result-total">&mdash;</p>
+        </div>
+        <div>
+          <p class="text-[10px] text-[#888] tracking-[.1em] uppercase mb-1">Estimated Delivery</p>
+          <p class="font-semibold text-[#1b1c1c]" id="result-eta">&mdash;</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status timeline -->
+    <div class="order-card p-6 sm:p-8 mb-8 animate-fade-up delay-100" id="timeline-card">
+      <h3 class="font-serif text-lg font-semibold mb-8">Order Progress</h3>
+      <div class="flex items-center" id="timeline-track">
+        <!-- Step 1: Placed -->
+        <div class="flex flex-col items-center gap-2" style="min-width:60px;">
+          <div class="step-circle" id="step-1-circle">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400">check_circle</span>
+          </div>
+          <p class="text-[9px] tracking-[.08em] uppercase text-center leading-tight" id="step-1-label">Order<br>Placed</p>
+        </div>
+        <div class="step-line flex-1" id="line-1"></div>
+        <!-- Step 2: Processing -->
+        <div class="flex flex-col items-center gap-2" style="min-width:60px;">
+          <div class="step-circle" id="step-2-circle">
+            <span class="material-symbols-outlined text-[18px]">autorenew</span>
+          </div>
+          <p class="text-[9px] tracking-[.08em] uppercase text-center leading-tight" id="step-2-label">Processing</p>
+        </div>
+        <div class="step-line flex-1" id="line-2"></div>
+        <!-- Step 3: Shipped -->
+        <div class="flex flex-col items-center gap-2" style="min-width:60px;">
+          <div class="step-circle" id="step-3-circle">
+            <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+          </div>
+          <p class="text-[9px] tracking-[.08em] uppercase text-center leading-tight" id="step-3-label">Shipped</p>
+        </div>
+        <div class="step-line flex-1" id="line-3"></div>
+        <!-- Step 4: Delivered -->
+        <div class="flex flex-col items-center gap-2" style="min-width:60px;">
+          <div class="step-circle" id="step-4-circle">
+            <span class="material-symbols-outlined text-[18px]">home</span>
+          </div>
+          <p class="text-[9px] tracking-[.08em] uppercase text-center leading-tight" id="step-4-label">Delivered</p>
+        </div>
+      </div>
+
+      <!-- Tracking note -->
+      <p class="text-[12px] text-[#777] mt-8 leading-relaxed" id="tracking-note">Your order is being carefully prepared by our team.</p>
+      <p class="text-[12px] text-[#777] mt-2 hidden" id="tracking-number-row">
+        Tracking number: <span class="font-semibold text-[#1b1c1c]" id="tracking-number-val"></span>
+      </p>
+    </div>
+
+    <!-- Items in order -->
+    <div class="order-card p-6 sm:p-8 animate-fade-up delay-200" id="items-card">
+      <h3 class="font-serif text-lg font-semibold mb-6">Items in This Order</h3>
+      <div id="order-items-list" class="divide-y divide-[#e0e0dd]">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Need help? -->
+    <div class="text-center mt-10 animate-fade-up delay-300">
+      <p class="text-[13px] text-[#555] mb-4">Have a question about your order?</p>
+      <a href="../concierge_faq/" class="btn-gold inline-flex items-center gap-2">
+        <span class="material-symbols-outlined text-[16px]">headset_mic</span>
+        CONTACT CONCIERGE
+      </a>
+    </div>
+  </div>
+
+  <!-- Not found state -->
+  <div id="not-found-section" class="hidden text-center py-12 animate-fade-up">
+    <div class="w-16 h-16 border-2 border-[#e0e0dd] flex items-center justify-center mx-auto mb-6">
+      <span class="material-symbols-outlined text-[28px] text-[#bbb]">search_off</span>
+    </div>
+    <h3 class="font-serif text-xl font-semibold mb-3">Order Not Found</h3>
+    <p class="text-[13px] text-[#666] mb-2 max-w-sm mx-auto">We couldn&rsquo;t find an order matching those details. Please check your order reference and email address and try again.</p>
+    <p class="text-[12px] text-[#888] mb-8">Your order reference is in your confirmation email and starts with <strong>#JO-</strong></p>
+    <button id="try-again-btn" class="btn-gold inline-flex items-center gap-2">
+      <span class="material-symbols-outlined text-[16px]">refresh</span>
+      TRY AGAIN
+    </button>
+    <p class="mt-6 text-[12px] text-[#888]">Still having trouble?
+      <a href="../concierge_faq/" class="text-gold hover:underline">Contact us</a>
+    </p>
+  </div>
+
+</main>
+
+<!-- ------- FOOTER ------- -->
+<footer class="footer pt-16 pb-8 px-4" id="main-footer">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Col 1 -->
+      <div>
+        <p class="footer-title">Customer Care</p>
+        <div class="flex flex-col gap-3">
+          <a href="../concierge_faq/">Contact Us</a>
+          <a href="../concierge_faq/#faq-section">FAQs</a>
+          <a href="#">Delivery Information</a>
+          <a href="../returns_exchanges/">Returns &amp; Exchanges</a>
+          <a href="../size_guide/">Size Guide</a>
+          <a href="../order_tracking/" style="color:#B8860B;">Track Your Order</a>
+        </div>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <p class="footer-title">The House of J &amp; O</p>
+        <div class="flex flex-col gap-3">
+          <a href="../our_story_j_o/">Our Story</a>
+          <a href="#">Careers</a>
+          <a href="#">Sustainability</a>
+          <a href="#">Press</a>
+          <a href="../j_o_editorial/">Editorial Journal</a>
+          <a href="../size_guide/">Size Guide</a>
+          <a href="../privacy_policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <!-- Col 3 -->
+      <div>
+        <p class="footer-title">Legal</p>
+        <div class="flex flex-col gap-3">
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="../privacy_policy/">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <!-- Col 4 -->
+      <div>
+        <p class="footer-title">Stay Connected</p>
+        <p class="text-[12px] text-[#888] mb-5 leading-relaxed">Subscribe for exclusive access to new arrivals, private sales, and editorial content.</p>
+        <div class="flex mb-6">
+          <input type="email" placeholder="Email address" class="flex-1 bg-transparent border border-white/15 text-ivory text-xs px-4 py-3 outline-none focus:border-gold transition-colors" style="border-radius:0 !important;">
+          <button class="bg-gold text-black text-[10px] tracking-[.14em] uppercase font-semibold px-5 hover:bg-gold-light transition-colors" style="border-radius:0 !important;">Join</button>
+        </div>
+        <div class="flex gap-5">
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Instagram</a>
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Pinterest</a>
+          <a href="#" class="text-white/40 hover:text-gold transition-colors text-sm tracking-[.06em]">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider mb-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[11px] text-white/30 tracking-[.06em]">&copy; 2025 J &amp; O. All rights reserved. Where Style Meets Elegance.</p>
+      <div class="flex items-center gap-3">
+        <span class="text-[10px] text-white/30 tracking-[.08em] uppercase">We accept:</span>
+        <div class="flex gap-2">
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">VISA</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">MC</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">AMEX</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold">PAYPAL</span>
+          <span class="px-2.5 py-1 border border-white/15 text-[10px] text-white/50 font-semibold hidden sm:inline-block">APPLE PAY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ------- TOAST ------- -->
+<div class="toast" id="success-toast">
+  <div class="flex items-start gap-3">
+    <span class="material-symbols-outlined text-gold text-[22px] mt-0.5">check_circle</span>
+    <div>
+      <p class="font-semibold text-[13px] tracking-[.04em]" id="toast-title">Success</p>
+      <p class="text-[12px] text-white/70 mt-1" id="toast-body"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Supabase helpers -------------------------------------------------------
+function withTimeout(promise, ms) {
+    return Promise.race([
+        promise,
+        new Promise((_, reject) => setTimeout(() => reject(new Error('supabase_timeout')), ms))
+    ]);
+}
+function isNetworkError(err) {
+    if (!err) return false;
+    const msg = (err.message || '').toLowerCase();
+    return err.message === 'supabase_timeout' || err.name === 'TypeError' ||
+           msg.includes('failed to fetch') || msg.includes('network') ||
+           msg.includes('fetch') || msg.includes('timeout');
+}
+
+let sbClient = null;
+function getSupabase() {
+    if (sbClient) return sbClient;
+    try {
+        const url = window.SUPABASE_URL;
+        const key = window.SUPABASE_KEY;
+        if (url && key && !url.startsWith('%')) {
+            sbClient = window.supabase.createClient(url, key);
+        }
+    } catch (e) {}
+    return sbClient;
+}
+
+// ---- Toast ------------------------------------------------------------------
+function showToast(title, body) {
+    document.getElementById('toast-title').textContent = title;
+    document.getElementById('toast-body').textContent = body;
+    const t = document.getElementById('success-toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ---- Status helpers ---------------------------------------------------------
+const STATUS_CONFIG = {
+    pending:    { cls: 'pending',    icon: 'schedule',         label: 'Pending',     step: 1 },
+    processing: { cls: 'processing', icon: 'autorenew',        label: 'Processing',  step: 2 },
+    shipped:    { cls: 'shipped',    icon: 'local_shipping',   label: 'Shipped',     step: 3 },
+    delivered:  { cls: 'delivered',  icon: 'home',             label: 'Delivered',   step: 4 },
+    cancelled:  { cls: 'cancelled',  icon: 'cancel',           label: 'Cancelled',   step: 0 },
+};
+
+function applyTimeline(step) {
+    for (let i = 1; i <= 4; i++) {
+        const circle = document.getElementById('step-' + i + '-circle');
+        circle.classList.remove('done', 'active');
+        if (i < step) circle.classList.add('done');
+        else if (i === step) circle.classList.add('active');
+        if (i < 4) {
+            const line = document.getElementById('line-' + i);
+            line.classList.toggle('done', i < step);
+        }
+    }
+}
+
+const TRACKING_NOTES = {
+    pending:    'Your order has been received and is awaiting confirmation.',
+    processing: 'Our team is carefully selecting and quality-checking your pieces.',
+    shipped:    'Your order is on its way to you — insured and fully tracked.',
+    delivered:  'Your order has been delivered. We hope you love your pieces.',
+    cancelled:  'This order has been cancelled. Please contact us if you have questions.',
+};
+
+// ---- Render order result ----------------------------------------------------
+function renderOrder(order) {
+    const rawStatus = (order.status || 'pending').toLowerCase();
+    const cfg = STATUS_CONFIG[rawStatus] || STATUS_CONFIG.pending;
+
+    // Summary card
+    document.getElementById('result-ref').textContent   = order.order_number || order.id || '—';
+    document.getElementById('result-date').textContent  = order.created_at
+        ? new Date(order.created_at).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })
+        : '—';
+    document.getElementById('result-total').textContent = order.total_ngn
+        ? '₦' + Math.round(order.total_ngn).toLocaleString('en-NG')
+        : (order.total ? '₦' + Math.round(order.total).toLocaleString('en-NG') : '—');
+    document.getElementById('result-eta').textContent   = order.estimated_delivery || '3 – 7 business days';
+
+    // Status badge
+    const badge = document.getElementById('result-status-badge');
+    badge.className = 'status-badge ' + cfg.cls;
+    document.getElementById('result-status-icon').textContent = cfg.icon;
+    document.getElementById('result-status-text').textContent = cfg.label;
+
+    // Timeline
+    applyTimeline(cfg.step);
+    document.getElementById('tracking-note').textContent = TRACKING_NOTES[rawStatus] || '';
+
+    // Tracking number
+    if (order.tracking_number) {
+        document.getElementById('tracking-number-val').textContent = order.tracking_number;
+        document.getElementById('tracking-number-row').classList.remove('hidden');
+    }
+
+    // Items list
+    const itemsList = document.getElementById('order-items-list');
+    if (order.items && Array.isArray(order.items) && order.items.length) {
+        itemsList.innerHTML = order.items.map(item => `
+            <div class="flex items-center gap-4 py-4">
+                ${item.img ? `<img src="${item.img}" alt="${item.name || ''}" class="w-16 h-20 object-cover bg-[#f5f5f3] flex-shrink-0">` : `<div class="w-16 h-20 bg-[#f5f5f3] flex-shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-[24px] text-[#ccc]">image</span></div>`}
+                <div class="flex-grow min-w-0">
+                    <p class="text-[10px] tracking-[.12em] text-gold uppercase mb-0.5">${item.brand || 'J &amp; O'}</p>
+                    <p class="font-serif text-sm font-semibold text-[#1b1c1c] leading-snug">${item.name || 'Item'}</p>
+                    <p class="text-[11px] text-[#888] mt-1">${item.size ? 'Size: ' + item.size : ''}${item.color ? (item.size ? ' &nbsp;&middot;&nbsp; ' : '') + item.color : ''}</p>
+                    <p class="text-[11px] text-[#888]">Qty: ${item.qty || 1}</p>
+                </div>
+                <p class="font-serif font-semibold text-sm text-[#1b1c1c] flex-shrink-0">
+                    ${item.price ? '&#x20A6;' + Math.round(item.price * (item.qty || 1)).toLocaleString('en-NG') : ''}
+                </p>
+            </div>`).join('');
+    } else {
+        itemsList.innerHTML = '<p class="text-[13px] text-[#888] py-4 italic">Item details not available.</p>';
+    }
+
+    // Show results, hide form
+    document.getElementById('lookup-section').classList.add('hidden');
+    document.getElementById('results-section').classList.remove('hidden');
+    document.getElementById('not-found-section').classList.add('hidden');
+}
+
+// ---- Track order form -------------------------------------------------------
+document.getElementById('track-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const refRaw   = document.getElementById('order-ref-input').value.trim();
+    const email    = document.getElementById('order-email-input').value.trim().toLowerCase();
+    const errEl    = document.getElementById('track-error');
+    const btn      = document.getElementById('track-btn');
+
+    errEl.classList.add('hidden');
+    errEl.textContent = '';
+
+    // Normalise ref: strip leading # or JO- prefix variations, then re-add
+    const ref = refRaw.replace(/^[#\s]+/, '').toUpperCase();
+
+    if (!ref) {
+        errEl.textContent = 'Please enter your order reference.';
+        errEl.classList.remove('hidden');
+        return;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errEl.textContent = 'Please enter a valid email address.';
+        errEl.classList.remove('hidden');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span> SEARCHING&hellip;';
+
+    const sb = getSupabase();
+    if (!sb) {
+        btn.disabled = false;
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">search</span> TRACK ORDER';
+        errEl.textContent = 'Order tracking is temporarily unavailable. Please contact our concierge team.';
+        errEl.classList.remove('hidden');
+        return;
+    }
+
+    try {
+        // Try exact match, then without # prefix, then with it
+        const queries = [ref, ref.startsWith('JO-') ? '#' + ref : '#' + ref];
+        let order = null;
+
+        for (const q of queries) {
+            const { data, error } = await withTimeout(
+                sb.from('orders')
+                  .select('*')
+                  .eq('order_number', q)
+                  .eq('email', email)
+                  .single(),
+                8000
+            );
+            if (!error && data) { order = data; break; }
+        }
+
+        if (!order) {
+            // Also try ilike for case-insensitive match
+            const { data: data2 } = await withTimeout(
+                sb.from('orders')
+                  .select('*')
+                  .ilike('order_number', '%' + ref.replace(/^#/, '') + '%')
+                  .eq('email', email)
+                  .maybeSingle(),
+                8000
+            );
+            if (data2) order = data2;
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">search</span> TRACK ORDER';
+
+        if (order) {
+            renderOrder(order);
+        } else {
+            document.getElementById('lookup-section').classList.add('hidden');
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('not-found-section').classList.remove('hidden');
+        }
+
+    } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">search</span> TRACK ORDER';
+
+        if (isNetworkError(err)) {
+            errEl.textContent = 'Connection error. Please check your internet connection and try again.';
+        } else {
+            errEl.textContent = 'Something went wrong. Please try again or contact our concierge team.';
+        }
+        errEl.classList.remove('hidden');
+    }
+});
+
+// ---- Back / Try Again -------------------------------------------------------
+document.getElementById('back-btn').addEventListener('click', () => {
+    document.getElementById('results-section').classList.add('hidden');
+    document.getElementById('not-found-section').classList.add('hidden');
+    document.getElementById('lookup-section').classList.remove('hidden');
+});
+document.getElementById('try-again-btn').addEventListener('click', () => {
+    document.getElementById('not-found-section').classList.add('hidden');
+    document.getElementById('lookup-section').classList.remove('hidden');
+});
+
+// ---- Nav: cart / wishlist badges --------------------------------------------
+(function() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('j_o_cart') || '[]');
+        const total = cart.reduce((s, i) => s + (i.qty || 1), 0);
+        if (total > 0) {
+            const b = document.getElementById('cart-badge');
+            if (b) { b.textContent = total; b.classList.remove('hidden'); }
+        }
+    } catch(e) {}
+    try {
+        const wl = JSON.parse(localStorage.getItem('j_o_wishlist') || '[]');
+        if (wl.length > 0) {
+            const b = document.getElementById('wishlist-badge');
+            if (b) { b.textContent = wl.length; b.classList.remove('hidden'); }
+        }
+    } catch(e) {}
+})();
+
+// ---- Search overlay ---------------------------------------------------------
+document.getElementById('search-btn').addEventListener('click', () => {
+    document.getElementById('search-overlay').classList.add('active');
+    setTimeout(() => document.getElementById('search-input').focus(), 100);
+});
+document.getElementById('search-close').addEventListener('click', () => {
+    document.getElementById('search-overlay').classList.remove('active');
+});
+document.getElementById('search-overlay').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+});
+
+// ---- Mobile drawer ----------------------------------------------------------
+document.getElementById('hamburger-btn').addEventListener('click', () => {
+    document.getElementById('mobile-drawer').classList.add('active');
+    document.getElementById('drawer-overlay').classList.add('active');
+});
+function closeDrawer() {
+    document.getElementById('mobile-drawer').classList.remove('active');
+    document.getElementById('drawer-overlay').classList.remove('active');
+}
+document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+document.getElementById('drawer-overlay').addEventListener('click', closeDrawer);
+
+document.querySelectorAll('.drawer-accordion button[data-accordion]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const sub = document.getElementById(btn.dataset.accordion);
+        sub.classList.toggle('open');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) icon.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : '';
+    });
+});
+
+// ---- Check URL params (e.g. from order confirmation page) -------------------
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    const ref    = params.get('ref') || params.get('order');
+    const email  = params.get('email');
+    if (ref) {
+        document.getElementById('order-ref-input').value = ref;
+        document.getElementById('order-ref-input').dispatchEvent(new Event('input'));
+    }
+    if (email) {
+        document.getElementById('order-email-input').value = email;
+        document.getElementById('order-email-input').dispatchEvent(new Event('input'));
+    }
+    if (ref && email) {
+        document.getElementById('track-form').dispatchEvent(new Event('submit'));
+    }
+})();
+</script>
+
+<script src="/js/conversion.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/logo.js"></script>
+<script src="/js/live.js"></script>
+</body>
+</html>

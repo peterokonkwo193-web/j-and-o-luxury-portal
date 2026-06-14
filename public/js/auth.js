@@ -51,8 +51,8 @@
         #jo-auth-close:hover { color:#000; }
 
         /* Form */
-        .jo-auth-eyebrow { font-family:'Montserrat',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:#C5A059; text-align:center; display:block; margin-bottom:10px; }
-        .jo-auth-divider { width:30px; height:1.5px; background:#C5A059; margin:0 auto 14px; }
+        .jo-auth-eyebrow { font-family:'Montserrat',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:#B8860B; text-align:center; display:block; margin-bottom:10px; }
+        .jo-auth-divider { width:30px; height:1.5px; background:#B8860B; margin:0 auto 14px; }
         .jo-auth-title   { font-family:'Playfair Display',serif; font-size:clamp(20px,4vw,26px); font-weight:700; color:#000; text-align:center; margin:0 0 6px; line-height:1.2; }
         .jo-auth-sub     { font-family:'Montserrat',sans-serif; font-size:11px; color:#888; text-align:center; margin:0 0 24px; line-height:1.6; }
 
@@ -66,12 +66,12 @@
         .jo-phone-hint  { font-family:'Montserrat',sans-serif; font-size:9px; color:#bbb; margin-top:3px; }
 
         #jo-auth-submit { width:100%; background:#000; color:#fff; border:none; padding:14px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer; transition:background 0.3s; border-radius:0 !important; margin-top:6px; }
-        #jo-auth-submit:hover { background:#C5A059; color:#000; }
+        #jo-auth-submit:hover { background:#B8860B; color:#000; }
         #jo-auth-submit:disabled { opacity:0.6; cursor:not-allowed; }
 
         .jo-auth-toggle { text-align:center; margin-top:14px; font-family:'Montserrat',sans-serif; font-size:11px; color:#999; }
         .jo-auth-toggle a { color:#000; font-weight:700; text-decoration:underline; cursor:pointer; }
-        .jo-auth-toggle a:hover { color:#C5A059; }
+        .jo-auth-toggle a:hover { color:#B8860B; }
 
         #jo-auth-success { text-align:center; padding:8px 0; }
         #jo-auth-success .success-icon { font-size:44px; margin-bottom:12px; display:block; }
@@ -85,15 +85,15 @@
             background:none; border:none; color:inherit;
             transition:color 0.25s;
         }
-        #jo-nav-auth-btn:hover { color:#C5A059; }
+        #jo-nav-auth-btn:hover { color:#B8860B; }
         #jo-nav-avatar {
-            width:28px; height:28px; background:#C5A059; color:#000;
+            width:28px; height:28px; background:#B8860B; color:#000;
             font-family:'Playfair Display',serif; font-size:11px; font-weight:700;
             display:flex; align-items:center; justify-content:center;
             border-radius:0 !important; flex-shrink:0;
             transition:background 0.2s;
         }
-        #jo-nav-auth-btn:hover #jo-nav-avatar { background:#000; color:#C5A059; }
+        #jo-nav-auth-btn:hover #jo-nav-avatar { background:#000; color:#B8860B; }
 
         /* ═══ LEFT-SIDE PROFILE PANEL ═══ */
         #jo-profile-left {
@@ -103,24 +103,24 @@
 
         /* The always-visible tab on the left edge */
         #jo-profile-tab {
-            background:#000; color:#C5A059;
+            background:#000; color:#B8860B;
             padding:20px 8px; cursor:pointer;
             display:flex; flex-direction:column; align-items:center; gap:8px;
             writing-mode:vertical-rl; text-orientation:mixed;
             transform:rotate(180deg);
             font-family:'Montserrat',sans-serif; font-size:9px;
             font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
-            border-right:2px solid #C5A059;
+            border-right:2px solid #B8860B;
             transition:background 0.25s, color 0.25s;
             user-select:none;
         }
-        #jo-profile-tab:hover { background:#C5A059; color:#000; }
+        #jo-profile-tab:hover { background:#B8860B; color:#000; }
 
         /* The slide-out panel */
         #jo-profile-panel {
             background:#fff; width:260px;
             box-shadow:6px 0 32px rgba(0,0,0,0.14);
-            border-right:2px solid #C5A059;
+            border-right:2px solid #B8860B;
             transform:translateX(-100%);
             transition:transform 0.38s cubic-bezier(0.16,1,0.3,1);
             overflow:hidden; max-height:80vh; overflow-y:auto;
@@ -133,13 +133,13 @@
             display:flex; flex-direction:column; gap:6px;
         }
         .jo-panel-avatar {
-            width:52px; height:52px; background:#C5A059; color:#000;
+            width:52px; height:52px; background:#B8860B; color:#000;
             font-family:'Playfair Display',serif; font-size:20px; font-weight:700;
             display:flex; align-items:center; justify-content:center;
             border-radius:0 !important; margin-bottom:6px;
         }
         .jo-panel-greeting { font-family:'Playfair Display',serif; font-size:17px; font-weight:600; color:#FBFBF9; }
-        .jo-panel-email    { font-family:'Montserrat',sans-serif; font-size:10px; color:#C5A059; letter-spacing:0.06em; word-break:break-all; }
+        .jo-panel-email    { font-family:'Montserrat',sans-serif; font-size:10px; color:#B8860B; letter-spacing:0.06em; word-break:break-all; }
 
         /* Panel links */
         .jo-panel-link {
@@ -152,8 +152,8 @@
             background:none; border-left:none; border-right:none; border-top:none;
             width:100%; text-align:left;
         }
-        .jo-panel-link:hover { background:#fdf8ef; color:#C5A059; }
-        .jo-panel-link .material-symbols-outlined { font-size:17px !important; color:#C5A059; }
+        .jo-panel-link:hover { background:#fdf8ef; color:#B8860B; }
+        .jo-panel-link .material-symbols-outlined { font-size:17px !important; color:#B8860B; }
 
         /* Sign out */
         #jo-panel-signout {
@@ -164,7 +164,7 @@
             letter-spacing:0.2em; text-transform:uppercase; cursor:pointer;
             transition:background 0.25s; border-radius:0 !important;
         }
-        #jo-panel-signout:hover { background:#C5A059; color:#000; }
+        #jo-panel-signout:hover { background:#B8860B; color:#000; }
 
         /* Overlay when panel is open */
         #jo-profile-overlay {
@@ -218,7 +218,7 @@
                         <span class="jo-field-error" id="jo-phone-err">Enter a valid Nigerian phone number</span>
                     </div>
                     <div id="jo-form-error" class="jo-field-error"></div>
-                    <button type="submit" id="jo-auth-submit">CREATE ACCOUNT</button>
+                    <button type="submit" id="jo-signup-submit">CREATE ACCOUNT</button>
                 </form>
                 <p class="jo-auth-toggle">Already a member? <a id="jo-switch-to-signin">Sign in</a></p>
             </div>
@@ -241,7 +241,7 @@
                         <span class="jo-field-error" id="jo-si-phone-err">Please enter your phone number</span>
                     </div>
                     <div id="jo-si-error" class="jo-field-error"></div>
-                    <button type="submit" id="jo-auth-submit">SIGN IN</button>
+                    <button type="submit" id="jo-signin-submit">SIGN IN</button>
                 </form>
                 <p class="jo-auth-toggle">New here? <a id="jo-switch-to-signup">Create account</a></p>
             </div>
@@ -273,7 +273,10 @@
         document.getElementById('jo-signup-view').style.display  = v === 'signup'  ? '' : 'none';
         document.getElementById('jo-signin-view').style.display  = v === 'signin'  ? '' : 'none';
         document.getElementById('jo-auth-success').style.display = 'none';
-        document.getElementById('jo-auth-submit').textContent    = v === 'signup' ? 'CREATE ACCOUNT' : 'SIGN IN';
+        const su = document.getElementById('jo-signup-submit');
+        const si = document.getElementById('jo-signin-submit');
+        if (su) { su.disabled = false; su.textContent = 'CREATE ACCOUNT'; }
+        if (si) { si.disabled = false; si.textContent = 'SIGN IN'; }
     }
 
     // ── Nav icon injection ───────────────────────────────────────
@@ -372,7 +375,7 @@
     window._joToggleProfile = toggleProfilePanel;
 
     // ── Personalise page (do NOT touch announcement bar layout) ──
-    function personalise(member) {
+    function personalise() {
         // Announcement bar stays untouched — changing it breaks the layout
         // The left-side panel is enough personalisation
     }
@@ -381,6 +384,25 @@
     function showErr(id, show)  { const el = document.getElementById(id); if (el) el.classList.toggle('show', show); }
     function setErr(el, has)    { if (el) el.classList.toggle('error', has); }
 
+    // ── Supabase timeout helper (8 s) ────────────────────────────
+    function withTimeout(promise, ms) {
+        return Promise.race([
+            promise,
+            new Promise((_, reject) => setTimeout(() => reject(new Error('supabase_timeout')), ms))
+        ]);
+    }
+
+    function isNetworkError(err) {
+        if (!err) return false;
+        const msg = (err.message || '').toLowerCase();
+        return err.message === 'supabase_timeout' ||
+               err.name === 'TypeError' ||
+               msg.includes('failed to fetch') ||
+               msg.includes('network') ||
+               msg.includes('fetch') ||
+               msg.includes('timeout');
+    }
+
     // ── Sign Up ──────────────────────────────────────────────────
     async function handleSignUp(e) {
         e.preventDefault();
@@ -388,7 +410,7 @@
         const emailEl = document.getElementById('jo-email');
         const phoneEl = document.getElementById('jo-phone');
         const errEl   = document.getElementById('jo-form-error');
-        const btn     = document.getElementById('jo-auth-submit');
+        const btn     = document.getElementById('jo-signup-submit');
 
         const ok = { name: validName(nameEl.value), email: validEmail(emailEl.value), phone: validPhone(phoneEl.value) };
         setErr(nameEl, !ok.name);   showErr('jo-name-err', !ok.name);
@@ -398,20 +420,34 @@
 
         btn.disabled = true; btn.textContent = 'CREATING…'; errEl.style.display = 'none';
 
+        const member = { full_name: nameEl.value.trim(), email: emailEl.value.trim().toLowerCase(), phone: phoneEl.value.trim() };
+
         try {
             const client = db();
             if (client) {
-                const { data: existing } = await client.from('members').select('id,full_name,email,phone').eq('email', emailEl.value.trim().toLowerCase()).maybeSingle();
-                if (existing) { saveMember({ full_name: existing.full_name, email: existing.email, phone: existing.phone }); showSuccess({ full_name: existing.full_name, email: existing.email, phone: existing.phone }, true); return; }
-                const { error } = await client.from('members').insert([{ full_name: nameEl.value.trim(), email: emailEl.value.trim().toLowerCase(), phone: phoneEl.value.replace(/[\s\-(). ]/g,'') }]);
+                const { data: existing } = await withTimeout(
+                    client.from('members').select('id,full_name,email,phone').eq('email', member.email).maybeSingle(),
+                    8000
+                );
+                if (existing) {
+                    const m = { full_name: existing.full_name, email: existing.email, phone: existing.phone };
+                    saveMember(m); showSuccess(m, true); return;
+                }
+                const { error } = await withTimeout(
+                    client.from('members').insert([{ full_name: member.full_name, email: member.email, phone: member.phone.replace(/[\s\-(). ]/g,'') }]),
+                    8000
+                );
                 if (error) throw error;
             }
-            const member = { full_name: nameEl.value.trim(), email: emailEl.value.trim().toLowerCase(), phone: phoneEl.value.trim() };
-            saveMember(member); showSuccess(member, false);
         } catch(err) {
-            errEl.textContent = 'Something went wrong. Please try again.'; errEl.style.display = 'block';
-            btn.disabled = false; btn.textContent = 'CREATE ACCOUNT';
+            if (!isNetworkError(err)) {
+                errEl.textContent = 'Something went wrong. Please try again.'; errEl.style.display = 'block';
+                btn.disabled = false; btn.textContent = 'CREATE ACCOUNT'; return;
+            }
+            console.warn('J&O: Supabase unreachable — saving member locally only.');
         }
+
+        saveMember(member); showSuccess(member, false);
     }
 
     // ── Sign In ──────────────────────────────────────────────────
@@ -420,7 +456,7 @@
         const emailEl = document.getElementById('jo-si-email');
         const phoneEl = document.getElementById('jo-si-phone');
         const errEl   = document.getElementById('jo-si-error');
-        const btn     = document.getElementById('jo-auth-submit');
+        const btn     = document.getElementById('jo-signin-submit');
 
         const ok = { email: validEmail(emailEl.value), phone: validPhone(phoneEl.value) };
         setErr(emailEl, !ok.email); showErr('jo-si-email-err', !ok.email);
@@ -432,7 +468,26 @@
         try {
             const client = db();
             if (client) {
-                const { data } = await client.from('members').select('id,full_name,email,phone').eq('email', emailEl.value.trim().toLowerCase()).maybeSingle();
+                let data;
+                try {
+                    const res = await withTimeout(
+                        client.from('members').select('id,full_name,email,phone').eq('email', emailEl.value.trim().toLowerCase()).maybeSingle(),
+                        8000
+                    );
+                    data = res.data;
+                } catch(err) {
+                    if (isNetworkError(err)) {
+                        // Supabase unreachable — fall back to cached local session
+                        console.warn('J&O: Supabase unreachable — checking local cache for sign-in.');
+                        const cached = getMember();
+                        if (cached && cached.email === emailEl.value.trim().toLowerCase()) {
+                            showSuccess(cached, true); return;
+                        }
+                        errEl.textContent = 'Unable to reach the server. Please try again shortly.';
+                        errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'SIGN IN'; return;
+                    }
+                    throw err;
+                }
                 if (!data) { errEl.textContent = 'No account found. Please sign up first.'; errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'SIGN IN'; return; }
                 const clean = (p) => p.replace(/[\s\-(). ]/g,'').replace(/^\+/,'').replace(/^234/, '0').replace(/^0/, '0');
                 if (clean(data.phone || '') !== clean(phoneEl.value)) { errEl.textContent = 'Phone number does not match our records.'; errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'SIGN IN'; return; }
@@ -478,7 +533,7 @@
     // ── Open modal ───────────────────────────────────────────────
     function openModal() {
         const overlay = document.getElementById('jo-auth-overlay');
-        if (overlay) { switchView('signup'); document.getElementById('jo-auth-submit').textContent = 'CREATE ACCOUNT'; overlay.classList.add('open'); setTimeout(() => { const n = document.getElementById('jo-name'); if (n) n.focus(); }, 350); }
+        if (overlay) { switchView('signup'); overlay.classList.add('open'); setTimeout(() => { const n = document.getElementById('jo-name'); if (n) n.focus(); }, 350); }
     }
 
     // ── Globals ──────────────────────────────────────────────────

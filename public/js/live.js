@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const GOLD = '#C5A059';
+    const GOLD = '#B8860B';
     const isHome = window.location.pathname.includes('j_o_luxury_boutique_home');
 
     // ── Shared styles ─────────────────────────────────────────────

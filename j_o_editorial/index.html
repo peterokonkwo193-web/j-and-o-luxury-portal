@@ -22,7 +22,7 @@
             theme: {
                 extend: {
                     colors: {
-                        "on-surface": "#1b1c1c","outline": "#747878","on-background": "#1b1c1c","surface": "#fbf9f9","surface-dim": "#dbdad9","secondary": "#775a19","on-primary": "#ffffff","secondary-container": "#fed488","outline-variant": "#c4c7c7","primary": "#000000","surface-container-highest": "#e3e2e2","error": "#ba1a1a","surface-container-high": "#e9e8e7","surface-bright": "#fbf9f9","surface-container-low": "#f5f3f3","on-surface-variant": "#444748","surface-container": "#efeded","gold": "#C5A059"
+                        "on-surface": "#1b1c1c","outline": "#747878","on-background": "#1b1c1c","surface": "#fbf9f9","surface-dim": "#dbdad9","secondary": "#775a19","on-primary": "#ffffff","secondary-container": "#fed488","outline-variant": "#c4c7c7","primary": "#000000","surface-container-highest": "#e3e2e2","error": "#ba1a1a","surface-container-high": "#e9e8e7","surface-bright": "#fbf9f9","surface-container-low": "#f5f3f3","on-surface-variant": "#444748","surface-container": "#efeded","gold": "#B8860B"
                     },
                     spacing: {"gutter": "32px","container-max": "1440px","margin-desktop": "80px","margin-mobile": "20px"},
                     fontFamily: {"body-md": ["Montserrat"],"label-caps": ["Montserrat"]},
@@ -43,7 +43,7 @@
         .article-img:hover img { transform: scale(1.05); }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeInUp 0.8s ease forwards; }
-        .filter-tab.active { border-bottom: 2px solid #C5A059; color: #C5A059; }
+        .filter-tab.active { border-bottom: 2px solid #B8860B; color: #B8860B; }
         .article-card { transition: opacity 0.4s ease, transform 0.4s ease; }
         .article-card.hidden-card { opacity: 0; pointer-events: none; height: 0; overflow: hidden; }
     </style>
@@ -298,6 +298,7 @@
                     <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-3 border-b border-outline-variant/30 block" href="../order_tracking/">Track Order</a>
                     <a class="text-gold font-bold border-b-2 border-gold py-3 block" href="../j_o_editorial/">The Editorial ✦</a>
                 </div>
             </div>
@@ -625,7 +626,7 @@
         <!-- 7. NEWSLETTER SECTION -->
         <section class="bg-surface-container-low border-t border-outline-variant py-28 px-5 md:px-[80px] relative overflow-hidden">
             <!-- Subtle dot texture -->
-            <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.07] pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(#B8860B_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.07] pointer-events-none"></div>
 
             <div class="relative z-10 max-w-2xl mx-auto text-center space-y-8">
                 <p class="font-label-caps text-[10px] tracking-[0.4em] text-gold">THE J &amp; O JOURNAL</p>
@@ -685,7 +686,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">White-Glove Shipping</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Returns &amp; Exchanges</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Private Appointments</a></li>
                 </ul>
             </div>
@@ -810,7 +811,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-outline mt-1">$${item.price.toFixed(2)} × ${item.quantity}</p>
+                                <p class="text-xs text-outline mt-1">&#x20A6;${Math.round(item.price).toLocaleString('en-NG')} × ${item.quantity}</p>
                             </div>
                             <button onclick="removeFromCart('${item.name}')" class="p-2 text-outline hover:text-error transition-colors">
                                 <span class="material-symbols-outlined text-[18px]">delete</span>
@@ -818,7 +819,7 @@
                         </div>`;
                 });
                 if (container) container.innerHTML = html;
-                if (subtotalText) subtotalText.innerText = `$${subtotal.toFixed(2)}`;
+                if (subtotalText) subtotalText.innerText = `₦${Math.round(subtotal).toLocaleString('en-NG')}`;
             } else {
                 if (container) container.innerHTML = `
                     <div class="flex flex-col items-center justify-center h-full text-center text-outline-variant space-y-4">
@@ -845,7 +846,7 @@
                             </div>
                             <div class="flex-grow text-left">
                                 <h4 class="font-serif text-sm font-bold text-primary">${item.name}</h4>
-                                <p class="text-xs text-gold mt-1">$${item.price.toFixed(2)}</p>
+                                <p class="text-xs text-gold mt-1">&#x20A6;${Math.round(item.price).toLocaleString('en-NG')}</p>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button onclick="addToCart('${item.name}',${item.price},'${item.img}');removeFromWishlist('${item.name}')" class="p-2 text-primary hover:text-gold transition-colors">
@@ -976,7 +977,7 @@
                                         <div class="text-left">
                                             <h4 class="font-serif text-sm font-bold text-[#FBFBF9] group-hover:text-gold transition-colors">${item.name}</h4>
                                             <p class="text-xs text-outline-variant uppercase tracking-wider mt-1">${item.brand}</p>
-                                            <p class="text-xs text-gold font-semibold mt-0.5">$${item.price.toFixed(2)}</p>
+                                            <p class="text-xs text-gold font-semibold mt-0.5">&#x20A6;${Math.round(item.price).toLocaleString('en-NG')}</p>
                                         </div>
                                     </a>
                                 `).join('')}

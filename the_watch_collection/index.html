@@ -382,7 +382,7 @@
 <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="../concierge_faq/">Concierge &amp; FAQ</a>
 <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="../returns_exchanges/">Returns &amp; Exchanges</a>
 <a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="../size_guide/">Size Guide</a>
-<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="../concierge_faq/">Order Tracking</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="../order_tracking/">Order Tracking</a>
 </nav>
 </div>
 <div>
@@ -496,7 +496,7 @@
                 const salePercent = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
                 const priceStr = naira(p.price);
                 const origStr = salePercent > 0 ? '<span style="text-decoration:line-through;font-size:12px;color:#999;margin-left:8px;">' + naira(p.originalPrice) + '</span>' : '';
-                const newBadge = p.isNew ? '<span style="position:absolute;top:12px;left:12px;background:#000;color:#C5A059;font-size:8px;font-weight:700;letter-spacing:0.15em;padding:3px 8px;z-index:10;font-family:Montserrat,sans-serif;">NEW IN</span>' : '';
+                const newBadge = p.isNew ? '<span style="position:absolute;top:12px;left:12px;background:#000;color:#B8860B;font-size:8px;font-weight:700;letter-spacing:0.15em;padding:3px 8px;z-index:10;font-family:Montserrat,sans-serif;">NEW IN</span>' : '';
                 const saleBadge = salePercent > 0 ? '<span style="position:absolute;top:' + (p.isNew ? '38' : '12') + 'px;left:12px;background:#C0392B;color:#fff;font-size:8px;font-weight:700;letter-spacing:0.12em;padding:3px 8px;z-index:10;font-family:Montserrat,sans-serif;">-' + salePercent + '%</span>' : '';
                 const nameEsc = p.name.replace(/'/g, "\\'");
                 html += '<article class="md:col-span-' + span + ' group cursor-pointer ' + mt + '" onclick="viewWatch(' + p.id + ')">' +

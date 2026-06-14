@@ -70,7 +70,7 @@
                         "on-surface-variant": "#444748",
                         "on-secondary-container": "#785a1a",
                         "surface-container": "#efeded",
-                        "gold": "#C5A059",
+                        "gold": "#B8860B",
                         "sale-red": "#C0392B"
                     },
                     spacing: {
@@ -144,7 +144,7 @@
             justify-content: center;
             width: clamp(60px, 9vw, 100px);
             height: clamp(70px, 10vw, 110px);
-            border-bottom: 3px solid #C5A059;
+            border-bottom: 3px solid #B8860B;
             position: relative;
             letter-spacing: -0.02em;
             transition: color 0.15s;
@@ -453,6 +453,7 @@
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../order_tracking/">Track Order</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_editorial/">The Editorial</a>
                 </div>
             </div>
@@ -465,7 +466,7 @@
     <main>
         <section class="hero-scanline relative bg-primary text-white overflow-hidden">
             <!-- Gold diagonal stripes background -->
-            <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #C5A059 0, #C5A059 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+            <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #B8860B 0, #B8860B 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
 
             <!-- Red accent band top -->
             <div class="absolute top-0 left-0 right-0 h-1 bg-[#C0392B]"></div>
@@ -645,7 +646,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                 </ul>
             </div>
             <div class="lg:col-span-3 text-left">
@@ -801,8 +802,8 @@
                     <div class="flex items-center gap-1 mb-3">${starsHTML(p.rating)}<span class="text-[10px] text-on-surface-variant ml-1">(${p.reviews})</span></div>
                     <!-- Price -->
                     <div class="flex items-baseline gap-3 mt-auto">
-                        <span class="font-serif text-xl font-bold text-[#C0392B]">$${p.price.toFixed(2)}</span>
-                        <span class="font-serif text-sm text-outline line-through">$${p.originalPrice.toFixed(2)}</span>
+                        <span class="font-serif text-xl font-bold text-[#C0392B]">&#x20A6;${Math.round(p.price).toLocaleString('en-NG')}</span>
+                        <span class="font-serif text-sm text-outline line-through">&#x20A6;${Math.round(p.originalPrice).toLocaleString('en-NG')}</span>
                         <span class="font-label-caps text-[9px] tracking-wider text-white bg-[#C0392B] px-2 py-1">SAVE $${saving}</span>
                     </div>
                 </div>
@@ -849,7 +850,7 @@
         const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
         document.getElementById('cart-badge').textContent = total;
         document.getElementById('cart-drawer-count').textContent = total;
-        document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('cart-subtotal').textContent = `₦${Math.round(subtotal).toLocaleString('en-NG')}`;
         const container = document.getElementById('cart-items-container');
         const emptyState = document.getElementById('cart-empty-state');
         const summaryBlock = document.getElementById('cart-summary-block');
@@ -866,8 +867,8 @@
                     <p class="font-serif text-sm font-semibold">${i.name}</p>
                     <p class="font-label-caps text-[9px] tracking-widest text-outline-variant">SIZE: ${i.size}</p>
                     <div class="flex items-center gap-2">
-                        <span class="text-[#C0392B] font-bold text-sm">$${i.price.toFixed(2)}</span>
-                        <span class="line-through text-outline text-xs">$${i.originalPrice.toFixed(2)}</span>
+                        <span class="text-[#C0392B] font-bold text-sm">&#x20A6;${Math.round(i.price).toLocaleString('en-NG')}</span>
+                        <span class="line-through text-outline text-xs">&#x20A6;${Math.round(i.originalPrice).toLocaleString('en-NG')}</span>
                     </div>
                     <div class="flex items-center gap-2 pt-1">
                         <button onclick="changeQty(${i.id}, -1)" class="w-7 h-7 border border-outline-variant flex items-center justify-center hover:border-primary text-lg">-</button>
@@ -945,16 +946,9 @@
 
     // --- Flash sale countdown ---------------------------------
     function startCountdown() {
-        // Sale ends: next midnight + 2 days from now (simulated flash end)
-        const stored = localStorage.getItem('j_o_sale_end');
-        let endTime;
-        if (stored) {
-            endTime = parseInt(stored, 10);
-        } else {
-            // 47 hours + 33 minutes from page load
-            endTime = Date.now() + ((47 * 60 + 33) * 60 * 1000);
-            localStorage.setItem('j_o_sale_end', endTime);
-        }
+        // Sale ends: July 4 2026 midnight WAT (UTC+1)
+        const endTime = new Date('2026-07-04T00:00:00+01:00').getTime();
+        localStorage.setItem('j_o_sale_end', endTime);
 
         // Show end date label
         const endDate = new Date(endTime);

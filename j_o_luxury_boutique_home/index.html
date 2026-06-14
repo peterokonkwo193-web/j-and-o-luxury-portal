@@ -69,7 +69,7 @@
                         "on-surface-variant": "#444748",
                         "on-secondary-container": "#785a1a",
                         "surface-container": "#efeded",
-                        "gold": "#C5A059"
+                        "gold": "#B8860B"
                     },
                     spacing: {
                         "gutter": "32px",
@@ -371,7 +371,7 @@
             <div id="cart-summary-block" class="border-t border-outline-variant pt-6 mt-6 space-y-6 hidden">
                 <div class="flex justify-between items-end">
                     <span class="font-label-caps text-xs text-outline tracking-widest">SUBTOTAL</span>
-                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">$0.00</span>
+                    <span id="cart-subtotal" class="font-serif text-2xl font-semibold text-primary">&#x20A6;0</span>
                 </div>
                 <p class="text-[10px] text-on-surface-variant italic">White-Glove signature delivery is calculated at checkout.</p>
                 <div class="space-y-3">
@@ -427,6 +427,7 @@
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30 font-bold" href="../my_wishlist/">My Wishlist</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../our_story_j_o/">About</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../concierge_faq/">Contact</a>
+                    <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../order_tracking/">Track Order</a>
                     <a class="hover:text-gold py-2 border-b border-outline-variant/30" href="../j_o_editorial/">The Editorial</a>
                 </div>
             </div>
@@ -447,10 +448,10 @@
             <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px;gap:14px;">
 
                 <!-- Eyebrow label -->
-                <span style="font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:0.38em;color:#C5A059;text-transform:uppercase;">ATELIER LAGOS &nbsp;�&nbsp; ABUJA &nbsp;�&nbsp; LONDON</span>
+                <span style="font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:0.38em;color:#B8860B;text-transform:uppercase;">ATELIER LAGOS &nbsp;�&nbsp; ABUJA &nbsp;�&nbsp; LONDON</span>
 
                 <!-- Gold divider line -->
-                <div style="width:32px;height:1px;background:#C5A059;opacity:0.7;"></div>
+                <div style="width:32px;height:1px;background:#B8860B;opacity:0.7;"></div>
 
                 <!-- Brand name -->
                 <h1 style="font-family:'Playfair Display',serif;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;line-height:1;color:#FBFBF9;font-size:clamp(32px,6vw,62px);margin:0;">J &amp; O</h1>
@@ -462,7 +463,7 @@
                 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px;">
                     <a href="../shop_all_collections/?gender=women"
                        style="padding:11px 28px;background:#FBFBF9;color:#000;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;"
-                       onmouseover="this.style.background='#C5A059';this.style.color='#000';"
+                       onmouseover="this.style.background='#B8860B';this.style.color='#000';"
                        onmouseout="this.style.background='#FBFBF9';this.style.color='#000';">SHOP WOMEN</a>
                     <a href="../shop_all_collections/?gender=men"
                        style="padding:11px 28px;border:1px solid rgba(251,251,249,0.65);color:#FBFBF9;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;"
@@ -1118,7 +1119,7 @@
         <!-- 10. NEWSLETTER SIGNUP BANNER -->
         <section class="relative py-32 px-margin-mobile md:px-margin-desktop text-center bg-surface-container-low border-t border-outline-variant/30 overflow-hidden">
             <!-- Background aesthetic texture -->
-            <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(#B8860B_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
             
             <div class="relative z-10 max-w-3xl mx-auto space-y-8">
                 <span class="font-label-caps text-xs text-gold tracking-[0.3em] uppercase block">THE J &amp; O JOURNAL</span>
@@ -1178,7 +1179,7 @@
                     <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Concierge &amp; FAQ</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../returns_exchanges/">Returns &amp; Exchanges</a></li>
                     <li><a class="hover:text-gold transition-colors block" href="../size_guide/">Size Guide</a></li>
-                    <li><a class="hover:text-gold transition-colors block" href="../concierge_faq/">Order Tracking</a></li>
+                    <li><a class="hover:text-gold transition-colors block" href="../order_tracking/">Order Tracking</a></li>
                 </ul>
             </div>
 
@@ -1656,24 +1657,26 @@
             updateWishlistUI();
         }
 
-        // Live Countdown Timer (Flash Sale Banner)
-        let countdownTime = 24 * 60 * 60; // 24 hours in seconds
+        // Live Countdown Timer — sale ends July 4 2026 midnight WAT (UTC+1)
+        const saleEnd = new Date('2026-07-04T00:00:00+01:00').getTime();
         const hoursEl = document.getElementById('countdown-hours');
         const minutesEl = document.getElementById('countdown-minutes');
         const secondsEl = document.getElementById('countdown-seconds');
 
         const countdownInterval = setInterval(() => {
-            if (countdownTime <= 0) {
-                // Reset to 24 hours to keep the flash sale demo perpetually active
-                countdownTime = 24 * 60 * 60;
+            const diff = saleEnd - Date.now();
+            if (diff <= 0) {
+                hoursEl.innerText = '00';
+                minutesEl.innerText = '00';
+                secondsEl.innerText = '00';
+                clearInterval(countdownInterval);
+                return;
             }
-            countdownTime--;
-            
-            const hrs = Math.floor(countdownTime / 3600);
-            const mins = Math.floor((countdownTime % 3600) / 60);
-            const secs = countdownTime % 60;
-            
-            hoursEl.innerText = String(hrs).padStart(2, '0');
+            const totalSecs = Math.floor(diff / 1000);
+            const hrs  = Math.floor(totalSecs / 3600);
+            const mins = Math.floor((totalSecs % 3600) / 60);
+            const secs = totalSecs % 60;
+            hoursEl.innerText  = String(hrs).padStart(2, '0');
             minutesEl.innerText = String(mins).padStart(2, '0');
             secondsEl.innerText = String(secs).padStart(2, '0');
         }, 1000);
@@ -1687,7 +1690,7 @@
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
 
-            const GOLD   = '#C5A059';
+            const GOLD   = '#B8860B';
             const GOLD2  = '#e9c176';
             const PEARL  = '#FBFBF9';
             const BG1    = '#09080a';

@@ -8,7 +8,7 @@
     // ── Logo SVG mark (used in nav — compact version) ─────────────
     function navLogoSVG(color) {
         color = color || '#000000';
-        const gold = '#C5A059';
+        const gold = '#B8860B';
         return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48"
                      width="140" height="48" aria-label="J & O Luxury Boutique"
                      style="display:block;overflow:visible;">
@@ -40,7 +40,7 @@
 
     // ── Full logo mark (used in hero — large version) ─────────────
     function heroLogoHTML() {
-        const gold = '#C5A059';
+        const gold = '#B8860B';
         return `
         <div class="jo-hero-logo" style="display:inline-flex;flex-direction:column;align-items:center;gap:6px;">
             <!-- Eyebrow -->
@@ -124,7 +124,7 @@
             position: absolute;
             bottom: -3px; left: 0; right: 0;
             height: 1px;
-            background: #C5A059;
+            background: #B8860B;
             transform: scaleX(0.4);
             transform-origin: center;
             transition: transform 0.4s ease;
@@ -182,7 +182,7 @@
                           font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
                           letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;
                           transition:background 0.3s,color 0.3s;"
-                   onmouseover="this.style.background='#C5A059';this.style.color='#000';"
+                   onmouseover="this.style.background='#B8860B';this.style.color='#000';"
                    onmouseout="this.style.background='#FBFBF9';this.style.color='#000';">SHOP WOMEN</a>
                 <a href="../shop_all_collections/?gender=men"
                    style="padding:12px 32px;border:1px solid rgba(251,251,249,0.7);color:#FBFBF9;

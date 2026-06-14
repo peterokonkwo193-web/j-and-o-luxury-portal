@@ -102,7 +102,7 @@
             #jo-proof-toast {
                 position: fixed; bottom: 90px; left: 20px; z-index: 8500;
                 background: #fff; border: 1px solid #e0e0e0;
-                border-left: 3px solid #C5A059;
+                border-left: 3px solid #B8860B;
                 box-shadow: 0 6px 24px rgba(0,0,0,0.10);
                 max-width: 300px; width: calc(100vw - 40px);
                 transform: translateX(-120%);
@@ -115,7 +115,7 @@
             #jo-proof-text  { flex: 1; font-family: 'Montserrat', sans-serif; font-size: 11.5px; line-height: 1.55; color: #444; }
             #jo-proof-name  { font-weight: 700; color: #000; }
             #jo-proof-action{ color: #666; }
-            #jo-proof-product { display: block; color: #C5A059; font-weight: 600; margin-top: 2px; font-size: 11px; }
+            #jo-proof-product { display: block; color: #B8860B; font-weight: 600; margin-top: 2px; font-size: 11px; }
             #jo-proof-close { background: none; border: none; font-size: 16px; color: #aaa; cursor: pointer; padding: 0 0 0 6px; flex-shrink:0; line-height:1; margin-top: -2px; }
             #jo-proof-close:hover { color: #000; }
         `;
@@ -183,15 +183,15 @@
             #jo-exit-popup.active #jo-exit-box { transform: translateY(0); }
             #jo-exit-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 22px; cursor: pointer; color: #999; line-height:1; }
             #jo-exit-close:hover { color: #000; }
-            #jo-exit-gold-line { width: 36px; height: 2px; background: #C5A059; margin: 0 auto 20px; }
-            #jo-exit-eyebrow { font-family:'Montserrat',sans-serif; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #C5A059; font-weight: 600; margin: 0 0 12px; }
+            #jo-exit-gold-line { width: 36px; height: 2px; background: #B8860B; margin: 0 auto 20px; }
+            #jo-exit-eyebrow { font-family:'Montserrat',sans-serif; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #B8860B; font-weight: 600; margin: 0 0 12px; }
             #jo-exit-heading { font-family:'Playfair Display',serif; font-size: clamp(26px,4vw,34px); font-weight: 700; color: #000; margin: 0 0 16px; line-height: 1.2; }
             #jo-exit-sub { font-family:'Montserrat',sans-serif; font-size: 12px; color: #666; line-height: 1.7; margin: 0 0 28px; }
             #jo-exit-form { display: flex; flex-direction: column; gap: 10px; }
             #jo-exit-email { border: 1px solid #ccc; padding: 14px 16px; font-family:'Montserrat',sans-serif; font-size: 12px; color: #000; background: #fff; outline: none; border-radius: 0 !important; text-align: center; letter-spacing: 0.05em; }
             #jo-exit-email:focus { border-color: #000; }
             #jo-exit-submit { background: #000; color: #fff; border: none; padding: 15px; font-family:'Montserrat',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; border-radius: 0 !important; }
-            #jo-exit-submit:hover { background: #C5A059; color: #000; }
+            #jo-exit-submit:hover { background: #B8860B; color: #000; }
             #jo-exit-skip { display: block; margin: 16px auto 0; background: none; border: none; font-family:'Montserrat',sans-serif; font-size: 10px; color: #aaa; cursor: pointer; text-decoration: underline; letter-spacing: 0.05em; }
             #jo-exit-skip:hover { color: #000; }
             @media (max-width: 480px) { #jo-exit-box { padding: 36px 24px; } }
@@ -215,8 +215,8 @@
             document.getElementById('jo-exit-box').innerHTML = `
                 <div style="padding:20px 0;">
                     <div style="font-size:40px;margin-bottom:16px;">✨</div>
-                    <div style="width:36px;height:2px;background:#C5A059;margin:0 auto 20px;"></div>
-                    <p style="font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:0.3em;color:#C5A059;text-transform:uppercase;margin:0 0 12px;">CODE ISSUED</p>
+                    <div style="width:36px;height:2px;background:#B8860B;margin:0 auto 20px;"></div>
+                    <p style="font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:0.3em;color:#B8860B;text-transform:uppercase;margin:0 0 12px;">CODE ISSUED</p>
                     <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#000;margin:0 0 12px;">Welcome to J &amp; O</h2>
                     <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#666;margin:0 0 20px;">Your 10% welcome code <strong style="color:#000;letter-spacing:0.1em;">WELCOME10</strong> has been sent to your inbox.</p>
                     <button onclick="this.closest('#jo-exit-popup').classList.remove('active')" style="background:#000;color:#fff;border:none;padding:13px 32px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;">SHOP NOW</button>
@@ -317,7 +317,7 @@
         style.textContent = `
             #jo-sticky-bar {
                 position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
-                background: #000; border-top: 2px solid #C5A059;
+                background: #000; border-top: 2px solid #B8860B;
                 transform: translateY(100%);
                 transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
             }
@@ -325,8 +325,8 @@
             #jo-sticky-inner { max-width:1440px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
             #jo-sticky-info { display:flex; align-items:baseline; gap:16px; }
             #jo-sticky-name { font-family:'Playfair Display',serif; font-size:15px; color:#FBFBF9; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px; }
-            #jo-sticky-price { font-family:'Montserrat',sans-serif; font-size:13px; color:#C5A059; font-weight:700; }
-            #jo-sticky-btn { flex-shrink:0; background:#C5A059; color:#000; border:none; padding:12px 32px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer; transition:background 0.25s; border-radius:0!important; }
+            #jo-sticky-price { font-family:'Montserrat',sans-serif; font-size:13px; color:#B8860B; font-weight:700; }
+            #jo-sticky-btn { flex-shrink:0; background:#B8860B; color:#000; border:none; padding:12px 32px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer; transition:background 0.25s; border-radius:0!important; }
             #jo-sticky-btn:hover { background:#FBFBF9; }
             @media(max-width:480px){ #jo-sticky-name{max-width:150px;font-size:13px;} #jo-sticky-btn{padding:12px 20px;} }
         `;
@@ -400,8 +400,8 @@
         style.textContent = `
             #jo-currency-toggle {
                 position: fixed; bottom: 90px; right: 24px; z-index: 8800;
-                background: #000; color: #C5A059;
-                border: 1px solid #C5A059;
+                background: #000; color: #B8860B;
+                border: 1px solid #B8860B;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 9.5px; font-weight: 700;
                 letter-spacing: 0.18em; text-transform: uppercase;
@@ -410,7 +410,7 @@
                 border-radius: 0 !important;
                 box-shadow: 0 2px 12px rgba(0,0,0,0.15);
             }
-            #jo-currency-toggle:hover { background: #C5A059; color: #000; }
+            #jo-currency-toggle:hover { background: #B8860B; color: #000; }
         `;
         document.head.appendChild(style);
         btn.addEventListener('click', () => applyCurrency(currentCurrency === 'NGN' ? 'USD' : 'NGN'));
