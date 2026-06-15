@@ -8,7 +8,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>J &amp; O | Shopping Bag</title>
-    <meta name="description" content="Your J &amp; O Shopping Bag � review your selected luxury pieces, apply promo codes, and proceed to secure checkout."/>
+    <meta name="description" content="Your J &amp; O Shopping Bag - review your selected luxury pieces, apply promo codes, and proceed to secure checkout."/>
     <link rel="stylesheet" href="../global.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -135,7 +135,7 @@
 
     <!-- Top Announcement bar -->
     <div class="bg-primary text-[#FBFBF9] py-2 px-4 text-center text-[10px] font-label-caps tracking-[0.2em] z-[110] relative">
-        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;�&nbsp; INSURED SHIPPING ON ALL ORDERS
+        COMPLIMENTARY WHITE-GLOVE DELIVERY OVER $500 &nbsp;&middot;&nbsp; INSURED SHIPPING ON ALL ORDERS
     </div>
 
     <!-- STICKY NAVBAR -->
@@ -236,14 +236,14 @@
                 </div>
             </div>
 
-            <!-- Column 2: Logo � dedicated center column, nothing can touch it -->
+            <!-- Column 2: Logo - dedicated center column, nothing can touch it -->
             <div class="flex justify-center items-center">
                 <a class="font-serif text-[28px] md:text-[36px] font-bold tracking-[0.2em] text-primary hover:text-gold transition-colors duration-300 block select-none whitespace-nowrap" href="../j_o_luxury_boutique_home/">J &amp; O</a>
             </div>
 
             <!-- Column 3: Right icons -->
             <div class="flex items-center gap-2 md:gap-4 justify-end">
-                <!-- About & Contact moved here � right of logo -->
+                <!-- About & Contact moved here - right of logo -->
                 <div class="hidden xl:flex items-center gap-4 pr-3 mr-1 border-r border-outline-variant">
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../our_story_j_o/">About</a>
                     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-gold transition-colors duration-300" href="../concierge_faq/">Contact</a>
@@ -390,7 +390,7 @@
                             <!-- Discount Applied -->
                             <div id="summary-discount-row" class="hidden flex justify-between items-center text-sm font-medium text-[#C0392B]">
                                 <span id="summary-discount-label" class="font-label-caps text-xs tracking-widest uppercase">DISCOUNT</span>
-                                <span id="summary-discount" class="font-serif text-lg font-bold">-$0.00</span>
+                                <span id="summary-discount" class="font-serif text-lg font-bold">-&#x20A6;0</span>
                             </div>
                         </div>
 
@@ -409,11 +409,11 @@
                         <div class="pt-6 border-t border-outline-variant/40 space-y-4">
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">lock</span>
-                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">?? SECURE CHECKOUT</span>
+                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">SECURE CHECKOUT</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">local_shipping</span>
-                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">?? COMPLIMENTARY 30-DAY RETURNS</span>
+                                <span class="font-label-caps text-[10px] tracking-widest text-primary font-bold">COMPLIMENTARY 30-DAY RETURNS</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-gold" style="font-size:18px;">verified</span>
@@ -436,7 +436,7 @@
                     <div class="space-y-3">
                         <h2 class="font-serif text-2xl md:text-3xl font-semibold text-primary">Your bag is currently empty</h2>
                         <p class="text-sm text-on-surface-variant font-light leading-relaxed">
-                            Start adding pieces you love � explore our latest arrivals or search the collections.
+                            Start adding pieces you love - explore our latest arrivals or search the collections.
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -521,9 +521,9 @@
         </div>
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-8 border-t border-[#FBFBF9]/10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div class="text-[10px] text-outline-variant space-y-2 text-center lg:text-left">
-                <p>� 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
+                <p> 2026 J &amp; O LUXURY BOUTIQUE. ALL RIGHTS RESERVED.</p>
                 <div class="flex gap-4 justify-center lg:justify-start">
-                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span>�</span><span>PCI-DSS COMPLIANT</span>
+                    <span class="text-gold font-bold">100% SECURE CHECKOUT</span><span></span><span>PCI-DSS COMPLIANT</span>
                 </div>
             </div>
             <div class="flex flex-wrap gap-3 justify-center text-[9px] font-label-caps tracking-widest text-[#FBFBF9]/70">
@@ -545,18 +545,18 @@
     let appliedPromo = null; // Object { code: 'WELCOME10', rate: 0.10 } or null
 
     const ALL_PRODUCTS = [
-        { id:1,  name:"Sculpted Midi Dress",         brand:"J & O ATELIER",    category:"Clothing",     price:450.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=90",  sizes:["S","M","L"],         rating:5, reviews:18 },
-        { id:2,  name:"Oversized Wool Blazer",        brand:"J & O ATELIER",    category:"Clothing",     price:890.00,  originalPrice:1100.00, img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=90",  sizes:["XS","S","M","L","XL"],rating:5, reviews:32 },
-        { id:3,  name:"The Sculptural Tote",          brand:"J & O BAGS",       category:"Bags",         price:1200.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:24 },
-        { id:4,  name:"Helix Gold Chain",             brand:"J & O JEWELRY",    category:"Jewelry",      price:320.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=900&q=90",  sizes:["One Size"],          rating:4, reviews:15 },
-        { id:5,  name:"Grand Chronograph Noir",       brand:"J & O HOROLOGY",   category:"Watches",      price:4250.00, originalPrice:5800.00, img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:47 },
-        { id:6,  name:"Calfskin Saddle Bag",          brand:"J & O BAGS",       category:"Bags",         price:1850.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:19 },
-        { id:7,  name:"Silk Utility Shirt",           brand:"J & O ATELIER",    category:"Clothing",     price:390.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=90",  sizes:["XS","S","M","L"],    rating:4, reviews:12 },
-        { id:8,  name:"Diamond Pav� Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450.00, originalPrice:null,    img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:8  },
-        { id:9,  name:"Minimalist Trench Coat",       brand:"J & O ATELIER",    category:"Clothing",     price:1890.00, originalPrice:2200.00, img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=90",  sizes:["S","M","L","XL"],    rating:5, reviews:22 },
-        { id:10, name:"L'Artiste Silk Slip",          brand:"J & O ATELIER",    category:"Clothing",     price:850.00,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&q=90",  sizes:["XS","S","M"],        rating:4, reviews:19 },
-        { id:11, name:"Leather Chelsea Boot",         brand:"J & O SHOES",      category:"Shoes",        price:480.00,  originalPrice:680.00,  img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=90",  sizes:["38","39","40","41"],  rating:4, reviews:28 },
-        { id:12, name:"Cashmere Turtleneck",          brand:"J & O ATELIER",    category:"Clothing",     price:310.00,  originalPrice:460.00,  img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900&q=90",  sizes:["XS","S","M","L"],    rating:5, reviews:36 },
+        { id:1,  name:"Sculpted Midi Dress",         brand:"J & O ATELIER",    category:"Clothing",     price:450000,  originalPrice:null,    img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=90",  sizes:["S","M","L"],         rating:5, reviews:18 },
+        { id:2,  name:"Oversized Wool Blazer",        brand:"J & O ATELIER",    category:"Clothing",     price:890000,  originalPrice:1100000, img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=90",  sizes:["XS","S","M","L","XL"],rating:5, reviews:32 },
+        { id:3,  name:"The Sculptural Tote",          brand:"J & O BAGS",       category:"Bags",         price:1200000, originalPrice:null, img:"https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:24 },
+        { id:4,  name:"Helix Gold Chain",             brand:"J & O JEWELRY",    category:"Jewelry",      price:320000, originalPrice:null, img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=900&q=90",  sizes:["One Size"],          rating:4, reviews:15 },
+        { id:5,  name:"Grand Chronograph Noir",       brand:"J & O HOROLOGY",   category:"Watches",      price:4250000, originalPrice:5800000, img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:47 },
+        { id:6,  name:"Calfskin Saddle Bag",          brand:"J & O BAGS",       category:"Bags",         price:1850000, originalPrice:null, img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:19 },
+        { id:7,  name:"Silk Utility Shirt",           brand:"J & O ATELIER",    category:"Clothing",     price:390000, originalPrice:null, img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=90",  sizes:["XS","S","M","L"],    rating:4, reviews:12 },
+        { id:8,  name:"Diamond Pavé Hoop Rings",      brand:"J & O JEWELRY",    category:"Jewelry",      price:1450000, originalPrice:null, img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=90",  sizes:["One Size"],          rating:5, reviews:8  },
+        { id:9,  name:"Minimalist Trench Coat",       brand:"J & O ATELIER",    category:"Clothing",     price:1890000, originalPrice:2200000, img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=90",  sizes:["S","M","L","XL"],    rating:5, reviews:22 },
+        { id:10, name:"L'Artiste Silk Slip",          brand:"J & O ATELIER",    category:"Clothing",     price:850000, originalPrice:null, img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=900&q=90",  sizes:["XS","S","M"],        rating:4, reviews:19 },
+        { id:11, name:"Leather Chelsea Boot",         brand:"J & O SHOES",      category:"Shoes",        price:480000, originalPrice:680000,  img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=90",  sizes:["38","39","40","41"],  rating:4, reviews:28 },
+        { id:12, name:"Cashmere Turtleneck",          brand:"J & O ATELIER",    category:"Clothing",     price:310000, originalPrice:460000,  img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900&q=90",  sizes:["XS","S","M","L"],    rating:5, reviews:36 },
     ];
 
     // --- Persist state ----------------------------------------
@@ -643,8 +643,8 @@
                         <!-- Price -->
                         <div class="text-right space-y-1">
                             ${hasSale
-                                ? `<p class="font-serif text-sm line-through text-outline-variant">?${(item.originalPrice * item.qty).toLocaleString('en-NG')}</p>
-                                   <p class="font-serif text-xl font-bold text-[#C0392B]">?${(priceVal * item.qty).toLocaleString('en-NG')}</p>`
+                                ? `<p class="font-serif text-sm line-through text-outline-variant">₦${(item.originalPrice * item.qty).toLocaleString('en-NG')}</p>
+                                   <p class="font-serif text-xl font-bold text-[#C0392B]">₦${(priceVal * item.qty).toLocaleString('en-NG')}</p>`
                                 : `<p class="font-serif text-xl font-semibold text-primary">${isGift ? 'Gift' : `₦${(priceVal * item.qty).toLocaleString('en-NG')}`}</p>`
                             }
                         </div>
@@ -710,7 +710,7 @@
             const needed = freeShippingThreshold - subtotal;
             const pct = Math.min((subtotal / freeShippingThreshold) * 100, 100);
             progressBar.style.width = `${pct}%`;
-            progressText.textContent = `ADD ?${needed.toLocaleString('en-NG')} MORE FOR COMPLIMENTARY WHITE-GLOVE SHIPPING`;
+            progressText.textContent = `ADD ₦${needed.toLocaleString('en-NG')} MORE FOR COMPLIMENTARY WHITE-GLOVE SHIPPING`;
         }
 
         // Discount calculations
@@ -719,7 +719,7 @@
         if (appliedPromo) {
             discount = subtotal * appliedPromo.rate;
             document.getElementById('summary-discount-label').textContent = `DISCOUNT (${appliedPromo.code})`;
-            document.getElementById('summary-discount').textContent = `-?${Math.round(discount).toLocaleString('en-NG')}`;
+            document.getElementById('summary-discount').textContent = `-₦${Math.round(discount).toLocaleString('en-NG')}`;
             discountRow.classList.remove('hidden');
         } else {
             discountRow.classList.add('hidden');
@@ -754,7 +754,7 @@
 
         if (VALID_PROMOS.hasOwnProperty(code)) {
             appliedPromo = { code: code, rate: VALID_PROMOS[code] };
-            msg.textContent = `? PROMO CODE "${code}" APPLIED SUCCESSFUL � SAVED ${VALID_PROMOS[code]*100}%`;
+            msg.textContent = `? PROMO CODE "${code}" APPLIED SUCCESSFUL - SAVED ${VALID_PROMOS[code]*100}%`;
             msg.classList.add('text-secondary');
             msg.classList.remove('hidden');
             updateSummaryPanel();
@@ -796,9 +796,9 @@
                 </h3>
                 <div class="flex items-center gap-2 mt-2">
                     ${hasSale
-                        ? `<span class="text-[#C0392B] font-bold text-sm">?${p.price.toLocaleString('en-NG')}</span>
-                           <span class="line-through text-outline text-xs">?${p.originalPrice.toLocaleString('en-NG')}</span>`
-                        : `<span class="text-primary text-sm font-semibold">?${p.price.toLocaleString('en-NG')}</span>`
+                        ? `<span class="text-[#C0392B] font-bold text-sm">₦${p.price.toLocaleString('en-NG')}</span>
+                           <span class="line-through text-outline text-xs">₦${p.originalPrice.toLocaleString('en-NG')}</span>`
+                        : `<span class="text-primary text-sm font-semibold">₦${p.price.toLocaleString('en-NG')}</span>`
                     }
                 </div>
             </div>`;
