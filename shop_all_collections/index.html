@@ -1044,9 +1044,13 @@
                 if (activeFilters.categories.length > 0 && !activeFilters.categories.includes(prod.category)) {
                     return false;
                 }
-                // Gender
-                if (activeFilters.genders.length > 0 && !activeFilters.genders.includes(prod.gender)) {
-                    return false;
+                // Gender — men's products have isMen:true or category:'Men'
+                if (activeFilters.genders.length > 0) {
+                    const isMenProd = prod.category === 'Men' || prod.isMen === true;
+                    const wantsMen = activeFilters.genders.includes('Men');
+                    const wantsWomen = activeFilters.genders.includes('Women');
+                    if (wantsMen && !wantsWomen && !isMenProd) return false;
+                    if (wantsWomen && !wantsMen && isMenProd) return false;
                 }
                 // Price
                 if (prod.price > activeFilters.maxPrice) {
