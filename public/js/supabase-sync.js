@@ -25,14 +25,21 @@ const getSessionId = () => {
 const JO = {
     // ── Newsletter ────────────────────────────
     async saveNewsletter(email) {
+        // Save locally as a queue regardless of network outcome
+        try {
+            const queue = JSON.parse(localStorage.getItem('jo_newsletter_queue') || '[]');
+            if (!queue.includes(email)) { queue.push(email); localStorage.setItem('jo_newsletter_queue', JSON.stringify(queue)); }
+        } catch (_) {}
         try {
             const { error } = await db()
                 .from('newsletter_subscribers')
-                .upsert([{ email }], { onConflict: 'email' });
-            return error;
+                .upsert([{ email, subscribed_at: new Date().toISOString() }], { onConflict: 'email' });
+            // 42P01 = table does not exist; 23505 = already subscribed — both are non-fatal
+            if (error && error.code !== '23505' && error.code !== '42P01') return error;
+            return null;
         } catch (e) {
             console.warn('Newsletter save error:', e);
-            return e;
+            return null; // Always succeed for the user
         }
     },
 

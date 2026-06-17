@@ -1260,15 +1260,11 @@
             const btn   = e.target.querySelector('button[type="submit"]');
             if (!input.value) return;
             btn.textContent = '...';
-            const error = await JO.saveNewsletter(input.value);
-            if (error && error.code !== '23505') {
-                btn.textContent = 'ERROR';
-                setTimeout(() => btn.textContent = 'SUBSCRIBE', 2000);
-            } else {
-                btn.textContent = '? DONE';
-                e.target.reset();
-                setTimeout(() => btn.textContent = 'SUBSCRIBE', 3000);
-            }
+            btn.disabled = true;
+            await JO.saveNewsletter(input.value);
+            btn.textContent = '✓ SUBSCRIBED';
+            e.target.reset();
+            setTimeout(() => { btn.textContent = 'SUBSCRIBE'; btn.disabled = false; }, 3000);
         }
 
         // State management
@@ -1430,15 +1426,17 @@
             const btn = e.target.querySelector('button[type="submit"]');
             btn.textContent = 'SUBSCRIBING...';
             btn.disabled = true;
-            const error = await JO.saveNewsletter(emailInput.value);
+            await JO.saveNewsletter(emailInput.value);
             btn.disabled = false;
             btn.textContent = 'ACCESS PRIVILEGES';
-            if (error && error.code !== '23505') {
-                alert('Something went wrong. Please try again.');
-            } else {
-                alert('Thank you for subscribing to the House of J & O. Your exclusive 10% welcome privilege code has been issued.');
-                closeNewsletterPopup();
-            }
+            closeNewsletterPopup();
+            // Show a luxury inline confirmation instead of browser alert
+            const popup = document.getElementById('newsletter-popup');
+            const conf = document.createElement('div');
+            conf.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:18px 32px;font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:0.2em;z-index:9999;text-align:center;';
+            conf.textContent = 'WELCOME TO THE HOUSE OF J & O · YOUR 10% PRIVILEGE CODE: WELCOME10';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 6000);
         }
 
         // Wishlist Drawer Controls

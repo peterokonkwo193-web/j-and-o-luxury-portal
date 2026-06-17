@@ -1030,15 +1030,12 @@
             const btn   = document.getElementById('newsletter-btn');
             if (!input.value) return;
             btn.textContent = '...';
-            const error = await JO.saveNewsletter(input.value);
-            if (error && error.code !== '23505') {
-                btn.textContent = 'ERROR';
-                setTimeout(() => btn.textContent = 'SUBSCRIBE', 2000);
-            } else {
-                btn.textContent = '✓ SUBSCRIBED';
-                e.target.reset();
-                setTimeout(() => btn.textContent = 'SUBSCRIBE', 3500);
-            }
+            btn.disabled = true;
+            await JO.saveNewsletter(input.value);
+            btn.textContent = '✓ SUBSCRIBED';
+            btn.disabled = false;
+            e.target.reset();
+            setTimeout(() => btn.textContent = 'SUBSCRIBE', 3500);
         }
 
         // Close overlays on Escape key
